@@ -1,8 +1,0 @@
-label { cursor: pointer; }
-label:hover {color: $secondary-color;}
-
-/*Strike-through label when checked*/
-input:checked + span {
-    text-decoration: line-through;
-    color: #b3b3b3;
-}
