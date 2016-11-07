@@ -28,6 +28,8 @@ end
 
 group :development, :test do
   gem 'pry'
+  gem 'faker'
+  gem 'fabrication'
 end
 
 group :development do
