@@ -1,11 +1,27 @@
 require 'rails_helper'
 
 describe Api::V1::ListsController do 
+
+  describe "GET show" do 
+    let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
+    let(:todo_list) { Fabricate(:list, user: alice) }
+    before do 
+      request.env["HTTP_ACCEPT"] = "application/json"
+      request.env["CONTENT_TYPE"] = "application/json"
+      get :show, params: { id: todo_list.id }
+    end
+
+    it "sets @list" do 
+      expect(assigns(:list)).to be_present
+    end 
+    
+  end
+
   describe "POST create" do 
     context "with valid params" do 
       let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
       before do 
-        post api_v1_lists_path, params: { list: { title: "Todos", user: alice } }
+        post :create, params: { list: { title: "Todos", user_id: alice.id } }
       end
 
       it "creates a list" do 
@@ -17,15 +33,21 @@ describe Api::V1::ListsController do
       it "returns a success status" do 
         expect(response).to be_successful
       end
-      it "returns the serialized list" do 
-        expect(json['list']).not_to be_nil
-      end
     end
 
     context "with invalid params" do 
-      it "does not create a list"
-      it "returns a fail status"
-      it "returns an error message"
+      let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
+      before do 
+        post :create, params: { list: { user_id: alice.id } }
+      end
+
+      it "does not create a list" do 
+        expect(List.count).to eq(0)
+      end
+
+      it "returns a fail status" do 
+        expect(response).not_to be_successful
+      end
     end
   end
 end
