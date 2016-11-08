@@ -18,13 +18,38 @@
 // - card constructor
 // - models
 
+// overwrite backbone sync to use a root url -> Modify this for production
+(function () {
+    // Store the original version of Backbone.sync
+    var backboneSync = Backbone.sync;
+
+    Backbone.sync = function (method, model, options) {
+        /*
+         * Change the `url` property of options to begin
+         * with the URL from settings
+         * This works because the options object gets sent as
+         * the jQuery ajax options, which includes the `url` property
+         */
+        options = _.extend(options, {
+            url: 'http://0a540b30.ngrok.io' + (_.isFunction(model.url) ? model.url() : model.url)
+        });
+
+        /*
+         *  Call the stored original Backbone.sync
+         * method with the new url property
+         */
+        backboneSync(method, model, options);
+    };
+})();
+
 var MrelloApp = {
   model: {},      // constructor namespace
   collection: {}, // constructor namespace
   view: {},       // constructor namespace
   templates: JST,
   init: function() {
-    this.data = new this.collection.Lists(); // Implement persistent data
+    this.data = new this.collection.Lists();
+    this.data.fetch(); 
     this.render();
     this.bindEvents();   
   },
@@ -36,7 +61,9 @@ var MrelloApp = {
     
     // triggered by board view
     this.on("addList", function(listInfo) {
-      this.data.add(new this.model.List(listInfo));
+      debugger;
+      this.data.create(listInfo);
+      // this.data.add(new this.model.List(listInfo));
     }, this);
   }
 }
