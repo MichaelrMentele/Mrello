@@ -2,6 +2,7 @@ class Api::V1::ListsController < ApplicationController
 
   def create
     list = List.new(list_params)
+    binding.pry
     if list.save
       render json: 
         { status: "SUCCESS", message: "List created.", list: list },

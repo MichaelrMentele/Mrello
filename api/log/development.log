@@ -1361,3 +1361,222 @@ Processing by Api::V1::ListsController#index as JSON
 Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.4ms)
 
 
+Started OPTIONS "/api/v1/lists" for 67.160.120.190 at 2016-11-08 12:30:32 -0800
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/lists"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started OPTIONS "/api/v1/lists" for 67.160.120.190 at 2016-11-08 12:39:55 -0800
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/lists"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 12:39:57 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.9ms)
+  Rendered api/v1/lists/index.json.jbuilder (5.2ms)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.4ms)
+
+
+Started OPTIONS "/api/v1/lists" for 67.160.120.190 at 2016-11-08 12:40:04 -0800
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/lists"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 12:44:48 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.7ms)
+  Rendered api/v1/lists/index.json.jbuilder (26.9ms)
+Completed 200 OK in 53ms (Views: 33.3ms | ActiveRecord: 1.4ms)
+
+
+Started OPTIONS "/api/v1/lists" for 67.160.120.190 at 2016-11-08 12:44:53 -0800
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/lists"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 12:45:15 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.7ms)
+  Rendered api/v1/lists/index.json.jbuilder (27.4ms)
+Completed 200 OK in 53ms (Views: 32.5ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/v1/lists" for 67.160.120.190 at 2016-11-08 12:45:24 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"title"=>"test", "cards"=>[], "list"=>{"title"=>"test"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 406 Not Acceptable in 1311ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 12:46:27 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (1.0ms)
+  Rendered api/v1/lists/index.json.jbuilder (21.2ms)
+Completed 200 OK in 37ms (Views: 21.6ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/api/v1/lists" for 67.160.120.190 at 2016-11-08 12:46:31 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"title"=>"Test", "cards"=>[], "list"=>{"title"=>"Test"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started POST "/api/v1/lists" for 67.160.120.190 at 2016-11-08 12:51:31 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"title"=>"Test", "cards"=>[], "list"=>{"title"=>"Test"}}
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 13:01:49 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.7ms)
+  Rendered api/v1/lists/index.json.jbuilder (5.1ms)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 13:10:34 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.8ms)
+  Rendered api/v1/lists/index.json.jbuilder (4.6ms)
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/lists" for 67.160.120.190 at 2016-11-08 13:10:43 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"list"=>{"list"=>{"title"=>"Title", "cards"=>[]}}}
+Unpermitted parameter: list
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 406 Not Acceptable in 12399ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 13:13:08 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.9ms)
+  Rendered api/v1/lists/index.json.jbuilder (9.8ms)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/lists" for 67.160.120.190 at 2016-11-08 13:13:14 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"list"=>{"title"=>"Title", "cards"=>[]}}
+Unpermitted parameter: cards
+Unpermitted parameter: cards
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 406 Not Acceptable in 66344ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+DEPRECATION WARNING: Method merge! is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.0.1/classes/ActionController/Parameters.html (called from create at (pry):15)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Test"], ["user_id", 1], ["created_at", 2016-11-08 21:15:42 UTC], ["updated_at", 2016-11-08 21:15:42 UTC]]
+  [1m[35m (118.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 1456080ms (Views: 1.2ms | ActiveRecord: 123.9ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 13:15:55 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.9ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (7.4ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.5ms)
+
+
