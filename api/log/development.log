@@ -1580,3 +1580,576 @@ Processing by Api::V1::ListsController#index as JSON
 Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 14:11:35 -0800
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 406 Not Acceptable in 5161740ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ListsController> at /home/michaelmentele/src/mrello/api/app/controllers/api/v1/lists_controller.rb:2)
+Processing by Api::V1::ListsController#index as JSON
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 14:12:33 -0800
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 14:12:33 -0800
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x007efbe80731c8>
+Did you mean?  api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ListsController> at /home/michaelmentele/src/mrello/api/app/controllers/api/v1/lists_controller.rb:2)
+Processing by Api::V1::ListsController#index as JSON
+Processing by Api::V1::ListsController#index as JSON
+Completed 500 Internal Server Error in 239ms (ActiveRecord: 0.0ms)
+
+
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 0.0ms)
+
+
+  
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x007efbc8ab3bf8>
+Did you mean?  api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x007efbc8a965d0>
+Did you mean?  api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+  
+app/controllers/application_controller.rb:17:in `require_user'
+app/controllers/application_controller.rb:17:in `require_user'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 15:03:20 -0800
+Processing by Api::V1::ListsController#index as JSON
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x007efbc8a561b0>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started POST "/api/v1/lists" for 67.160.120.190 at 2016-11-08 15:03:25 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"list"=>{"title"=>"asfsad", "cards"=>[]}}
+Completed 500 Internal Server Error in 120ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x000000052d5b18>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 15:22:52 -0800
+Processing by Api::V1::ListsController#index as JSON
+Completed 500 Internal Server Error in 247ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x00000003c2ce70>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 15:25:27 -0800
+Processing by Api::V1::ListsController#index as JSON
+Completed 500 Internal Server Error in 147ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x007efbc89697e8>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 15:25:30 -0800
+Processing by Api::V1::ListsController#index as JSON
+Completed 500 Internal Server Error in 148ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x007efbc82351c0>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 15:25:46 -0800
+Processing by Api::V1::ListsController#index as JSON
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x00000002d07be8>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started POST "/api/v1/lists" for 67.160.120.190 at 2016-11-08 15:25:55 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"list"=>{"title"=>"Test", "cards"=>[]}}
+Completed 500 Internal Server Error in 143ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x007efbd43f0508>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 15:29:21 -0800
+Processing by Api::V1::ListsController#index as JSON
+Completed 500 Internal Server Error in 171ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x007efbcc2966b0>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 15:29:24 -0800
+Processing by Api::V1::ListsController#index as JSON
+Completed 500 Internal Server Error in 167ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x007efbc0071df0>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 15:29:26 -0800
+Processing by Api::V1::ListsController#index as JSON
+Completed 500 Internal Server Error in 164ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x007efbc81da9f0>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 16:10:52 -0800
+Processing by Api::V1::ListsController#index as JSON
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x007efbc00bb0e0>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 16:51:40 -0800
+Processing by Api::V1::ListsController#index as JSON
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x00000004ceb2c0>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started GET "/" for 127.0.0.1 at 2016-11-08 17:52:59 -0800
+Started GET "/" for 127.0.0.1 at 2016-11-08 17:53:00 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/api/v1/lists/1" for 127.0.0.1 at 2016-11-08 17:56:47 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ListsController> at /home/michaelmentele/src/mrello/api/app/controllers/api/v1/lists_controller.rb:2)
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 143ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `api_v1_login_path' for #<Api::V1::ListsController:0x00000005287238>
+Did you mean?  api_v1_session_path
+               api_v1_sessions_path
+               api_v1_list_path
+               api_v1_lists_path
+               api_v1_user_path
+               api_v1_users_path):
+  
+app/controllers/application_controller.rb:17:in `require_user'
+Started GET "/api/v1/lists/1" for 127.0.0.1 at 2016-11-08 17:59:35 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ListsController> at /home/michaelmentele/src/mrello/api/app/controllers/api/v1/lists_controller.rb:2)
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/show.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  Rendered api/v1/cards/_card.json.jbuilder (1.1ms)
+  Rendered api/v1/lists/show.json.jbuilder (148.5ms)
+Completed 200 OK in 446ms (Views: 192.5ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/api/v1/lists/1" for 127.0.0.1 at 2016-11-08 18:05:03 -0800
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/show.json.jbuilder
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  Rendered api/v1/cards/_card.json.jbuilder (0.9ms)
+  Rendered api/v1/lists/show.json.jbuilder (11.7ms)
+Completed 200 OK in 18ms (Views: 13.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/lists/1" for 127.0.0.1 at 2016-11-08 18:05:19 -0800
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/show.json.jbuilder
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  Rendered api/v1/cards/_card.json.jbuilder (0.6ms)
+  Rendered api/v1/lists/show.json.jbuilder (5.5ms)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 67.160.120.190 at 2016-11-08 18:06:21 -0800
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"internal"=>true}
+  Rendering /home/michaelmentele/.rvm/gems/ruby-2.3.0/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/michaelmentele/.rvm/gems/ruby-2.3.0/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb (32.0ms)
+Completed 200 OK in 64ms (Views: 43.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/lists/1" for 67.160.120.190 at 2016-11-08 18:06:31 -0800
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/show.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  Rendered api/v1/cards/_card.json.jbuilder (1.0ms)
+  Rendered api/v1/lists/show.json.jbuilder (9.3ms)
+Completed 200 OK in 17ms (Views: 11.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:10:31 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (1.2ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (14.7ms)
+Completed 200 OK in 78ms (Views: 16.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:10:31 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.9ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (10.6ms)
+Completed 200 OK in 15ms (Views: 12.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:11:51 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.9ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (7.5ms)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:11:51 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (1.0ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (12.2ms)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:13:27 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.8ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (10.1ms)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:13:27 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.9ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (13.6ms)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:14:34 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (1.0ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.3ms)
+  Rendered api/v1/lists/index.json.jbuilder (11.5ms)
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:14:35 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (1.0ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (8.3ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:15:36 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.8ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (9.8ms)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:15:36 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.8ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.1ms)
+  Rendered api/v1/lists/index.json.jbuilder (7.0ms)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:16:30 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (1.0ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (8.2ms)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:16:31 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (1.0ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (12.0ms)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:18:26 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (2.7ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.3ms)
+  Rendered api/v1/lists/index.json.jbuilder (26.9ms)
+Completed 200 OK in 32ms (Views: 29.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:18:27 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.9ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (14.2ms)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:18:40 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (1.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (1.3ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (10.2ms)
+Completed 200 OK in 14ms (Views: 11.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:18:40 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (1.0ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (13.1ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:20:19 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (4.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (1.2ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (12.5ms)
+Completed 200 OK in 17ms (Views: 10.1ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-08 18:20:20 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (0.9ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (13.6ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/lists" for 127.0.0.1 at 2016-11-09 08:10:33 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (299.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (1173.7ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.1ms)
+  Rendered api/v1/lists/index.json.jbuilder (16273.1ms)
+Completed 200 OK in 34988ms (Views: 20400.1ms | ActiveRecord: 299.1ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-09 08:16:41 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (35.4ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.1ms)
+  Rendered api/v1/lists/index.json.jbuilder (315.2ms)
+Completed 200 OK in 503ms (Views: 474.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-09 08:16:42 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (8.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (43.2ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (203.3ms)
+Completed 200 OK in 274ms (Views: 228.8ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-09 08:18:50 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (30.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (38.4ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (299.4ms)
+Completed 200 OK in 410ms (Views: 336.5ms | ActiveRecord: 30.0ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-09 08:18:56 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.6ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (34.5ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.1ms)
+  Rendered api/v1/lists/index.json.jbuilder (119.8ms)
+Completed 200 OK in 169ms (Views: 122.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-09 08:40:32 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (59.3ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.1ms)
+  Rendered api/v1/lists/index.json.jbuilder (246.3ms)
+Completed 200 OK in 284ms (Views: 281.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-09 08:43:08 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (19.2ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.1ms)
+  Rendered api/v1/lists/index.json.jbuilder (183.2ms)
+Completed 200 OK in 199ms (Views: 196.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-09 08:44:15 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  Rendered api/v1/lists/_list.json.jbuilder (68.5ms)
+  Rendered api/v1/lists/_list.json.jbuilder (0.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (223.7ms)
+Completed 200 OK in 264ms (Views: 225.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/lists" for 67.160.120.190 at 2016-11-09 08:45:08 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"list"=>{"title"=>"Another", "cards"=>[]}}
+Unpermitted parameter: cards
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+Completed 406 Not Acceptable in 45780ms (Views: 0.7ms | ActiveRecord: 0.5ms)
+
+
