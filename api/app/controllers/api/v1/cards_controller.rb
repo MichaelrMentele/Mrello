@@ -1,4 +1,4 @@
-class Api::V1::CardsController < ApplicationController
+class Api::V1::CardsController < Api::V1::ProtectedResourcesController
   def create
     @card = Card.new(card_params)
     if @card.save

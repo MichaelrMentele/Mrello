@@ -8,6 +8,7 @@ describe "Comments API" do
 
     context "with valid inputs" do 
       before do 
+        sign_in(alice)
         post '/api/v1/comments', params: { comment: { payload: "This is a comment", card_id: card.id } }
       end
 
@@ -23,6 +24,8 @@ describe "Comments API" do
 
     context "with invalid inputs" do 
       before do 
+        sign_in(alice)
+        set_current_user(alice)
         post '/api/v1/comments', params: { comment: { list_id: todo_list.id } }
       end
 

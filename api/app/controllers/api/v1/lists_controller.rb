@@ -1,6 +1,5 @@
-class Api::V1::ListsController < ApplicationController
-  before_action :require_user
-
+class Api::V1::ListsController < Api::V1::ProtectedResourcesController
+  
   def create
     @list = List.new(list_params)
     if @list.save

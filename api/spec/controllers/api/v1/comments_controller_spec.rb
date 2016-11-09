@@ -8,6 +8,7 @@ describe Api::V1::CommentsController do
 
     context "with valid params" do 
       before do 
+        set_current_user(alice)
         post :create, params: { comment: { payload: "This is a comment", card_id: card.id } }
       end
 
@@ -24,6 +25,7 @@ describe Api::V1::CommentsController do
 
     context "with invalid params" do 
       before do 
+        set_current_user(alice)
         post :create, params: { comment: { list_id: list.id } }
       end
 

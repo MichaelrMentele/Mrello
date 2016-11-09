@@ -7,6 +7,7 @@ describe Api::V1::CardsController do
 
     context "with valid params" do 
       before do 
+        set_current_user(alice)
         post :create, params: { card: { title: "CardA", list_id: lista.id } }
       end
 
@@ -23,6 +24,7 @@ describe Api::V1::CardsController do
 
     context "with invalid params" do 
       before do 
+        set_current_user(alice)
         post :create, params: { card: { list_id: lista.id } }
       end
 
@@ -40,6 +42,7 @@ describe Api::V1::CardsController do
     let(:todo_list) { Fabricate(:list, user: alice) }
     let(:card) { Fabricate(:card, list: todo_list) }
     before do 
+      set_current_user(alice)
       request.env["HTTP_ACCEPT"] = "application/json"
       request.env["CONTENT_TYPE"] = "application/json"
       get :show, params: { id: card.id }

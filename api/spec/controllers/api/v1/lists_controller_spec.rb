@@ -6,6 +6,7 @@ describe Api::V1::ListsController do
     let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
     let(:todo_list) { Fabricate(:list, user: alice) }
     before do 
+      set_current_user(alice)
       request.env["HTTP_ACCEPT"] = "application/json"
       request.env["CONTENT_TYPE"] = "application/json"
       get :show, params: { id: todo_list.id }
@@ -21,6 +22,7 @@ describe Api::V1::ListsController do
     context "with valid params" do 
       let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
       before do 
+        set_current_user(alice)
         post :create, params: { list: { title: "Todos", user_id: alice.id } }
       end
 
@@ -38,6 +40,7 @@ describe Api::V1::ListsController do
     context "with invalid params" do 
       let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
       before do 
+        set_current_user(alice)
         post :create, params: { list: { user_id: alice.id } }
       end
 

@@ -1,4 +1,4 @@
-class Api::V1::CommentsController < ApplicationController
+class Api::V1::CommentsController < Api::V1::ProtectedResourcesController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save

@@ -6,6 +6,7 @@ describe "Lists API" do
     let!(:todo_list) { Fabricate(:list, user: alice) }
     let!(:card) { Fabricate(:card, list: todo_list) }
     before do 
+      sign_in(alice)
       get api_v1_list_path(todo_list.id)
     end
     it "returns a success message" do 
@@ -26,6 +27,7 @@ describe "Lists API" do
 
     context "with valid inputs" do 
       before do 
+        sign_in(alice)
         post '/api/v1/lists', params: { list: { title: "Todos", user_id: alice.id } }
       end
 
@@ -41,6 +43,7 @@ describe "Lists API" do
 
     context "with invalid inputs" do 
       before do 
+        sign_in(alice)
         post '/api/v1/lists', params: { list: { user_id: alice.id } }
       end
 

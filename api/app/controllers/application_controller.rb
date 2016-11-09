@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
 
   private
 
-  def require_user
-    
+  def require_login
+    render 'api/v1/protected_resources/require_login' unless user_logged_in?
   end
 end
