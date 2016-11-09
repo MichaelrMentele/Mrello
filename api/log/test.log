@@ -14920,3 +14920,878 @@ Processing by Api::V1::UsersController#create as JSON
   [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
 Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.8ms)
   [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (21.0ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Corbin Legros"], ["created_at", 2016-11-09 17:59:27 UTC], ["updated_at", 2016-11-09 17:59:27 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Tyrell"], ["user_id", 1], ["created_at", 2016-11-09 17:59:27 UTC], ["updated_at", 2016-11-09 17:59:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Mr. Jeremy Goldner"], ["created_at", 2016-11-09 17:59:27 UTC], ["updated_at", 2016-11-09 17:59:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Arryn"], ["user_id", 1], ["created_at", 2016-11-09 17:59:27 UTC], ["updated_at", 2016-11-09 17:59:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Misty Predovic"], ["created_at", 2016-11-09 17:59:27 UTC], ["updated_at", 2016-11-09 17:59:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Tyrell"], ["user_id", 1], ["created_at", 2016-11-09 17:59:27 UTC], ["updated_at", 2016-11-09 17:59:27 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:27 UTC], ["updated_at", 2016-11-09 17:59:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Stark"], ["user_id", 1], ["created_at", 2016-11-09 17:59:27 UTC], ["updated_at", 2016-11-09 17:59:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1", "list"=>{}}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/show.json.jbuilder
+  Rendered api/v1/lists/show.json.jbuilder (0.7ms)
+Completed 200 OK in 56ms (Views: 51.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:27 UTC], ["updated_at", 2016-11-09 17:59:27 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::ListsController#create as HTML
+  Parameters: {"list"=>{"title"=>"Todos", "user_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Todos"], ["user_id", 1], ["created_at", 2016-11-09 17:59:34 UTC], ["updated_at", 2016-11-09 17:59:34 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 6846ms (Views: 1.3ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "lists"[0m
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:34 UTC], ["updated_at", 2016-11-09 17:59:34 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::ListsController#create as HTML
+  Parameters: {"list"=>{"title"=>"Todos", "user_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Todos"], ["user_id", 1], ["created_at", 2016-11-09 17:59:35 UTC], ["updated_at", 2016-11-09 17:59:35 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 1223ms (Views: 1.0ms | ActiveRecord: 1.4ms)
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" ORDER BY "lists"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:35 UTC], ["updated_at", 2016-11-09 17:59:35 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::ListsController#create as HTML
+  Parameters: {"list"=>{"title"=>"Todos", "user_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Todos"], ["user_id", 1], ["created_at", 2016-11-09 17:59:36 UTC], ["updated_at", 2016-11-09 17:59:36 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 706ms (Views: 1.0ms | ActiveRecord: 0.8ms)
+  [1m[35m (1.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:36 UTC], ["updated_at", 2016-11-09 17:59:36 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::ListsController#create as HTML
+  Parameters: {"list"=>{"user_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 406 Not Acceptable in 675ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "lists"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:37 UTC], ["updated_at", 2016-11-09 17:59:37 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::ListsController#create as HTML
+  Parameters: {"list"=>{"user_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 406 Not Acceptable in 623ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:38 UTC], ["updated_at", 2016-11-09 17:59:38 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Targaryen"], ["user_id", 1], ["created_at", 2016-11-09 17:59:38 UTC], ["updated_at", 2016-11-09 17:59:38 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "Schroeder-Little"], ["created_at", 2016-11-09 17:59:38 UTC], ["updated_at", 2016-11-09 17:59:38 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/lists/1" for 127.0.0.1 at 2016-11-09 09:59:38 -0800
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/show.json.jbuilder
+  [1m[36mCard Load (0.9ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  Rendered api/v1/cards/_card.json.jbuilder (0.8ms)
+  Rendered api/v1/lists/show.json.jbuilder (77.5ms)
+Completed 200 OK in 81ms (Views: 77.7ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:38 UTC], ["updated_at", 2016-11-09 17:59:38 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Stark"], ["user_id", 1], ["created_at", 2016-11-09 17:59:38 UTC], ["updated_at", 2016-11-09 17:59:38 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "Bahringer, Gutmann and Goldner"], ["created_at", 2016-11-09 17:59:38 UTC], ["updated_at", 2016-11-09 17:59:38 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/lists/1" for 127.0.0.1 at 2016-11-09 09:59:38 -0800
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/show.json.jbuilder
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  Rendered api/v1/cards/_card.json.jbuilder (0.8ms)
+  Rendered api/v1/lists/show.json.jbuilder (6.3ms)
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:38 UTC], ["updated_at", 2016-11-09 17:59:38 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Greyjoy"], ["user_id", 1], ["created_at", 2016-11-09 17:59:38 UTC], ["updated_at", 2016-11-09 17:59:38 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "McClure Group"], ["created_at", 2016-11-09 17:59:38 UTC], ["updated_at", 2016-11-09 17:59:38 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/lists/1" for 127.0.0.1 at 2016-11-09 09:59:38 -0800
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/show.json.jbuilder
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  Rendered api/v1/cards/_card.json.jbuilder (0.8ms)
+  Rendered api/v1/lists/show.json.jbuilder (7.8ms)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:39 UTC], ["updated_at", 2016-11-09 17:59:39 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/lists" for 127.0.0.1 at 2016-11-09 09:59:39 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"list"=>{"title"=>"Todos", "user_id"=>"1"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Todos"], ["user_id", 1], ["created_at", 2016-11-09 17:59:41 UTC], ["updated_at", 2016-11-09 17:59:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 2902ms (Views: 1.0ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:41 UTC], ["updated_at", 2016-11-09 17:59:41 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/lists" for 127.0.0.1 at 2016-11-09 09:59:41 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"list"=>{"title"=>"Todos", "user_id"=>"1"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Todos"], ["user_id", 1], ["created_at", 2016-11-09 17:59:42 UTC], ["updated_at", 2016-11-09 17:59:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 711ms (Views: 1.1ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:42 UTC], ["updated_at", 2016-11-09 17:59:42 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/lists" for 127.0.0.1 at 2016-11-09 09:59:42 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"list"=>{"user_id"=>"1"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 406 Not Acceptable in 657ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/users" for 127.0.0.1 at 2016-11-09 09:59:43 -0800
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"fullname"=>"Alice Doe"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 17:59:43 UTC], ["updated_at", 2016-11-09 17:59:43 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 8ms (Views: 1.4ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Cletus Kulas"], ["created_at", 2016-11-09 18:00:15 UTC], ["updated_at", 2016-11-09 18:00:15 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Tyrell"], ["user_id", 1], ["created_at", 2016-11-09 18:00:15 UTC], ["updated_at", 2016-11-09 18:00:15 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Devyn Wiza"], ["created_at", 2016-11-09 18:00:15 UTC], ["updated_at", 2016-11-09 18:00:15 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Arryn"], ["user_id", 1], ["created_at", 2016-11-09 18:00:15 UTC], ["updated_at", 2016-11-09 18:00:15 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Eudora Kuphal"], ["created_at", 2016-11-09 18:00:15 UTC], ["updated_at", 2016-11-09 18:00:15 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Frey"], ["user_id", 1], ["created_at", 2016-11-09 18:00:15 UTC], ["updated_at", 2016-11-09 18:00:15 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Braeden Klein"], ["created_at", 2016-11-09 18:00:43 UTC], ["updated_at", 2016-11-09 18:00:43 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Arryn"], ["user_id", 1], ["created_at", 2016-11-09 18:00:43 UTC], ["updated_at", 2016-11-09 18:00:43 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+No template found for Api::V1::CardsController#create, rendering head :no_content
+Completed 204 No Content in 23ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards"[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Margaretta Gorczany"], ["created_at", 2016-11-09 18:00:43 UTC], ["updated_at", 2016-11-09 18:00:43 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Arryn"], ["user_id", 1], ["created_at", 2016-11-09 18:00:43 UTC], ["updated_at", 2016-11-09 18:00:43 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+No template found for Api::V1::CardsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" ORDER BY "lists"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Ms. German Paucek"], ["created_at", 2016-11-09 18:00:44 UTC], ["updated_at", 2016-11-09 18:00:44 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Tully"], ["user_id", 1], ["created_at", 2016-11-09 18:00:44 UTC], ["updated_at", 2016-11-09 18:00:44 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+No template found for Api::V1::CardsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Tate Morissette"], ["created_at", 2016-11-09 18:02:06 UTC], ["updated_at", 2016-11-09 18:02:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Greyjoy"], ["user_id", 1], ["created_at", 2016-11-09 18:02:06 UTC], ["updated_at", 2016-11-09 18:02:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+Unpermitted parameter: list_id
+No template found for Api::V1::CardsController#create, rendering head :no_content
+Completed 204 No Content in 36ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Colton Gottlieb Sr."], ["created_at", 2016-11-09 18:02:06 UTC], ["updated_at", 2016-11-09 18:02:06 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Baratheon"], ["user_id", 1], ["created_at", 2016-11-09 18:02:06 UTC], ["updated_at", 2016-11-09 18:02:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+Unpermitted parameter: list_id
+No template found for Api::V1::CardsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms)
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" ORDER BY "lists"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Omer Keebler"], ["created_at", 2016-11-09 18:02:06 UTC], ["updated_at", 2016-11-09 18:02:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Targaryen"], ["user_id", 1], ["created_at", 2016-11-09 18:02:06 UTC], ["updated_at", 2016-11-09 18:02:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+Unpermitted parameter: list_id
+No template found for Api::V1::CardsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Michelle Homenick"], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Tully"], ["user_id", 1], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "CardA"], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for Api::V1::CardsController#create, rendering head :no_content
+Completed 204 No Content in 46ms (ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Annalise Raynor"], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Arryn"], ["user_id", 1], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "CardA"], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for Api::V1::CardsController#create, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 1.0ms)
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" ORDER BY "lists"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Paxton Von"], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Tyrell"], ["user_id", 1], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "CardA"], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for Api::V1::CardsController#create, rendering head :no_content
+Completed 204 No Content in 9ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Aron McDermott"], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Targaryen"], ["user_id", 1], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+No template found for Api::V1::CardsController#create, rendering head :no_content
+Completed 204 No Content in 9ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Kane Wisoky V"], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Baratheon"], ["user_id", 1], ["created_at", 2016-11-09 18:04:59 UTC], ["updated_at", 2016-11-09 18:04:59 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+No template found for Api::V1::CardsController#create, rendering head :no_content
+Completed 204 No Content in 9ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Lessie Cronin"], ["created_at", 2016-11-09 18:05:54 UTC], ["updated_at", 2016-11-09 18:05:54 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Greyjoy"], ["user_id", 1], ["created_at", 2016-11-09 18:05:54 UTC], ["updated_at", 2016-11-09 18:05:54 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "CardA"], ["created_at", 2016-11-09 18:05:55 UTC], ["updated_at", 2016-11-09 18:05:55 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 1.7ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Jane McLaughlin Sr."], ["created_at", 2016-11-09 18:05:55 UTC], ["updated_at", 2016-11-09 18:05:55 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Martell"], ["user_id", 1], ["created_at", 2016-11-09 18:05:55 UTC], ["updated_at", 2016-11-09 18:05:55 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "CardA"], ["created_at", 2016-11-09 18:05:55 UTC], ["updated_at", 2016-11-09 18:05:55 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Mabelle Quitzon"], ["created_at", 2016-11-09 18:05:55 UTC], ["updated_at", 2016-11-09 18:05:55 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Stark"], ["user_id", 1], ["created_at", 2016-11-09 18:05:55 UTC], ["updated_at", 2016-11-09 18:05:55 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "CardA"], ["created_at", 2016-11-09 18:05:55 UTC], ["updated_at", 2016-11-09 18:05:55 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Euna Stark II"], ["created_at", 2016-11-09 18:05:55 UTC], ["updated_at", 2016-11-09 18:05:55 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Stark"], ["user_id", 1], ["created_at", 2016-11-09 18:05:55 UTC], ["updated_at", 2016-11-09 18:05:55 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 406 Not Acceptable in 9ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Tate Zulauf"], ["created_at", 2016-11-09 18:05:55 UTC], ["updated_at", 2016-11-09 18:05:55 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Baratheon"], ["user_id", 1], ["created_at", 2016-11-09 18:05:55 UTC], ["updated_at", 2016-11-09 18:05:55 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 406 Not Acceptable in 7ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Mr. Rosalee Kulas"], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Baratheon"], ["user_id", 1], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "CardA"], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 24ms (Views: 1.2ms | ActiveRecord: 1.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Samir O'Reilly"], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Frey"], ["user_id", 1], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "CardA"], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 0.6ms)
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" ORDER BY "lists"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Declan Thompson"], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Martell"], ["user_id", 1], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "CardA"], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Rosella Mante"], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Lannister"], ["user_id", 1], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 406 Not Acceptable in 7ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Guido Hand DDS"], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Arryn"], ["user_id", 1], ["created_at", 2016-11-09 18:06:30 UTC], ["updated_at", 2016-11-09 18:06:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 406 Not Acceptable in 6ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Turner Wilkinson II"], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Bolton"], ["user_id", 1], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "CardA"], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 22ms (Views: 1.3ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Melvina Hahn"], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Greyjoy"], ["user_id", 1], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "CardA"], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 0.7ms)
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" ORDER BY "lists"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Edmond Ziemann"], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Martell"], ["user_id", 1], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1", "title"=>"CardA"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "CardA"], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Kenneth Huel"], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Targaryen"], ["user_id", 1], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 406 Not Acceptable in 8ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Mrs. Odessa Metz"], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Arryn"], ["user_id", 1], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::CardsController#create as HTML
+  Parameters: {"card"=>{"list_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 406 Not Acceptable in 12ms (Views: 0.9ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Frey"], ["user_id", 1], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1", "list"=>{}}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/show.json.jbuilder
+  Rendered api/v1/lists/show.json.jbuilder (0.6ms)
+Completed 200 OK in 16ms (Views: 9.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:41 UTC], ["updated_at", 2016-11-09 18:06:41 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::ListsController#create as HTML
+  Parameters: {"list"=>{"title"=>"Todos", "user_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Todos"], ["user_id", 1], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 10ms (Views: 1.1ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "lists"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::ListsController#create as HTML
+  Parameters: {"list"=>{"title"=>"Todos", "user_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Todos"], ["user_id", 1], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 9ms (Views: 1.2ms | ActiveRecord: 0.9ms)
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" ORDER BY "lists"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::ListsController#create as HTML
+  Parameters: {"list"=>{"title"=>"Todos", "user_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Todos"], ["user_id", 1], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::ListsController#create as HTML
+  Parameters: {"list"=>{"user_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 406 Not Acceptable in 8ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "lists"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::ListsController#create as HTML
+  Parameters: {"list"=>{"user_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 406 Not Acceptable in 8ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Arryn"], ["user_id", 1], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "Trantow and Sons"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/lists/1" for 127.0.0.1 at 2016-11-09 10:06:42 -0800
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/show.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  Rendered api/v1/cards/_card.json.jbuilder (0.7ms)
+  Rendered api/v1/lists/show.json.jbuilder (10.1ms)
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Baratheon"], ["user_id", 1], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "Harris, Predovic and Homenick"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/lists/1" for 127.0.0.1 at 2016-11-09 10:06:42 -0800
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/show.json.jbuilder
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  Rendered api/v1/cards/_card.json.jbuilder (0.6ms)
+  Rendered api/v1/lists/show.json.jbuilder (5.6ms)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Frey"], ["user_id", 1], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 1], ["title", "Muller-Stamm"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/lists/1" for 127.0.0.1 at 2016-11-09 10:06:42 -0800
+Processing by Api::V1::ListsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/show.json.jbuilder
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 1]]
+  Rendered api/v1/cards/_card.json.jbuilder (1.0ms)
+  Rendered api/v1/lists/show.json.jbuilder (7.0ms)
+Completed 200 OK in 11ms (Views: 7.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/lists" for 127.0.0.1 at 2016-11-09 10:06:42 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"list"=>{"title"=>"Todos", "user_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Todos"], ["user_id", 1], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 10ms (Views: 1.1ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/lists" for 127.0.0.1 at 2016-11-09 10:06:42 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"list"=>{"title"=>"Todos", "user_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Todos"], ["user_id", 1], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 9ms (Views: 1.0ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/lists" for 127.0.0.1 at 2016-11-09 10:06:42 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"list"=>{"user_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 406 Not Acceptable in 8ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/users" for 127.0.0.1 at 2016-11-09 10:06:42 -0800
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"fullname"=>"Alice Doe"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fullname", "Alice Doe"], ["created_at", 2016-11-09 18:06:42 UTC], ["updated_at", 2016-11-09 18:06:42 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
