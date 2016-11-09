@@ -1,11 +1,11 @@
 class Api::V1::ListsController < ApplicationController
-  before_filter :require_user
+  before_action :require_user
 
   def create
-    list = List.new(list_params)
-    if list.save
+    @list = List.new(list_params)
+    if @list.save
       render json: 
-        { status: "SUCCESS", message: "List created.", list: list },
+        { status: "SUCCESS", message: "List created.", list: @list },
         status: :ok
     else
       render json:

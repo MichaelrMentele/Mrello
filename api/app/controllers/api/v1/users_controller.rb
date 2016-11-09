@@ -1,9 +1,15 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    user = User.create(user_params)
-    render json: 
-      { status: 'SUCCESS', message: "New user created.", user: user }, 
-      status: :ok
+    @user = User.create(user_params)
+    if @user.save
+      render json: 
+        { status: 'SUCCESS', message: "New user created.", user: @user }, 
+        status: :ok
+    else
+      render json: 
+        { status: "FAILURE", message: "User not created. Invalid inputs." },
+        status: 406
+    end
   end
 
   def show
@@ -13,6 +19,6 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:fullname)
+    params.require(:user).permit(:fullname, :email, :password)
   end
 end

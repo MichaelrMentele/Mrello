@@ -35,6 +35,18 @@ describe Api::V1::CardsController do
     end
   end
 
-  describe "GET show"
-  describe "GET index"
+  describe "GET show" do 
+    let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
+    let(:todo_list) { Fabricate(:list, user: alice) }
+    let(:card) { Fabricate(:card, list: todo_list) }
+    before do 
+      request.env["HTTP_ACCEPT"] = "application/json"
+      request.env["CONTENT_TYPE"] = "application/json"
+      get :show, params: { id: card.id }
+    end
+
+    it "sets @card" do 
+      expect(assigns(:card)).to be_present
+    end 
+  end
 end
