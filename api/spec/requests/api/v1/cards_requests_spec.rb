@@ -7,11 +7,12 @@ describe "Cards API" do
     let!(:card) { Fabricate(:card, list: todo_list) }
     before do 
       sign_in(alice)
+      binding.pry
       get api_v1_card_path(card.id)
     end
     it "returns a success message" do 
       json = JSON.parse(response.body)
-      expect(json['message']).not_to be_nil
+      expect(json['message']).to match("SUCCESS")
     end
     it "returns the serialized card" do 
       json = JSON.parse(response.body)
@@ -31,7 +32,7 @@ describe "Cards API" do
 
       it "returns a success message" do 
         json = JSON.parse(response.body)
-        expect(json['message']).not_to be_nil
+        expect(json['message']).to match("SUCCESS")
       end
       it "returns the serialized card" do 
         json = JSON.parse(response.body)
@@ -47,7 +48,7 @@ describe "Cards API" do
 
       it "returns an error message" do 
         json = JSON.parse(response.body)
-        expect(json['message']).not_to be_nil
+        expect(json['message']).to match("FAILURE")
       end
     end
   end

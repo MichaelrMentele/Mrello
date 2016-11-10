@@ -3,5 +3,5 @@ def set_current_user(user=nil)
 end
 
 def sign_in(user=nil)
-  # TODO
+  post api_v1_login_path(id: user.id)
 end
