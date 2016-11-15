@@ -48,7 +48,7 @@ describe "Cards API" do
 
       it "returns an error message" do 
         json = JSON.parse(response.body)
-        expect(json['message']).to match("FAILURE")
+        expect(json['message']).to match("FAILURE ")
       end
     end
   end
