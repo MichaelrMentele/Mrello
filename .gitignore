@@ -8,7 +8,7 @@
 api/.bundle
 
 # Ignore the default SQLite database.
-api/db/*.sqlite3
+api/db/*
 api/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
