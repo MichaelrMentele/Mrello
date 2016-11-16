@@ -15,7 +15,6 @@ class Api::V1::ListsController < Api::V1::ProtectedResourcesController
 
   def update
     list = List.find(params[:id])
-    binding.pry
     if list.update_attributes(list_params)
       render json: 
       { status: "SUCCESS", message: "List updated.", list: list },

@@ -1,4 +1,4 @@
-json.message "SUCCESS"
+json.message "SUCCESS: Cards returned."
 json.status :ok
 
 json.cards do
