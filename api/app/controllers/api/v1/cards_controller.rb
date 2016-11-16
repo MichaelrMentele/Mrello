@@ -1,6 +1,6 @@
 class Api::V1::CardsController < Api::V1::ProtectedResourcesController
   def create
-    @card = Card.new(card_params)
+    @card = Card.new(card_params.merge(list_id: params[:list_id]))
     if @card.save
       render json: 
         { status: "SUCCESS", message: "Card created.", card: @card },
@@ -12,6 +12,14 @@ class Api::V1::CardsController < Api::V1::ProtectedResourcesController
     end
   end
 
+  def index
+    if params[:list_id]
+      @cards = List.find(params[:list_id]).cards
+    else
+      @cards = Cards.all
+    end
+  end
+
   def show
     @card = Card.find(params[:id])
   end
@@ -19,6 +27,6 @@ class Api::V1::CardsController < Api::V1::ProtectedResourcesController
   private
 
   def card_params
-    params.require(:card).permit(:title, :list_id)
+    params.require(:card).permit(:title, :description)
   end
 end
