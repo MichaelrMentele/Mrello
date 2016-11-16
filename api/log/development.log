@@ -6163,3 +6163,81 @@ Processing by Api::V1::CardsController#destroy as JSON
 Completed 202 Accepted in 205ms (Views: 0.4ms | ActiveRecord: 190.6ms)
 
 
+Started POST "/api/v1/cards" for 67.160.120.190 at 2016-11-16 10:01:44 -0800
+Processing by Api::V1::CardsController#create as JSON
+  Parameters: {"title"=>"asdf", "description"=>"", "comments"=>[], "checklists"=>[], "listTitle"=>"A", "list_id"=>12, "card"=>{"list_id"=>12, "title"=>"asdf"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (3.6ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 12], ["title", "asdf"], ["created_at", 2016-11-16 18:01:44 UTC], ["updated_at", 2016-11-16 18:01:44 UTC]]
+  [1m[35m (75.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 93ms (Views: 1.3ms | ActiveRecord: 79.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-16 10:05:05 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (1.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 12]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 23]]
+  Rendered api/v1/cards/_card.json.jbuilder (13.4ms)
+  Rendered api/v1/lists/_list.json.jbuilder (30.1ms)
+  Rendered api/v1/lists/index.json.jbuilder (37.2ms)
+Completed 200 OK in 77ms (Views: 68.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/cards?list_id=12" for 67.160.120.190 at 2016-11-16 10:05:06 -0800
+Processing by Api::V1::CardsController#index as JSON
+  Parameters: {"list_id"=>"12"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 12]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 23]]
+  Rendered api/v1/cards/_card.json.jbuilder (5.4ms)
+  Rendered api/v1/cards/index.json.jbuilder (11.6ms)
+Completed 200 OK in 27ms (Views: 14.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-16 10:05:41 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 12]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 23]]
+  Rendered api/v1/cards/_card.json.jbuilder (5.9ms)
+  Rendered api/v1/lists/_list.json.jbuilder (19.2ms)
+  Rendered api/v1/lists/index.json.jbuilder (25.2ms)
+Completed 200 OK in 37ms (Views: 32.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/cards?list_id=12" for 67.160.120.190 at 2016-11-16 10:05:42 -0800
+Processing by Api::V1::CardsController#index as JSON
+  Parameters: {"list_id"=>"12"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 12]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 23]]
+  Rendered api/v1/cards/_card.json.jbuilder (4.7ms)
+  Rendered api/v1/cards/index.json.jbuilder (10.1ms)
+Completed 200 OK in 17ms (Views: 11.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/v1/cards" for 67.160.120.190 at 2016-11-16 10:05:46 -0800
+Processing by Api::V1::CardsController#create as JSON
+  Parameters: {"title"=>"B", "description"=>"", "comments"=>[], "checklists"=>[], "listTitle"=>"A", "list_id"=>12, "card"=>{"list_id"=>12, "title"=>"B"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (7.6ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 12], ["title", "B"], ["created_at", 2016-11-16 18:05:46 UTC], ["updated_at", 2016-11-16 18:05:46 UTC]]
+  [1m[35m (145.9ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 169ms (Views: 1.3ms | ActiveRecord: 154.0ms)
+
+
+Started POST "/api/v1/cards" for 67.160.120.190 at 2016-11-16 10:05:47 -0800
+Processing by Api::V1::CardsController#create as JSON
+  Parameters: {"title"=>"C", "description"=>"", "comments"=>[], "checklists"=>[], "listTitle"=>"A", "list_id"=>12, "card"=>{"list_id"=>12, "title"=>"C"}}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 12], ["title", "C"], ["created_at", 2016-11-16 18:05:47 UTC], ["updated_at", 2016-11-16 18:05:47 UTC]]
+  [1m[35m (164.9ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 186ms (Views: 1.5ms | ActiveRecord: 167.1ms)
+
+

@@ -5,17 +5,17 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+api/.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
+api/db/*.sqlite3
+api/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+api/log/*
+api/tmp/*
+api/!/log/.keep
+api/!/tmp/.keep
 
-# Ignore Byebug command history file.
-.byebug_history
+# ignore design files
+project-management
