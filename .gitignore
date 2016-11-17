@@ -16,6 +16,6 @@ api/log/*
 api/tmp/*
 api/!/log/.keep
 api/!/tmp/.keep
-
+api/tmp/*
 # ignore design files
 project-management
