@@ -1,7 +1,7 @@
 class Api::V1::CardsController < Api::V1::ProtectedResourcesController
   
   def create
-    @card = Card.new(card_params.merge(list_id: params[:list_id]))
+    @card = Card.new(card_params)
     if @card.save
       render json: {
         status: :ok,
