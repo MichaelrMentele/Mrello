@@ -3,12 +3,12 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do 
     namespace :v1 do
-      post 'login', to: 'sessions#create' 
-      post 'logout', to: 'sessions#destroy'
+      # TODO: post 'login', to: 'sessions#create' 
+      # TODO: post 'logout', to: 'sessions#destroy'
       resources :users, only: [:create, :show]
       resources :lists, except: [:edit, :new]
       resources :cards, except: [:edit, :new]
-      resources :comments, only: [:create]
+      # TODO: resources :comments, only: [:create]
     end
   end
 end
