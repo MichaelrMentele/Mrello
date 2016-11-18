@@ -10690,3 +10690,152 @@ Unpermitted parameters: message, status, format, user
 Completed 200 OK in 9867ms (Views: 1.8ms | ActiveRecord: 64.8ms)
 
 
+Started POST "/api/v1/users" for 67.160.120.190 at 2016-11-17 18:29:32 -0800
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"fullname"=>"Mike", "email"=>"mike@mentele.com", "password"=>"[FILTERED]", "user"=>{"fullname"=>"Mike", "email"=>"mike@mentele.com"}}
+Unpermitted parameters: format, user
+Unpermitted parameters: format, user
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mike@mentele.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at", "email", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["fullname", "Mike"], ["created_at", 2016-11-18 02:30:08 UTC], ["updated_at", 2016-11-18 02:30:08 UTC], ["email", "mike@mentele.com"], ["password_digest", "$2a$10$y0XjRc71XuEmNtHppLkx4em6XtL3tQNUzNRDzaddTFWhAZdJlA/bC"]]
+  [1m[35m (77.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "mike@mentele.com"], ["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 35641ms (Views: 1.3ms | ActiveRecord: 80.6ms)
+
+
+Started POST "/api/v1/users" for 67.160.120.190 at 2016-11-17 18:30:53 -0800
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"fullname"=>"Mike", "email"=>"mike@mentele.com", "password"=>"[FILTERED]", "user"=>{"fullname"=>"Mike", "email"=>"mike@mentele.com"}}
+Unpermitted parameters: format, user
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mike@mentele.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mike@mentele.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+Completed 200 OK in 18489ms (Views: 0.5ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/v1/users" for 67.160.120.190 at 2016-11-17 18:31:33 -0800
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"fullname"=>"mike", "email"=>"blah", "password"=>"[FILTERED]", "user"=>{"fullname"=>"mike", "email"=>"blah"}}
+Unpermitted parameters: format, user
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "blah"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at", "email", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["fullname", "mike"], ["created_at", 2016-11-18 02:31:38 UTC], ["updated_at", 2016-11-18 02:31:38 UTC], ["email", "blah"], ["password_digest", "$2a$10$TW8Si2vo1J5QqEXfspbAweXvr9k0Uhx0rc7geqjZS1ADrRUjTJtee"]]
+  [1m[35m (86.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "blah"], ["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 4521ms (Views: 1.4ms | ActiveRecord: 89.0ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2016-11-17 18:32:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started POST "/api/v1/users" for 67.160.120.190 at 2016-11-17 18:32:39 -0800
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"fullname"=>"mike", "email"=>"test@t.com", "password"=>"[FILTERED]", "user"=>{"fullname"=>"mike", "email"=>"test@t.com"}}
+Unpermitted parameters: format, user
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@t.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at", "email", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["fullname", "mike"], ["created_at", 2016-11-18 02:32:43 UTC], ["updated_at", 2016-11-18 02:32:43 UTC], ["email", "test@t.com"], ["password_digest", "$2a$10$nCrdnmH4OIw2OQUgAe.WU.KRosD24DUH7xOAq2GdpZ0PUAHOsTHt6"]]
+  [1m[35m (210.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "test@t.com"], ["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 3535ms (Views: 1.6ms | ActiveRecord: 213.4ms)
+
+
+Started POST "/api/v1/users" for 67.160.120.190 at 2016-11-17 18:34:32 -0800
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"fullname"=>"mike", "email"=>"test@t.com", "password"=>"[FILTERED]", "user"=>{"fullname"=>"mike", "email"=>"test@t.com"}}
+Unpermitted parameters: format, user
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@t.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@t.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 200 OK in 3665ms (Views: 0.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/v1/users" for 67.160.120.190 at 2016-11-17 18:34:54 -0800
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"fullname"=>"Michael", "email"=>"testing@test.com", "password"=>"[FILTERED]", "user"=>{"fullname"=>"Michael", "email"=>"testing@test.com"}}
+Unpermitted parameters: format, user
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testing@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at", "email", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["fullname", "Michael"], ["created_at", 2016-11-18 02:34:59 UTC], ["updated_at", 2016-11-18 02:34:59 UTC], ["email", "testing@test.com"], ["password_digest", "$2a$10$rBeLUypSdCPBn1AmZYOoZ.zlcnns1jUUOOBXKELfBmamyNWoSgMmC"]]
+  [1m[35m (64.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "testing@test.com"], ["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 4588ms (Views: 1.8ms | ActiveRecord: 66.6ms)
+
+
+Started POST "/api/v1/users" for 67.160.120.190 at 2016-11-17 18:36:02 -0800
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"fullname"=>"micahel", "email"=>"bird@nest.com", "password"=>"[FILTERED]", "user"=>{"fullname"=>"micahel", "email"=>"bird@nest.com"}}
+Unpermitted parameters: format, user
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bird@nest.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at", "email", "password_digest") VALUES (?, ?, ?, ?, ?)[0m  [["fullname", "micahel"], ["created_at", 2016-11-18 02:36:02 UTC], ["updated_at", 2016-11-18 02:36:02 UTC], ["email", "bird@nest.com"], ["password_digest", "$2a$10$W5/7Udgq1tnQofQjwUPt4.ZOG.n/3kv.KAV0/TOoiI6Fhice88RYS"]]
+  [1m[35m (90.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "bird@nest.com"], ["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 230ms (Views: 1.6ms | ActiveRecord: 94.9ms)
+
+
+Started POST "/api/v1/users" for 67.160.120.190 at 2016-11-17 18:36:07 -0800
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"fullname"=>"micahel", "email"=>"bird@nest.com", "password"=>"[FILTERED]", "user"=>{"fullname"=>"micahel", "email"=>"bird@nest.com"}}
+Unpermitted parameters: format, user
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bird@nest.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bird@nest.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+Completed 200 OK in 20ms (Views: 0.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/v1/users" for 67.160.120.190 at 2016-11-17 18:36:07 -0800
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"fullname"=>"micahel", "email"=>"bird@nest.com", "password"=>"[FILTERED]", "user"=>{"fullname"=>"micahel", "email"=>"bird@nest.com"}}
+Unpermitted parameters: format, user
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bird@nest.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bird@nest.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+Completed 200 OK in 23ms (Views: 0.8ms | ActiveRecord: 1.7ms)
+
+
