@@ -2,6 +2,7 @@ class Api::V1::UsersController < ApplicationController
   before_action :require_login, only: [:show]
   
   def create
+    binding.pry
     @user = User.create(user_params)
     if @user.save
       render json: { 
@@ -24,6 +25,6 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:fullname, :email, :password)
+    params.permit(:fullname, :email, :password)
   end
 end
