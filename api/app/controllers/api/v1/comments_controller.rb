@@ -8,7 +8,7 @@ class Api::V1::CommentsController < Api::V1::ProtectedResourcesController
     else
       render json:
         { status: "FAILURE", message: "Comment not created. Invalid inputs." },
-        status: 406
+        status: :not_acceptable
     end
   end
 

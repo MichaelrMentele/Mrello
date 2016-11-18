@@ -4,15 +4,13 @@ class Api::V1::CardsController < Api::V1::ProtectedResourcesController
     @card = Card.new(card_params)
     if @card.save
       render json: {
-        status: :ok,
         message: "SUCCESS: Card created.", 
         card: @card 
-      }
+      }, status: :created
     else
       render json: {
-        status: :not_acceptable, 
         message: "FAILURE: Card not created. Invalid inputs." 
-      }
+      }, status: :not_acceptable
     end
   end
 

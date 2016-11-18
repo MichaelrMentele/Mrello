@@ -6,19 +6,13 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       render json: { 
         message: "SUCCESS: New user created.", 
-        user: @user, 
-        status: :created
-      }
+        user: @user
+      }, status: :created
     else
       render json: {
-        message: "User not created. Invalid inputs.",
-        status: :not_acceptable
-      }
+        message: "User not created. Invalid inputs."
+      }, status: :not_acceptable
     end
-  end
-
-  def show
-    render json: User.find(params[:id])
   end
 
   private

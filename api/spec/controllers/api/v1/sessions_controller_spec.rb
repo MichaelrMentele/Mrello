@@ -1,25 +1,55 @@
 require "rails_helper"
 
 describe Api::V1::SessionsController do 
-  let!(:alice) { Fabricate(:user) }
   describe "POST create" do 
-    before do 
-      post :create, params: { id: alice.id }
-    end
 
-    it "creates a session" do 
-      expect(session[:user_id]).to be_present
-    end
-  end
+    context "user exists" do 
+      let!(:alice) { Fabricate(:user) }
 
-  describe "DELETE destroy" do 
-    before do
-      set_current_user(alice)
-      post :destroy
-    end
+      context "valid credentials" do
+        before do 
+          post :create, params: { email: alice.email, password: alice.password }
+        end
 
-    it "clears the session" do 
-      expect(session[:user_id]).to be_nil
+        it "sets user" do 
+          expect(assigns(:user)).to be_present
+        end
+
+        it "is successful" do 
+          expect(response).to be_successful
+        end
+
+        it "returns a JSON web token" do 
+          expect(JSON.parse(response.body)["session_token"]).to be_present
+        end
+      end
+
+      context "invalid credentials" do
+        before do 
+          post :create, params: { email: alice.email, password: "" }
+        end
+
+        it "is NOT successful" do 
+          expect(response).not_to be_successful
+        end
+
+        it "does NOT return a JSON web token" do 
+          expect(JSON.parse(response.body)[:session_token]).not_to be_present
+        end
+      end
+    end
+    context "user DOES NOT exist" do 
+      before do 
+        post :create, params: { email: "some@email.com", password: "pass" }
+      end
+
+      it "is NOT successful" do 
+        expect(response).not_to be_successful
+      end
+
+      it "does NOT return a JSON web token" do 
+        expect(JSON.parse(response.body)[:session_token]).not_to be_present
+      end
     end
   end
 end
