@@ -16,6 +16,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors'
 # Use JWT for signing tokens
 gem 'jwt'
+# Service objects standard API
+gem 'simple_command'
 
 group :test do 
   gem 'rspec-rails', '~> 3'

@@ -1,15 +1,16 @@
-class Api::V1::CardsController < Api::V1::ProtectedResourcesController
-  
+class Api::V1::CardsController < ApplicationController
+  before_action :authenticate_request
+
   def create
     @card = Card.new(card_params)
     if @card.save
       render json: {
-        message: "SUCCESS: Card created.", 
+        message: "Card created.", 
         card: @card 
       }, status: :created
     else
       render json: {
-        message: "FAILURE: Card not created. Invalid inputs." 
+        message: "Card not created. Invalid inputs." 
       }, status: :not_acceptable
     end
   end

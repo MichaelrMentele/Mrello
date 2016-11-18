@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do 
     namespace :v1 do
-      post 'login', to: 'sessions#create' 
+      resources :sessions, only: [:create] 
       resources :users, only: [:create]
       resources :lists, except: [:edit, :new]
       resources :cards, except: [:edit, :new]

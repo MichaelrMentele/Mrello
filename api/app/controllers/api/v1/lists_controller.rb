@@ -1,15 +1,16 @@
-class Api::V1::ListsController < Api::V1::ProtectedResourcesController
+class Api::V1::ListsController < ApplicationController
+  before_action :authenticate_request
   
   def create
     @list = List.new(list_params.merge!(user_id: 1)) # TODO: USER ID SHOULD NOT BE HARDCODED BUT PASSED BY CLIENT
     if @list.save
       render json: {
-        message: "SUCCESS: List created.", 
+        message: "List created.", 
         list: @list 
       }, status: :created
     else
       render json: { 
-        message: "FAILURE: List not created. Invalid inputs." 
+        message: "List not created. Invalid inputs." 
       }, status: :not_acceptable
     end
   end
@@ -18,12 +19,12 @@ class Api::V1::ListsController < Api::V1::ProtectedResourcesController
     @list = List.find(params[:id])
     if @list.update_attributes(list_params)
       render json: {
-        message: "SUCCESS: List created.", 
+        message: "List created.", 
         list: @list 
       }, status: :ok
     else
       render json: {
-        message: "FAILURE: List not created. Invalid inputs." 
+        message: "List not created. Invalid inputs." 
       }, status: :not_acceptable
 
     end

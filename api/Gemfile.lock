@@ -135,6 +135,7 @@ GEM
     rspec-support (3.5.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    simple_command (0.0.9)
     slop (3.6.0)
     spring (2.0.0)
       activesupport (>= 4.2)
@@ -176,6 +177,7 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails (~> 3)
   shoulda-matchers
+  simple_command
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

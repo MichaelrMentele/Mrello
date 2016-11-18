@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :require_login, only: [:show]
+  before_action :authenticate_request
   
   def create
     @user = User.create(user_params)
