@@ -1,19 +1,10 @@
 class ApplicationController < ActionController::API
   include ActionController::ImplicitRender
 
-  helper_method :current_user, :user_logged_in?
-
-  def current_user
-    User.find(session[:user_id])
-  end
-
-  def user_logged_in?
-    session[:user_id].present?
-  end
-
   private
 
-  def require_login
-    render 'api/v1/protected_resources/require_login' unless user_logged_in?
+  def authenticate_request
+    @current_user = AuthenticateApiRequest.call(request.headers).result
+
+    render json: { error: 'Not Authorized' }, status: 401 unless @current_user
   end
-end
