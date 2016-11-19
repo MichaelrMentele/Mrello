@@ -10,7 +10,7 @@ class Api::V1::SessionsController < ApplicationController
       }, status: :created
     else
       render json: {
-        message: "FAILURE: Invalid inputs."
+        message: "Invalid inputs."
       }, status: :not_acceptable
     end
   end

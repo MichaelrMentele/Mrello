@@ -1,11 +1,11 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_request
+  before_action :authenticate_request, except: [:create]
   
   def create
     @user = User.create(user_params)
     if @user.save
       render json: { 
-        message: "SUCCESS: New user created.", 
+        message: "New user created.", 
         user: @user
       }, status: :created
     else
