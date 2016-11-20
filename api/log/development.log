@@ -12309,3 +12309,1107 @@ Migrating to AddAdminToUser (20161120222240)
   [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateOrganizations (20161120222810)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "organizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "admin_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161120222810"]]
+  [1m[35m (129.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/organization" for 127.0.0.1 at 2016-11-20 15:11:51 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.0.1) lib/active_record/migration.rb:572:in `check_pending!'
+activerecord (5.0.0.1) lib/active_record/migration.rb:548:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:12:01 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.0.1) lib/active_record/migration.rb:572:in `check_pending!'
+activerecord (5.0.0.1) lib/active_record/migration.rb:548:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:12:20 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.0.1) lib/active_record/migration.rb:572:in `check_pending!'
+activerecord (5.0.0.1) lib/active_record/migration.rb:548:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddOrgIdToUser (20161120223122)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD "organization_id" integer[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161120223122"]]
+  [1m[35m (171.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:13:14 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::OrganizationsController#index as JSON
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 43ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:16:45 -0800
+Processing by Api::V1::OrganizationsController#index as JSON
+  Parameters: {"organization"=>{}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2016-11-20 15:17:04 -0800
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"fullname"=>"Alice Doe", "email"=>"Alice Doe", "password"=>"[FILTERED]"}}
+Unpermitted parameters: user, format
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 406 Not Acceptable in 1631ms (Views: 0.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/v1/lists" for 127.0.0.1 at 2016-11-20 15:17:12 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Parameters: {"list"=>{}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/lists" for 127.0.0.1 at 2016-11-20 15:17:59 -0800
+Processing by Api::V1::ListsController#index as JSON
+  Parameters: {"list"=>{}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:18:12 -0800
+Processing by Api::V1::OrganizationsController#index as JSON
+  Parameters: {"organization"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+Started GET "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:21:00 -0800
+No template found for Api::V1::OrganizationsController#index, rendering head :no_content
+Completed 204 No Content in 171951ms (ActiveRecord: 0.6ms)
+
+
+  
+SyntaxError (/home/michaelmentele/dev/mrello/api/app/controllers/api/v1/organizations_controller.rb:10: syntax error, unexpected ':', expecting keyword_end
+    render: {
+           ^
+/home/michaelmentele/dev/mrello/api/app/controllers/api/v1/organizations_controller.rb:13: syntax error, unexpected ',', expecting keyword_end
+    }, status: :ok
+      ^):
+  
+app/controllers/api/v1/organizations_controller.rb:10: syntax error, unexpected ':', expecting keyword_end
+app/controllers/api/v1/organizations_controller.rb:13: syntax error, unexpected ',', expecting keyword_end
+Started GET "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:21:24 -0800
+  
+SyntaxError (/home/michaelmentele/dev/mrello/api/app/controllers/api/v1/organizations_controller.rb:10: syntax error, unexpected '{', expecting keyword_end
+/home/michaelmentele/dev/mrello/api/app/controllers/api/v1/organizations_controller.rb:13: syntax error, unexpected '}', expecting keyword_end
+    }, status: :ok
+     ^):
+  
+app/controllers/api/v1/organizations_controller.rb:10: syntax error, unexpected '{', expecting keyword_end
+app/controllers/api/v1/organizations_controller.rb:13: syntax error, unexpected '}', expecting keyword_end
+Started GET "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:21:40 -0800
+Processing by Api::V1::OrganizationsController#index as JSON
+  Parameters: {"organization"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.4ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+Completed 200 OK in 41ms (Views: 1.7ms | ActiveRecord: 3.5ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddOrganizationTitle (20161120232221)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "organizations" ADD "title" varchar[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161120232221"]]
+  [1m[35m (142.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-20 15:24:57 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::ListsController#index as JSON
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/sessions" for 67.160.120.190 at 2016-11-20 15:25:29 -0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"alice@doe.com", "password"=>"[FILTERED]", "session_token"=>nil, "session"=>{"email"=>"alice@doe.com", "password"=>"[FILTERED]", "session_token"=>nil}}
+Unpermitted parameters: session_token, format, session
+Unpermitted parameters: session_token, format, session
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@doe.com"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@doe.com"], ["LIMIT", 1]]
+Completed 201 Created in 284ms (Views: 0.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-20 15:25:29 -0800
+Processing by Api::V1::ListsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.6ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 31]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 84]]
+  Rendered api/v1/cards/_card.json.jbuilder (36.5ms)
+  Rendered api/v1/lists/_list.json.jbuilder (109.2ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 32]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 80]]
+  Rendered api/v1/cards/_card.json.jbuilder (4.2ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 81]]
+  Rendered api/v1/cards/_card.json.jbuilder (3.8ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 82]]
+  Rendered api/v1/cards/_card.json.jbuilder (3.9ms)
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 83]]
+  Rendered api/v1/cards/_card.json.jbuilder (4.7ms)
+  Rendered api/v1/lists/_list.json.jbuilder (27.0ms)
+  Rendered api/v1/lists/index.json.jbuilder (188.9ms)
+Completed 200 OK in 279ms (Views: 256.7ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/api/v1/cards?list_id=31" for 67.160.120.190 at 2016-11-20 15:25:30 -0800
+Processing by Api::V1::CardsController#index as JSON
+  Parameters: {"list_id"=>"31"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 31]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 84]]
+  Rendered api/v1/cards/_card.json.jbuilder (5.0ms)
+  Rendered api/v1/cards/index.json.jbuilder (10.2ms)
+Completed 200 OK in 22ms (Views: 12.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/cards?list_id=32" for 67.160.120.190 at 2016-11-20 15:25:30 -0800
+Processing by Api::V1::CardsController#index as JSON
+  Parameters: {"list_id"=>"32"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 32]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 80]]
+  Rendered api/v1/cards/_card.json.jbuilder (5.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 81]]
+  Rendered api/v1/cards/_card.json.jbuilder (4.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 82]]
+  Rendered api/v1/cards/_card.json.jbuilder (4.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 83]]
+  Rendered api/v1/cards/_card.json.jbuilder (4.7ms)
+  Rendered api/v1/cards/index.json.jbuilder (27.1ms)
+Completed 200 OK in 54ms (Views: 28.1ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/api/v1/cards" for 67.160.120.190 at 2016-11-20 15:25:39 -0800
+Processing by Api::V1::CardsController#create as JSON
+  Parameters: {"title"=>"asdf", "description"=>"", "comments"=>[], "checklists"=>[], "listTitle"=>"Ad", "list_id"=>32, "card"=>{"list_id"=>32, "title"=>"asdf"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 32], ["title", "asdf"], ["created_at", 2016-11-20 23:25:39 UTC], ["updated_at", 2016-11-20 23:25:39 UTC]]
+Started DELETE "/api/v1/cards/84" for 67.160.120.190 at 2016-11-20 15:25:39 -0800
+  [1m[35m (164.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 190ms (Views: 1.5ms | ActiveRecord: 167.2ms)
+
+
+Processing by Api::V1::CardsController#destroy as JSON
+  Parameters: {"id"=>"84"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT ?[0m  [["id", 84], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = ?[0m  [["id", 84]]
+  [1m[35m (108.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 122ms (Views: 0.5ms | ActiveRecord: 111.9ms)
+
+
+Started POST "/api/v1/lists" for 67.160.120.190 at 2016-11-20 15:25:43 -0800
+Processing by Api::V1::ListsController#create as JSON
+  Parameters: {"title"=>"Test", "cards"=>[], "list"=>{"title"=>"Test"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+DEPRECATION WARNING: Method merge! is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.0.1/classes/ActionController/Parameters.html (called from create at /home/michaelmentele/dev/mrello/api/app/controllers/api/v1/lists_controller.rb:5)
+Started GET "/api/v1/cards?list_id=" for 67.160.120.190 at 2016-11-20 15:25:43 -0800
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by Api::V1::CardsController#index as JSON
+  Parameters: {"list_id"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "lists" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Test"], ["user_id", 1], ["created_at", 2016-11-20 23:25:43 UTC], ["updated_at", 2016-11-20 23:25:43 UTC]]
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 88ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=):
+  
+app/controllers/api/v1/cards_controller.rb:20:in `index'
+  [1m[35m (167.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 224ms (Views: 1.4ms | ActiveRecord: 170.7ms)
+
+
+Started POST "/api/v1/cards" for 67.160.120.190 at 2016-11-20 15:25:46 -0800
+Processing by Api::V1::CardsController#create as JSON
+  Parameters: {"title"=>"adsfas", "description"=>"", "list_id"=>33, "comments"=>[], "checklists"=>[], "listTitle"=>"Test", "card"=>{"list_id"=>33, "title"=>"adsfas"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 33], ["title", "adsfas"], ["created_at", 2016-11-20 23:25:46 UTC], ["updated_at", 2016-11-20 23:25:46 UTC]]
+  [1m[35m (84.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 102ms (Views: 1.7ms | ActiveRecord: 87.5ms)
+
+
+Started POST "/api/v1/cards" for 67.160.120.190 at 2016-11-20 15:25:48 -0800
+Processing by Api::V1::CardsController#create as JSON
+  Parameters: {"title"=>"asdf", "description"=>"", "list_id"=>33, "comments"=>[], "checklists"=>[], "listTitle"=>"Test", "card"=>{"list_id"=>33, "title"=>"asdf"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[35mSQL (4.0ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 33], ["title", "asdf"], ["created_at", 2016-11-20 23:25:48 UTC], ["updated_at", 2016-11-20 23:25:48 UTC]]
+  [1m[35m (79.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 105ms (Views: 1.3ms | ActiveRecord: 84.2ms)
+
+
+Started POST "/api/v1/cards" for 67.160.120.190 at 2016-11-20 15:25:50 -0800
+Processing by Api::V1::CardsController#create as JSON
+  Parameters: {"title"=>"adsf", "description"=>"", "comments"=>[], "checklists"=>[], "listTitle"=>"Ad", "list_id"=>32, "card"=>{"list_id"=>32, "title"=>"adsf"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 32], ["title", "adsf"], ["created_at", 2016-11-20 23:25:51 UTC], ["updated_at", 2016-11-20 23:25:51 UTC]]
+  [1m[35m (77.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 94ms (Views: 1.5ms | ActiveRecord: 78.9ms)
+
+
+Started DELETE "/api/v1/cards/81" for 67.160.120.190 at 2016-11-20 15:25:51 -0800
+Processing by Api::V1::CardsController#destroy as JSON
+  Parameters: {"id"=>"81"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT ?[0m  [["id", 81], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.3ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = ?[0m  [["id", 81]]
+  [1m[35m (126.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 141ms (Views: 0.5ms | ActiveRecord: 131.1ms)
+
+
+Started POST "/api/v1/cards" for 67.160.120.190 at 2016-11-20 15:25:52 -0800
+Processing by Api::V1::CardsController#create as JSON
+  Parameters: {"title"=>"Card1", "description"=>"", "comments"=>[], "checklists"=>[], "listTitle"=>"Test", "list_id"=>33, "card"=>{"list_id"=>33, "title"=>"Card1"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 33], ["title", "Card1"], ["created_at", 2016-11-20 23:25:52 UTC], ["updated_at", 2016-11-20 23:25:52 UTC]]
+  [1m[35m (166.5ms)[0m  [1m[36mcommit transaction[0m
+Started DELETE "/api/v1/cards/83" for 67.160.120.190 at 2016-11-20 15:25:53 -0800
+Completed 201 Created in 187ms (Views: 1.5ms | ActiveRecord: 169.3ms)
+
+
+Processing by Api::V1::CardsController#destroy as JSON
+  Parameters: {"id"=>"83"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT ?[0m  [["id", 83], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = ?[0m  [["id", 83]]
+  [1m[35m (104.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 121ms (Views: 0.5ms | ActiveRecord: 107.2ms)
+
+
+Started POST "/api/v1/cards" for 67.160.120.190 at 2016-11-20 15:25:56 -0800
+Processing by Api::V1::CardsController#create as JSON
+  Parameters: {"title"=>"Card1", "description"=>"", "comments"=>[], "checklists"=>[], "listTitle"=>"Test", "list_id"=>33, "card"=>{"list_id"=>33, "title"=>"Card1"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 33], ["title", "Card1"], ["created_at", 2016-11-20 23:25:56 UTC], ["updated_at", 2016-11-20 23:25:56 UTC]]
+Started DELETE "/api/v1/cards/89" for 67.160.120.190 at 2016-11-20 15:25:56 -0800
+  [1m[35m (162.8ms)[0m  [1m[36mcommit transaction[0m
+Processing by Api::V1::CardsController#destroy as JSON
+Completed 201 Created in 184ms (Views: 1.5ms | ActiveRecord: 165.4ms)
+
+
+  Parameters: {"id"=>"89"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT ?[0m  [["id", 89], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = ?[0m  [["id", 89]]
+  [1m[35m (141.6ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 155ms (Views: 0.5ms | ActiveRecord: 143.3ms)
+
+
+Started POST "/api/v1/cards" for 67.160.120.190 at 2016-11-20 15:25:58 -0800
+Processing by Api::V1::CardsController#create as JSON
+  Parameters: {"title"=>"Card1", "description"=>"", "comments"=>[], "checklists"=>[], "listTitle"=>"Test", "list_id"=>33, "card"=>{"list_id"=>33, "title"=>"Card1"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("list_id", "title", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["list_id", 33], ["title", "Card1"], ["created_at", 2016-11-20 23:25:58 UTC], ["updated_at", 2016-11-20 23:25:58 UTC]]
+  [1m[35m (92.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 108ms (Views: 1.4ms | ActiveRecord: 93.6ms)
+
+
+Started DELETE "/api/v1/cards/90" for 67.160.120.190 at 2016-11-20 15:25:58 -0800
+Processing by Api::V1::CardsController#destroy as JSON
+  Parameters: {"id"=>"90"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT ?[0m  [["id", 90], ["LIMIT", 1]]
+  [1m[35m (4.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = ?[0m  [["id", 90]]
+  [1m[35m (99.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 120ms (Views: 0.5ms | ActiveRecord: 107.2ms)
+
+
+Started POST "/api/v1/sessions" for 67.160.120.190 at 2016-11-20 15:26:54 -0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"alice@doe.com", "password"=>"[FILTERED]", "session_token"=>nil, "session"=>{"email"=>"alice@doe.com", "password"=>"[FILTERED]", "session_token"=>nil}}
+Unpermitted parameters: session_token, format, session
+Unpermitted parameters: session_token, format, session
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@doe.com"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@doe.com"], ["LIMIT", 1]]
+Completed 201 Created in 190ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-20 15:26:55 -0800
+Processing by Api::V1::ListsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 31]]
+  Rendered api/v1/lists/_list.json.jbuilder (5.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 32]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 80]]
+  Rendered api/v1/cards/_card.json.jbuilder (5.3ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 82]]
+  Rendered api/v1/cards/_card.json.jbuilder (4.1ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 85]]
+  Rendered api/v1/cards/_card.json.jbuilder (3.9ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 88]]
+  Rendered api/v1/cards/_card.json.jbuilder (4.0ms)
+  Rendered api/v1/lists/_list.json.jbuilder (27.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 33]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 86]]
+  Rendered api/v1/cards/_card.json.jbuilder (4.5ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 87]]
+  Rendered api/v1/cards/_card.json.jbuilder (3.9ms)
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 91]]
+  Rendered api/v1/cards/_card.json.jbuilder (4.5ms)
+  Rendered api/v1/lists/_list.json.jbuilder (21.8ms)
+  Rendered api/v1/lists/index.json.jbuilder (65.6ms)
+Completed 200 OK in 74ms (Views: 66.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/v1/cards?list_id=31" for 67.160.120.190 at 2016-11-20 15:26:55 -0800
+Processing by Api::V1::CardsController#index as JSON
+  Parameters: {"list_id"=>"31"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 31]]
+  Rendered api/v1/cards/index.json.jbuilder (4.1ms)
+Completed 200 OK in 16ms (Views: 8.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/cards?list_id=32" for 67.160.120.190 at 2016-11-20 15:26:55 -0800
+Processing by Api::V1::CardsController#index as JSON
+  Parameters: {"list_id"=>"32"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 32]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 80]]
+  Rendered api/v1/cards/_card.json.jbuilder (4.5ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 82]]
+  Rendered api/v1/cards/_card.json.jbuilder (3.3ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 85]]
+  Rendered api/v1/cards/_card.json.jbuilder (5.1ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 88]]
+  Rendered api/v1/cards/_card.json.jbuilder (3.5ms)
+  Rendered api/v1/cards/index.json.jbuilder (24.9ms)
+Completed 200 OK in 36ms (Views: 26.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/cards?list_id=33" for 67.160.120.190 at 2016-11-20 15:26:55 -0800
+Processing by Api::V1::CardsController#index as JSON
+  Parameters: {"list_id"=>"33"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  Rendering api/v1/cards/index.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = ?[0m  [["list_id", 33]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 86]]
+  Rendered api/v1/cards/_card.json.jbuilder (6.2ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 87]]
+  Rendered api/v1/cards/_card.json.jbuilder (6.9ms)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = ?[0m  [["card_id", 91]]
+  Rendered api/v1/cards/_card.json.jbuilder (5.1ms)
+  Rendered api/v1/cards/index.json.jbuilder (28.2ms)
+Completed 200 OK in 41ms (Views: 29.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:33:33 -0800
+Processing by Api::V1::OrganizationsController#index as JSON
+  Parameters: {"organization"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.4ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+Completed 200 OK in 44ms (Views: 1.8ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:35:32 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"organization"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/controllers/api/v1/organizations_controller.rb:5:in `create'
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:36:28 -0800
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	user_id: 1,
+	title: "Launchschool"
+}
+  
+ActionDispatch::ParamsParser::ParseError (822: unexpected token at '{
+	user_id: 1,
+	title: "Launchschool"
+}'):
+  
+actionpack (5.0.0.1) lib/action_dispatch/http/parameters.rb:71:in `rescue in parse_formatted_parameters'
+actionpack (5.0.0.1) lib/action_dispatch/http/parameters.rb:65:in `parse_formatted_parameters'
+actionpack (5.0.0.1) lib/action_dispatch/http/request.rb:366:in `block in POST'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch_header'
+actionpack (5.0.0.1) lib/action_dispatch/http/request.rb:365:in `POST'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:282:in `_wrapper_enabled?'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:231:in `process_action'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:36:35 -0800
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	user_id: 1,
+	title: "Launchschool"
+}
+  
+ActionDispatch::ParamsParser::ParseError (822: unexpected token at '{
+	user_id: 1,
+	title: "Launchschool"
+}'):
+  
+actionpack (5.0.0.1) lib/action_dispatch/http/parameters.rb:71:in `rescue in parse_formatted_parameters'
+actionpack (5.0.0.1) lib/action_dispatch/http/parameters.rb:65:in `parse_formatted_parameters'
+actionpack (5.0.0.1) lib/action_dispatch/http/request.rb:366:in `block in POST'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch_header'
+actionpack (5.0.0.1) lib/action_dispatch/http/request.rb:365:in `POST'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:282:in `_wrapper_enabled?'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:231:in `process_action'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:37:08 -0800
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	user_id: 1,
+	title: "Launchschool"
+}
+  
+ActionDispatch::ParamsParser::ParseError (822: unexpected token at '{
+	user_id: 1,
+	title: "Launchschool"
+}'):
+  
+actionpack (5.0.0.1) lib/action_dispatch/http/parameters.rb:71:in `rescue in parse_formatted_parameters'
+actionpack (5.0.0.1) lib/action_dispatch/http/parameters.rb:65:in `parse_formatted_parameters'
+actionpack (5.0.0.1) lib/action_dispatch/http/request.rb:366:in `block in POST'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch_header'
+actionpack (5.0.0.1) lib/action_dispatch/http/request.rb:365:in `POST'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:282:in `_wrapper_enabled?'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:231:in `process_action'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:37:20 -0800
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	user_id: 1,
+	title: "Launchschool"
+}
+  
+ActionDispatch::ParamsParser::ParseError (822: unexpected token at '{
+	user_id: 1,
+	title: "Launchschool"
+}'):
+  
+actionpack (5.0.0.1) lib/action_dispatch/http/parameters.rb:71:in `rescue in parse_formatted_parameters'
+actionpack (5.0.0.1) lib/action_dispatch/http/parameters.rb:65:in `parse_formatted_parameters'
+actionpack (5.0.0.1) lib/action_dispatch/http/request.rb:366:in `block in POST'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch_header'
+actionpack (5.0.0.1) lib/action_dispatch/http/request.rb:365:in `POST'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:282:in `_wrapper_enabled?'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:231:in `process_action'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:37:41 -0800
+Error occurred while parsing request parameters.
+Contents:
+
+	user_id: 1,
+	title: "Launchschool"
+
+  
+ActionDispatch::ParamsParser::ParseError (822: unexpected token at 'user_id: 1,
+	title: "Launchschool"
+'):
+  
+actionpack (5.0.0.1) lib/action_dispatch/http/parameters.rb:71:in `rescue in parse_formatted_parameters'
+actionpack (5.0.0.1) lib/action_dispatch/http/parameters.rb:65:in `parse_formatted_parameters'
+actionpack (5.0.0.1) lib/action_dispatch/http/request.rb:366:in `block in POST'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch_header'
+actionpack (5.0.0.1) lib/action_dispatch/http/request.rb:365:in `POST'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:282:in `_wrapper_enabled?'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:231:in `process_action'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:38:39 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"1", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: title, format, organization
+Unpermitted parameters: title, format, organization
+Unpermitted parameters: title, format, organization
+Unpermitted parameters: user_id, title, format, organization
+Unpermitted parameters: title, format, organization
+Unpermitted parameters: title, format, organization
+Unpermitted parameters: title, format, organization
+Unpermitted parameters: format, organization
+Completed 500 Internal Server Error in 195593ms (ActiveRecord: 5.2ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'user_id' for Organization.):
+  
+app/controllers/api/v1/organizations_controller.rb:6:in `create'
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:41:58 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"1", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 50ms (Views: 0.6ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:42:12 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"1", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 7ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:43:17 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"1", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 40ms (Views: 0.4ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:43:27 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"1", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 62884ms (Views: 0.4ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:44:42 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"1", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 70ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:44:50 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"1", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "organizations" ("admin_id", "created_at", "updated_at", "title") VALUES (?, ?, ?, ?)[0m  [["admin_id", 1], ["created_at", 2016-11-20 23:45:29 UTC], ["updated_at", 2016-11-20 23:45:29 UTC], ["title", "Launchschool"]]
+  [1m[35m (174.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL AND ("users"."id" != ?) LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 108897ms (Views: 0.4ms | ActiveRecord: 178.9ms)
+
+
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:46:42 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"1", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 2976ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:46:51 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"1", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL AND ("users"."id" != ?) LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@test12345.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "examplaae@test12345.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "examplaae@test12345.com"], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at", "email", "password_digest", "admin", "organization_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["fullname", "Mick"], ["created_at", 2016-11-20 23:51:01 UTC], ["updated_at", 2016-11-20 23:51:01 UTC], ["email", "examplaae@test12345.com"], ["password_digest", "$2a$10$85gigyfA2Ph0xF9kBJX1wOmxG5GqhQx7e8P7TFLQjPrtkpy/s1n4e"], ["admin", true], ["organization_id", 1]]
+  [1m[35m (131.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adsf@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adsf@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adsf@test.com"], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adsf@test.com"], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adsf@asdfdtest.com"], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adsf@asdfdtest.com"], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adsf@asdfdasdfsasftest.com"], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adsf@asdfdasdfsasftest.com"], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at", "email", "password_digest", "organization_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["fullname", "m"], ["created_at", 2016-11-20 23:53:50 UTC], ["updated_at", 2016-11-20 23:53:50 UTC], ["email", "adsf@asdfdasdfsasftest.com"], ["password_digest", "$2a$10$VK38FnPjkwciChwgxh3Pw.b6Kn/1zMLv3JRPJE7QvK/5YVs0QtPO."], ["organization_id", 1]]
+  [1m[35m (83.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "adsf@asdfdasdfsasftest.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "organizations" ("admin_id", "created_at", "updated_at", "title") VALUES (?, ?, ?, ?)[0m  [["admin_id", 1], ["created_at", 2016-11-20 23:56:20 UTC], ["updated_at", 2016-11-20 23:56:20 UTC], ["title", "Launchschool"]]
+  [1m[35m (96.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 568850ms (ActiveRecord: 241.0ms)
+
+
+  
+NameError (undefined local variable or method `organization' for #<Api::V1::OrganizationsController:0x007ffb64c2ea68>):
+  
+app/controllers/api/v1/organizations_controller.rb:11:in `create'
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:56:23 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"1", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 2697ms (Views: 0.4ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:56:37 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"1", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."admin" = ? LIMIT ?[0m  [["admin", true], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 55909ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:57:34 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"12", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "organizations" ("admin_id", "created_at", "updated_at", "title") VALUES (?, ?, ?, ?)[0m  [["admin_id", 12], ["created_at", 2016-11-20 23:57:37 UTC], ["updated_at", 2016-11-20 23:57:37 UTC], ["title", "Launchschool"]]
+  [1m[35m (89.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 3117ms (ActiveRecord: 91.9ms)
+
+
+  
+NameError (undefined local variable or method `organization' for #<Api::V1::OrganizationsController:0x007ffb78890fa0>):
+  
+app/controllers/api/v1/organizations_controller.rb:11:in `create'
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 15:58:49 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"12", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (4.5ms)[0m  [1m[32mINSERT INTO "organizations" ("admin_id", "created_at", "updated_at", "title") VALUES (?, ?, ?, ?)[0m  [["admin_id", 12], ["created_at", 2016-11-20 23:58:55 UTC], ["updated_at", 2016-11-20 23:58:55 UTC], ["title", "Launchschool"]]
+  [1m[35m (67.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 6653ms (Views: 1.6ms | ActiveRecord: 76.4ms)
+
+

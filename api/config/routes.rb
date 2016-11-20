@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do 
     namespace :v1 do
       resources :sessions, only: [:create] 
+
+      resources :organizations, only: [:index, :create]
+
       resources :users, only: [:create]
       resources :lists, except: [:edit, :new]
       resources :cards, except: [:edit, :new]
