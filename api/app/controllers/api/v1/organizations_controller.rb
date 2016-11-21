@@ -2,7 +2,6 @@ class Api::V1::OrganizationsController < ApplicationController
   before_action :authenticate_request
 
   def create
-    binding.pry
     user = User.find(params[:user_id])
     org = Organization.new(admin_id: params[:user_id], title: params[:title])
     if user.admin? and org.save

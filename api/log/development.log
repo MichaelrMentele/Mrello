@@ -13413,3 +13413,23 @@ Processing by Api::V1::OrganizationsController#create as JSON
 Completed 201 Created in 6653ms (Views: 1.6ms | ActiveRecord: 76.4ms)
 
 
+Started POST "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 16:01:46 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"user_id"=>"12", "title"=>"Launchschool", "organization"=>{"title"=>"Launchschool"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (3.1ms)[0m  [1m[32mINSERT INTO "organizations" ("admin_id", "created_at", "updated_at", "title") VALUES (?, ?, ?, ?)[0m  [["admin_id", 12], ["created_at", 2016-11-21 00:01:47 UTC], ["updated_at", 2016-11-21 00:01:47 UTC], ["title", "Launchschool"]]
+  [1m[35m (79.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 150ms (Views: 1.4ms | ActiveRecord: 87.5ms)
+
+
+Started GET "/api/v1/organizations" for 127.0.0.1 at 2016-11-20 16:01:56 -0800
+Processing by Api::V1::OrganizationsController#index as JSON
+  Parameters: {"organization"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.4ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 0.7ms)
+
+
