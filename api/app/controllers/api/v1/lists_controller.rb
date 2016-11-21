@@ -2,7 +2,7 @@ class Api::V1::ListsController < ApplicationController
   before_action :authenticate_request
   
   def create
-    @list = List.new(list_params.merge!(user_id: 1)) # TODO: USER ID SHOULD NOT BE HARDCODED BUT PASSED BY CLIENT
+    @list = List.new(list_params.merge!(user_id: current_user.id)
     if @list.save
       render json: {
         message: "List created.", 
