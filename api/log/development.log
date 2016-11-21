@@ -13433,3 +13433,195 @@ Processing by Api::V1::OrganizationsController#index as JSON
 Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 0.7ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[35m (98.6ms)[0m  [1m[35mCREATE TABLE "cards" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "list_id" integer, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (87.6ms)[0m  [1m[35mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "payload" varchar, "card_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (100.9ms)[0m  [1m[35mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (106.8ms)[0m  [1m[35mCREATE TABLE "organizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "admin_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "title" varchar)[0m
+  [1m[35m (95.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fullname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar, "password_digest" varchar, "admin" boolean DEFAULT 'f', "organization_id" integer)[0m
+  [1m[35m (85.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (76.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20161120232221')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (49.8ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20161109185312'), ('20161107193402'), ('20161120223122'), ('20161120222240'), ('20161107193810'), ('20161120222810'), ('20161107191645'), ('20161109195242');
+
+[0m
+  [1m[35m (101.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-11-21 20:24:27 UTC], ["updated_at", 2016-11-21 20:24:27 UTC]]
+  [1m[35m (85.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (86.6ms)[0m  [1m[35mCREATE TABLE "cards" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "list_id" integer, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (97.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "payload" varchar, "card_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (107.9ms)[0m  [1m[35mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (98.0ms)[0m  [1m[35mCREATE TABLE "organizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "admin_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "title" varchar)[0m
+  [1m[35m (100.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fullname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar, "password_digest" varchar, "admin" boolean DEFAULT 'f', "organization_id" integer)[0m
+  [1m[35m (130.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (64.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20161120232221')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (61.0ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20161109185312'), ('20161107193402'), ('20161120223122'), ('20161120222240'), ('20161107193810'), ('20161120222810'), ('20161107191645'), ('20161109195242');
+
+[0m
+  [1m[35m (121.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-11-21 20:24:28 UTC], ["updated_at", 2016-11-21 20:24:28 UTC]]
+  [1m[35m (109.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started POST "/api/v1/users" for 67.160.120.190 at 2016-11-21 12:26:27 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"fullname"=>"Michael", "email"=>"mike.mentele@comcast.net", "password"=>"[FILTERED]", "admin"=>true, "user"=>{"fullname"=>"Michael", "email"=>"mike.mentele@comcast.net", "admin"=>true}}
+Unpermitted parameters: format, user
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mike.mentele@comcast.net"], ["LIMIT", 1]]
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "users" ("fullname", "created_at", "updated_at", "email", "password_digest", "admin") VALUES (?, ?, ?, ?, ?, ?)[0m  [["fullname", "Michael"], ["created_at", 2016-11-21 20:26:28 UTC], ["updated_at", 2016-11-21 20:26:28 UTC], ["email", "mike.mentele@comcast.net"], ["password_digest", "$2a$10$Rd8Cem4Q.MavomRr9EKaMuwnBRTpjxp0jvJZgOQKfuQU06sv7NOo."], ["admin", true]]
+  [1m[35m (138.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 317ms (Views: 2.5ms | ActiveRecord: 144.1ms)
+
+
+Started POST "/api/v1/sessions" for 67.160.120.190 at 2016-11-21 12:26:35 -0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"remembrance@now.com", "password"=>"[FILTERED]", "session_token"=>nil, "session"=>{"email"=>"remembrance@now.com", "password"=>"[FILTERED]", "session_token"=>nil}}
+Unpermitted parameters: session_token, format, session
+Unpermitted parameters: session_token, format, session
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "remembrance@now.com"], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 11ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/sessions" for 67.160.120.190 at 2016-11-21 12:26:58 -0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"remembrance@now.com", "password"=>"[FILTERED]", "session_token"=>nil, "session"=>{"email"=>"remembrance@now.com", "password"=>"[FILTERED]", "session_token"=>nil}}
+Unpermitted parameters: session_token, format, session
+Unpermitted parameters: session_token, format, session
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "remembrance@now.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 406 Not Acceptable in 42076ms (Views: 0.7ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/api/v1/sessions" for 67.160.120.190 at 2016-11-21 12:27:47 -0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"mike.mentele@comcast.net", "password"=>"[FILTERED]", "session_token"=>nil, "session"=>{"email"=>"mike.mentele@comcast.net", "password"=>"[FILTERED]", "session_token"=>nil}}
+Unpermitted parameters: session_token, format, session
+Unpermitted parameters: session_token, format, session
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mike.mentele@comcast.net"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mike.mentele@comcast.net"], ["LIMIT", 1]]
+Unpermitted parameters: session_token, format, session
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mike.mentele@comcast.net"], ["LIMIT", 1]]
+Completed 201 Created in 284ms (Views: 1.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-21 12:27:48 -0800
+Processing by Api::V1::ListsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered api/v1/lists/index.json.jbuilder (36.2ms)
+Completed 200 OK in 145ms (Views: 66.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/v1/organizations" for 67.160.120.190 at 2016-11-21 12:27:52 -0800
+Processing by Api::V1::OrganizationsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+Completed 200 OK in 17ms (Views: 3.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-21 12:27:55 -0800
+Processing by Api::V1::ListsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered api/v1/lists/index.json.jbuilder (4.2ms)
+Completed 200 OK in 17ms (Views: 9.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/v1/organizations" for 67.160.120.190 at 2016-11-21 12:30:43 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"title"=>"Ls", "organization"=>{"title"=>"Ls"}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/sessions" for 67.160.120.190 at 2016-11-21 12:30:58 -0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"mik", "password"=>"[FILTERED]", "session_token"=>nil, "session"=>{"email"=>"mik", "password"=>"[FILTERED]", "session_token"=>nil}}
+Unpermitted parameters: session_token, format, session
+Unpermitted parameters: session_token, format, session
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mik"], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 5ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/sessions" for 67.160.120.190 at 2016-11-21 12:31:06 -0800
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"mike.mentele@comcast.net", "password"=>"[FILTERED]", "session_token"=>nil, "session"=>{"email"=>"mike.mentele@comcast.net", "password"=>"[FILTERED]", "session_token"=>nil}}
+Unpermitted parameters: session_token, format, session
+Unpermitted parameters: session_token, format, session
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mike.mentele@comcast.net"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mike.mentele@comcast.net"], ["LIMIT", 1]]
+Unpermitted parameters: session_token, format, session
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mike.mentele@comcast.net"], ["LIMIT", 1]]
+Completed 201 Created in 250ms (Views: 16.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-21 12:31:07 -0800
+Processing by Api::V1::ListsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered api/v1/lists/index.json.jbuilder (3.6ms)
+Completed 200 OK in 14ms (Views: 8.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/organizations" for 67.160.120.190 at 2016-11-21 12:31:19 -0800
+Processing by Api::V1::OrganizationsController#create as JSON
+  Parameters: {"title"=>"Test", "organization"=>{"title"=>"Test"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "organizations" ("admin_id", "created_at", "updated_at", "title") VALUES (?, ?, ?, ?)[0m  [["admin_id", 1], ["created_at", 2016-11-21 20:31:19 UTC], ["updated_at", 2016-11-21 20:31:19 UTC], ["title", "Test"]]
+  [1m[35m (86.9ms)[0m  [1m[36mcommit transaction[0m
+Completed 201 Created in 131ms (Views: 1.5ms | ActiveRecord: 89.5ms)
+
+
+Started GET "/api/v1/lists" for 67.160.120.190 at 2016-11-21 12:31:19 -0800
+Processing by Api::V1::ListsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/v1/lists/index.json.jbuilder
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered api/v1/lists/index.json.jbuilder (13.1ms)
+Completed 200 OK in 23ms (Views: 15.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/organizations" for 67.160.120.190 at 2016-11-21 12:31:21 -0800
+Processing by Api::V1::OrganizationsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.4ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+Completed 200 OK in 7ms (Views: 3.2ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/api/v1/users/1" for 67.160.120.190 at 2016-11-21 12:31:25 -0800
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"organization_id"=>1, "id"=>"1", "user"=>{"organization_id"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+No template found for Api::V1::UsersController#update, rendering head :no_content
+Completed 204 No Content in 30217ms (ActiveRecord: 0.3ms)
+
+

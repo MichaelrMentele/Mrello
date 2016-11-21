@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
       resources :organizations, only: [:index, :create]
 
-      resources :users, only: [:create]
+      resources :users, only: [:create, :update]
       resources :lists, except: [:edit, :new]
       resources :cards, except: [:edit, :new]
       # TODO: resources :comments, only: [:create]

@@ -2,11 +2,11 @@ class Api::V1::SessionsController < ApplicationController
 
   def create
     auth = AuthenticateUser.call(session_params[:email], session_params[:password])
-
     if auth.success?
       render json: {
         message: "User logged in.", 
-        session_token: auth.result
+        session_token: auth.result,
+        user: User.find_by(email: session_params[:email])
       }, status: :created
     else
       render json: {

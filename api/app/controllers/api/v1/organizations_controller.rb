@@ -2,9 +2,9 @@ class Api::V1::OrganizationsController < ApplicationController
   before_action :authenticate_request
 
   def create
-    user = current_user 
-    org = Organization.new(admin_id: params[:user_id], title: params[:title])
-    if user.admin? and org.save
+    org = Organization.new(admin_id: current_user.id, title: params[:title])
+    if current_user.admin? and org.save
+      # TODO: should associate the current user with the organization
       render json: { 
         message: "Your organization is created.", 
         organization: org

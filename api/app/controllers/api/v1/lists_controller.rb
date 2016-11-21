@@ -2,7 +2,7 @@ class Api::V1::ListsController < ApplicationController
   before_action :authenticate_request
   
   def create
-    @list = List.new(list_params.merge!(user_id: current_user.id)
+    @list = List.new(list_params.merge!(user_id: current_user.id))
     if @list.save
       render json: {
         message: "List created.", 
@@ -40,7 +40,7 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def index
-    @lists = List.all
+    @lists = current_user.lists
   end
 
   def show

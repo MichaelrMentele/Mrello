@@ -15,6 +15,10 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def update
+    binding.pry
+  end
+
   private
 
   def user_params
