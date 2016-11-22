@@ -6,6 +6,7 @@ class Api::V1::SessionsController < ApplicationController
       render json: {
         message: "User logged in.", 
         session_token: auth.result,
+        # TODO: refactor -> only return safe information
         user: User.find_by(email: session_params[:email])
       }, status: :created
     else
