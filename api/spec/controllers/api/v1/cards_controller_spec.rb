@@ -4,6 +4,42 @@ describe Api::V1::CardsController do
   before do 
     ApplicationController.any_instance.stub(:authenticate_request)
     ApplicationController.any_instance.stub(:current_user).and_return(alice)
+    request.env["HTTP_ACCEPT"] = "application/json"
+    request.env["CONTENT_TYPE"] = "application/json"
+  end
+
+  describe 'GET index' do
+    let!(:alice) { Fabricate(:user) }
+    let!(:lista) { Fabricate(:list, user_id: alice.id) }
+    let!(:listb) { Fabricate(:list, user_id: alice.id) }
+
+    before do 
+      Fabricate(:card, list: lista)
+      Fabricate(:card, list: lista)
+      Fabricate(:card, list: listb)
+
+      post :index, params: { list_id: lista.id }
+    end
+
+    it "sets cards to all cards for a given list" do 
+      expect(assigns(:cards).length).to eq(2)
+    end
+
+    it "returns a success status" do 
+      expect(response).to be_successful
+    end
+
+    it "returns a message" do 
+      expect(response.message).to be_present
+    end
+  end
+
+  describe 'POST delete' do 
+
+  end
+
+  describe 'POST update' do 
+
   end
 
   describe "POST create" do 

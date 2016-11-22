@@ -6,7 +6,7 @@ describe Api::V1::ListsController do
     let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
     let(:todo_list) { Fabricate(:list, user: alice) }
     before do 
-      set_current_user(alice)
+      # Replace with Stubs 
       request.env["HTTP_ACCEPT"] = "application/json"
       request.env["CONTENT_TYPE"] = "application/json"
       get :show, params: { id: todo_list.id }
