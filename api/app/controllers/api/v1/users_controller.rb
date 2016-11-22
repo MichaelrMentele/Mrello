@@ -16,15 +16,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    org = Organization.find(user_params[:organization_id])
-    if current_user.update_attributes(organization_id: org.id)
+    if current_user.update_attributes(user_params)
       render json: {
-        message: "User joined #{org.title}.",
+        message: "User updated.",
         user: current_user
       }, status: :accepted
     else
       render json: {
-        message: "Error joining #{org.title}. Are you already an admin or member of another organization?"
+        message: "Error updating."
       }, status: :not_acceptable
     end
   end
