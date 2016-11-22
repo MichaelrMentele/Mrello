@@ -34,7 +34,7 @@ describe Api::V1::CardsController do
     end
   end
 
-  describe 'POST delete' do 
+  describe 'POST destroy' do 
     let!(:alice) { Fabricate(:user) }
     let!(:lista) { Fabricate(:list, user_id: alice.id) }
 
@@ -57,7 +57,37 @@ describe Api::V1::CardsController do
   end
 
   describe 'POST update' do 
+    let!(:alice) { Fabricate(:user) }
+    let!(:lista) { Fabricate(:list, user_id: alice.id) }
 
+    context "with valid params" do 
+      before do 
+        Fabricate(:card, list: lista)
+        post :update, params: { id: Card.first.id, title: "Unique" }
+      end
+
+      it "updates the card" do 
+        expect(Card.first.title).to eq("Unique")
+      end
+
+      it "returns a success status" do 
+        expect(response).to be_successful
+      end
+    end
+
+    context "with invalid params" do 
+      before do 
+        post :create, params: { card: { list_id: lista.id } }
+      end
+
+      it "does NOT create a card" do 
+        expect(Card.count).to eq(0)
+      end
+
+      it "does NOT return a success status" do 
+        expect(response).not_to be_successful
+      end
+    end
   end
 
   describe "POST create" do 
