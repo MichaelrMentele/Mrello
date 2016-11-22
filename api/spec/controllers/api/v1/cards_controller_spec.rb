@@ -35,7 +35,25 @@ describe Api::V1::CardsController do
   end
 
   describe 'POST delete' do 
+    let!(:alice) { Fabricate(:user) }
+    let!(:lista) { Fabricate(:list, user_id: alice.id) }
 
+    before do 
+      Fabricate(:card, list: lista)
+      post :destroy, params: { id: Card.first.id, list_id: lista.id }
+    end
+
+    it "deletes the card" do 
+      expect(Card.count).to eq(0)
+    end
+
+    it "returns a success status" do 
+      expect(response).to be_successful
+    end
+
+    it "returns a message" do 
+      expect(response.message).to be_present
+    end
   end
 
   describe 'POST update' do 
