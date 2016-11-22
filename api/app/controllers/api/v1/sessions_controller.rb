@@ -1,13 +1,16 @@
 class Api::V1::SessionsController < ApplicationController
 
   def create
-    auth = AuthenticateUser.call(session_params[:email], session_params[:password])
-    if auth.success?
+    @auth = AuthenticateUser.call(session_params[:email], session_params[:password])
+    if @auth.success?
+      @user =  User.find_by(email: session_params[:email])
+      @token = @auth.result
+      # Refactor to render a jbuilder template
       render json: {
         message: "User logged in.", 
-        session_token: auth.result,
+        session_token: @token,
         # TODO: refactor -> only return safe information
-        user: User.find_by(email: session_params[:email])
+        user: @user
       }, status: :created
     else
       render json: {

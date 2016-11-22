@@ -3,16 +3,21 @@ require "rails_helper"
 describe Api::V1::SessionsController do 
   describe "POST create" do 
 
-    context "user exists" do 
+    context "and user exists" do 
       let!(:alice) { Fabricate(:user) }
 
-      context "valid credentials" do
+      context "with valid credentials" do
         before do 
           post :create, params: { email: alice.email, password: alice.password }
         end
 
-        it "sets user" do 
+        it "authenticates the credentials" do 
+          expect(assigns(:auth)).to be_present
+        end
+
+        it "authenticates successfully" do 
           expect(assigns(:user)).to be_present
+          expect(assigns(:token)).to be_present
         end
 
         it "is successful" do 
@@ -27,6 +32,15 @@ describe Api::V1::SessionsController do
       context "invalid credentials" do
         before do 
           post :create, params: { email: alice.email, password: "" }
+        end
+
+        it "authenticates the credentials" do 
+          expect(assigns(:auth)).to be_present
+        end
+
+        it "authenticates UNsuccessfully" do 
+          expect(assigns(:user)).not_to be_present
+          expect(assigns(:token)).not_to be_present
         end
 
         it "is NOT successful" do 
