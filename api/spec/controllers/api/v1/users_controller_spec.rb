@@ -37,11 +37,11 @@ describe Api::V1::UsersController do
       before do 
         ApplicationController.any_instance.stub(:authenticate_request)
         ApplicationController.any_instance.stub(:current_user).and_return(alice)
-        post :update, params: { id: alice.id, fullname: "New" }
+        post :update, params: { id: alice.id, fullname: new_name }
       end
 
       it "modifies the object" do 
-        expect(User.first.reload.fullname).to eq("New")
+        expect(User.first.reload.fullname).to eq(new_name)
       end
 
       it "does not modify attributes not passed in" do 
