@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :lists
   belongs_to :organization, optional: true
+  has_many :join_requests
 
   has_secure_password
 
