@@ -1,16 +1,18 @@
 require 'rails_helper'
 
 describe Api::V1::ListsController do 
+  let!(:alice) { Fabricate(:user, fullname: "Alice Doe") }
+
   before do 
     request.env["HTTP_ACCEPT"] = "application/json"
     request.env["CONTENT_TYPE"] = "application/json"
+
     ApplicationController.any_instance.stub(:authenticate_request)
     ApplicationController.any_instance.stub(:current_user).and_return(alice)
   end
 
   describe "POST create" do 
     context "with valid params" do 
-      let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
       before do 
         post :create, params: { title: "Todos", user_id: alice.id }
       end
@@ -29,7 +31,6 @@ describe Api::V1::ListsController do
     end
 
     context "with invalid params" do 
-      let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
       before do 
         post :create, params: { list: { user_id: alice.id } }
       end
@@ -45,7 +46,6 @@ describe Api::V1::ListsController do
   end
 
   describe "POST update" do 
-    let(:alice) { Fabricate(:user) }
     let(:list) { Fabricate(:list, user: alice) }
 
     context "with valid params" do 
@@ -78,7 +78,27 @@ describe Api::V1::ListsController do
   end
 
   describe "POST destroy" do 
+    let!(:bob) { Fabricate(:user) }
+    let!(:list_a) { Fabricate(:list, user: alice) }
+    let!(:list_b) { Fabricate(:list, user: bob) }
 
+    context "with another users list" do 
+      it "does not destroy another users list" do 
+        post :destroy, params: { id: list_b.id }
+        expect(List.count).to eq(2)
+      end
+    end
+
+    it "destroys the users own list" do 
+      post :destroy, params: { id: list_a.id }
+
+      expect(List.count).to eq(1)
+    end  
+    it "returns successfully" do 
+      post :destroy, params: { id: list_a.id }
+
+      expect(response).to be_successful
+    end
   end
 
   describe "GET index" do 
@@ -86,7 +106,6 @@ describe Api::V1::ListsController do
   end
 
   describe "GET show" do 
-    let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
     let(:todo_list) { Fabricate(:list, user: alice) }
     before do 
       get :show, params: { id: todo_list.id }

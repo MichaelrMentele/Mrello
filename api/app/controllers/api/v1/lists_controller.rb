@@ -31,12 +31,16 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def destroy
-    # TODO refactor to only look in current users todos
-    List.destroy(params[:id])
-    render json: {
-      message: "SUCCESS: List deleted.",
-    }, status: :accepted
-
+    if current_user.lists.exists?(params[:id])
+      List.destroy(params[:id])
+      render json: {
+        message: "List deleted.",
+      }, status: :accepted
+    else
+      render json: {
+        message: "List not found."
+      }, status: :not_acceptable
+    end
   end
 
   def index
