@@ -77,6 +77,18 @@ describe Api::V1::ListsController do
         expect(List.first.title).to eq("Todos")
       end
 
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
+
+      it "sets @list" do 
+        expect(assigns(:list)).to be_present
+      end
+
+      it "renders the update template" do 
+        expect(response).to render_template 'api/v1/lists/update'
+      end
+
       it "returns a success status" do 
         expect(response).to be_successful
       end
@@ -89,6 +101,14 @@ describe Api::V1::ListsController do
 
       it "does NOT update the list" do 
         expect(List.first.title).not_to eq("Todos")
+      end
+
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
+
+      it "renders the error template" do 
+        expect(response).to render_template 'api/v1/shared/error'
       end
 
       it "returns a fail status" do 
