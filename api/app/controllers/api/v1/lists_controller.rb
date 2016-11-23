@@ -37,10 +37,12 @@ class Api::V1::ListsController < ApplicationController
 
   def index
     @lists = current_user.lists
+    render :index, status: :ok
   end
 
   def show
     @list = current_user.lists.find(params[:id])
+    render :show, status: :ok
   end
 
   private
