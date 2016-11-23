@@ -12,15 +12,17 @@ describe Api::V1::ListsController do
     context "with valid params" do 
       let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
       before do 
-        post :create, params: { list: { title: "Todos", user_id: alice.id } }
+        post :create, params: { title: "Todos", user_id: alice.id }
       end
 
       it "creates a list" do 
         expect(List.count).to eq(1)
       end
+
       it "associates it with the user" do 
         expect(List.first.user.fullname).to eq("Alice Doe")
       end
+
       it "returns a success status" do 
         expect(response).to be_successful
       end
@@ -43,7 +45,36 @@ describe Api::V1::ListsController do
   end
 
   describe "POST update" do 
+    let(:alice) { Fabricate(:user) }
+    let(:list) { Fabricate(:list, user: alice) }
 
+    context "with valid params" do 
+      before do 
+        post :update, params: { id: list.id, title: "Todos" }
+      end
+
+      it "updates the list" do 
+        expect(List.first.title).to eq("Todos")
+      end
+
+      it "returns a success status" do 
+        expect(response).to be_successful
+      end
+    end
+
+    context "with invalid params" do 
+      before do 
+        post :update, params: { id: list.id, title: "" }
+      end
+
+      it "does NOT update the list" do 
+        expect(List.first.title).not_to eq("Todos")
+      end
+
+      it "returns a fail status" do 
+        expect(response).not_to be_successful
+      end
+    end
   end
 
   describe "POST destroy" do 
