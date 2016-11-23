@@ -1,4 +1,6 @@
 class Api::V1::JoinRequestsController < ApplicationController
+  before_action :authenticate_request
+
   def create
     @join_request = JoinRequest.new(request_params)
     if @join_request.save
@@ -18,6 +20,7 @@ class Api::V1::JoinRequestsController < ApplicationController
 
     if @join_request.update_attributes(request_params) && @join_request.approved?
 
+      # TODO: the user should not be updated here. Perhaps instead of join request I should have a membership that requires approval.
       @user = @join_request.user
       @user.update_attributes(organization_id: @join_request.user_id)
 
@@ -33,7 +36,21 @@ class Api::V1::JoinRequestsController < ApplicationController
   end
 
   def index
-
+    # TODO: This seems like a design code smell--consider a membership instead
+    if current_user.admin?
+      @join_requests = current_user.organization.join_requests
+      
+      render json: {
+        message: "Your organizations join requests.",
+        join_requests: @join_requests
+      }, status: :successful
+    else
+      @join_requests = current_user.join_requests
+      render json: {
+        message: "Your join requests.",
+        join_requests: @join_requests
+      }, status: :successful
+    end
   end
 
   private
