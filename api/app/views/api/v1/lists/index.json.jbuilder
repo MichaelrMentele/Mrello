@@ -1,4 +1,4 @@
-json.message "SUCCESS: Lists returned."
+json.message "Lists returned."
 json.status :ok
 
 json.lists do

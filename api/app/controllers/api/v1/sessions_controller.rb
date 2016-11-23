@@ -5,17 +5,11 @@ class Api::V1::SessionsController < ApplicationController
     if @auth.success?
       @user =  User.find_by(email: session_params[:email])
       @token = @auth.result
-      # Refactor to render a jbuilder template
-      render json: {
-        message: "User logged in.", 
-        session_token: @token,
-        # TODO: refactor -> only return safe information
-        user: @user
-      }, status: :created
+      @message = "User login token created."
+      render :create, status: :created
     else
-      render json: {
-        message: "Invalid inputs."
-      }, status: :not_acceptable
+      @message = "Invalid credentials."
+      render :error, status: :not_acceptable
     end
   end
 

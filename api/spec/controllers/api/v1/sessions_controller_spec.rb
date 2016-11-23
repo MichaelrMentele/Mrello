@@ -1,6 +1,11 @@
 require "rails_helper"
 
 describe Api::V1::SessionsController do 
+  before do 
+    request.env["HTTP_ACCEPT"] = "application/json"
+    request.env["CONTENT_TYPE"] = "application/json"
+  end
+
   describe "POST create" do 
 
     context "and user exists" do 
@@ -20,7 +25,13 @@ describe Api::V1::SessionsController do
           expect(assigns(:token)).to be_present
         end
 
-        it "renders the session" 
+        it "sets @message" do 
+          expect(assigns(:message)).to be_present
+        end
+
+        it "renders the session" do
+          expect(response).to render_template 'api/v1/sessions/create'
+        end
       end
 
       context "invalid credentials" do
@@ -37,7 +48,13 @@ describe Api::V1::SessionsController do
           expect(assigns(:token)).not_to be_present
         end
 
-        it "renders an error message"
+        it "sets @message" do 
+          expect(assigns(:message)).to be_present
+        end
+
+        it "renders an error message" do 
+          expect(response).to render_template 'api/v1/sessions/error'
+        end
       end
     end
 
@@ -46,7 +63,13 @@ describe Api::V1::SessionsController do
         post :create, params: { email: "some@email.com", password: "pass" }
       end
 
-      it "renders an error message"
+      it "sets @message" do 
+          expect(assigns(:message)).to be_present
+        end
+
+      it "renders an error message" do 
+        expect(response).to render_template 'api/v1/sessions/error'
+      end
     end
   end
 
