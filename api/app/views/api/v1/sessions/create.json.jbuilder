@@ -1,3 +1,5 @@
 json.message @message
 json.session_token @token
-json.user @user # TODO: refactor -> only return safe information
+json.user do 
+  json.partial! partial: 'api/v1/users/safe_user'
+end

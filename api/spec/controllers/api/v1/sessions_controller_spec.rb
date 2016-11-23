@@ -20,7 +20,7 @@ describe Api::V1::SessionsController do
           expect(assigns(:auth)).to be_present
         end
 
-        it "authenticates successfully" do 
+        it "sets @user and @token" do 
           expect(assigns(:user)).to be_present
           expect(assigns(:token)).to be_present
         end
@@ -31,6 +31,10 @@ describe Api::V1::SessionsController do
 
         it "renders the session" do
           expect(response).to render_template 'api/v1/sessions/create'
+        end
+
+        it "returns a created status" do
+          expect(response).to have_http_status(:created)
         end
       end
 
@@ -52,6 +56,10 @@ describe Api::V1::SessionsController do
           expect(assigns(:message)).to be_present
         end
 
+        it "the status is NOT accetable" do 
+          expect(response).not_to have_http_status(:not_acceptable)
+        end
+
         it "renders an error message" do 
           expect(response).to render_template 'api/v1/sessions/error'
         end
@@ -64,8 +72,12 @@ describe Api::V1::SessionsController do
       end
 
       it "sets @message" do 
-          expect(assigns(:message)).to be_present
-        end
+        expect(assigns(:message)).to be_present
+      end
+
+      it "the status is NOT accetable" do 
+        expect(response).to have_http_status(:not_acceptable)
+      end
 
       it "renders an error message" do 
         expect(response).to render_template 'api/v1/sessions/error'

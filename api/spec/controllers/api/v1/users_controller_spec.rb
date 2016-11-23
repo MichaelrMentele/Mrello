@@ -10,6 +10,7 @@ describe Api::V1::UsersController do
       it "creates an obj" do 
         expect(User.count).to eq(1)
       end
+
       it "returns a success status" do 
         expect(response).to be_successful
       end
@@ -23,6 +24,7 @@ describe Api::V1::UsersController do
       it "does not create an obj" do 
         expect(User.count).to eq(0)
       end
+      
       it "does not return a success status" do 
         expect(response).not_to be_successful
       end
