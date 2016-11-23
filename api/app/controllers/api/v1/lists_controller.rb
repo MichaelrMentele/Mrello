@@ -4,42 +4,33 @@ class Api::V1::ListsController < ApplicationController
   def create
     @list = List.new(list_params.merge!(user_id: current_user.id))
     if @list.save
-      render json: {
-        message: "List created.", 
-        list: @list 
-      }, status: :created
+      @message = "List created."
+      render :create, status: :created
     else
-      render json: { 
-        message: "List not created. Invalid inputs." 
-      }, status: :not_acceptable
+      @message = "List not created. Invalid inputs."
+      render 'api/v1/shared/error', status: :not_acceptable
     end
   end
 
   def update
     @list = List.find(params[:id])
     if @list.update_attributes(list_params)
-      render json: {
-        message: "List created.", 
-        list: @list 
-      }, status: :ok
+      @message = "List updated."
+      render :update, status: :accepted
     else
-      render json: {
-        message: "List not created. Invalid inputs." 
-      }, status: :not_acceptable
-
+      @message = "List not updated. Invalid inputs." 
+      render 'api/v1/shared/error', status: :not_acceptable
     end
   end
 
   def destroy
     if current_user.lists.exists?(params[:id])
       List.destroy(params[:id])
-      render json: {
-        message: "List deleted.",
-      }, status: :accepted
+      @message = "List deleted."
+      render :destroy, status: :accepted
     else
-      render json: {
-        message: "List not found."
-      }, status: :not_acceptable
+      @message = "List not found."
+      render 'api/v1/shared/error', status: :not_acceptable
     end
   end
 

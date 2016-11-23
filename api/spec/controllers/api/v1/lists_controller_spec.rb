@@ -21,18 +21,38 @@ describe Api::V1::ListsController do
         expect(List.count).to eq(1)
       end
 
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
+
+      it "sets @list" do 
+        expect(assigns(:list)).to be_present
+      end
+
+      it "renders the create template" do 
+        expect(response).to render_template 'api/v1/lists/create'
+      end
+
       it "associates it with the user" do 
         expect(List.first.user.fullname).to eq("Alice Doe")
       end
 
-      it "returns a success status" do 
-        expect(response).to be_successful
+      it "returns a create status" do 
+        expect(response).to have_http_status(:created)
       end
     end
 
     context "with invalid params" do 
       before do 
         post :create, params: { list: { user_id: alice.id } }
+      end
+
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
+
+      it "renders the error template" do 
+        expect(response).to render_template 'api/v1/shared/error'
       end
 
       it "does not create a list" do 
