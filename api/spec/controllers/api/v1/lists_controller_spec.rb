@@ -123,21 +123,47 @@ describe Api::V1::ListsController do
     let!(:list_b) { Fabricate(:list, user: bob) }
 
     context "with another users list" do 
-      it "does not destroy another users list" do 
+      before do 
         post :destroy, params: { id: list_b.id }
+      end
+
+      it "does not destroy another users list" do 
         expect(List.count).to eq(2)
+      end
+
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
+
+      it "renders error template" do 
+        expect(response).to render_template 'api/v1/shared/error'
       end
     end
 
-    it "destroys the users own list" do 
-      post :destroy, params: { id: list_a.id }
+    context "valid delete" do 
+      before do 
+        post :destroy, params: { id: list_a.id }
+      end
 
-      expect(List.count).to eq(1)
-    end  
-    it "returns successfully" do 
-      post :destroy, params: { id: list_a.id }
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
 
-      expect(response).to be_successful
+      it "renders delete template" do 
+        expect(response).to render_template 'api/v1/lists/destroy'
+      end
+
+      it "sets @list" do 
+        expect(assigns(:list)).to be_present
+      end
+
+      it "destroys the users own list" do 
+        expect(List.count).to eq(1)
+      end  
+
+      it "returns successfully" do 
+        expect(response).to be_successful
+      end
     end
   end
 

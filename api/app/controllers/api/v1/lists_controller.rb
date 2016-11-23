@@ -25,7 +25,8 @@ class Api::V1::ListsController < ApplicationController
 
   def destroy
     if current_user.lists.exists?(params[:id])
-      List.destroy(params[:id])
+      @list = List.find(params[:id])
+      @list.destroy!
       @message = "List deleted."
       render :destroy, status: :accepted
     else
