@@ -123,9 +123,34 @@ describe Api::V1::OrganizationsController do
   end
 
   describe "GET index" do 
-    it "sets @orgs"
-    it "sets @message"
-    it "renders index"
-    it "responds with accepted status"
+    let!(:alice) { Fabricate(:user, admin: true) }
+    let!(:bob) { Fabricate(:user, admin: true) }
+
+    before do 
+      allow_any_instance_of(ApplicationController).to receive(:authenticate_request)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alice)
+      
+      Fabricate(:organization, admin: alice)
+      Fabricate(:organization, admin: bob)
+
+      get :index
+    end
+
+    it "sets @organizations" do 
+      expect(assigns(:organizations)).to be_present
+      expect(assigns(:organizations).count).to eq(2)
+    end
+
+    it "sets @message" do 
+      expect(assigns(:message)).to be_present
+    end
+
+    it "renders index" do 
+      expect(response).to render_template 'api/v1/organizations/index'
+    end
+
+    it "responds with accepted status" do
+      expect(response).to have_http_status(:ok)
+    end
   end
 end

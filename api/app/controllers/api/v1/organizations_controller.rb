@@ -29,11 +29,9 @@ class Api::V1::OrganizationsController < ApplicationController
   end
 
   def index
-    organizations = Organization.all
-    render json: {
-      organizations: organizations,
-      message: "Organizations retrieved."
-    }, status: :ok
+    @organizations = Organization.all
+    @message = "All organizations retrieved."
+    render :index, status: :ok
   end
 
 end
