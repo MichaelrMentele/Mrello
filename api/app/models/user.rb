@@ -11,4 +11,16 @@ class User < ApplicationRecord
   def admin?
     self.admin
   end
+
+  def not_admin?
+    !self.admin?
+  end
+
+  def has_organization?
+    self.organization
+  end
+
+  def no_organization?
+    !self.has_organization?
+  end
 end
