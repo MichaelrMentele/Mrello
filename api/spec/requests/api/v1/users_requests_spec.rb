@@ -1,45 +1,82 @@
 require 'rails_helper'
 
 describe "Users API" do 
-  describe "POST create response" do
+  describe "POST create JSON response" do
     context "with valid inputs" do 
       before do 
-        post '/api/v1/users', params: { user: { fullname: "Alice Doe", email: "alice@test.com", password: "pass" } }
+        post '/api/v1/users', params: { fullname: "Alice Doe", email: "alice@test.com", password: "pass" }
       end
 
       it "returns a success message" do 
-        json = JSON.parse(response.body)
         expect(json['message']).not_to be_nil
       end
 
       it "returns the serialized user" do 
-        json = JSON.parse(response.body)
         expect(json['user']).not_to be_nil
+        expect(json['user']['fullname']).not_to be_nil
+        expect(json['user']['admin']).not_to be_nil
+      end
+
+      it "does NOT return private user information" do 
+        expect(json['user']['email']).to be_nil
+        expect(json['user']['password']).to be_nil
+        expect(json['user']['password_digest']).to be_nil
       end
     end
 
     context "with invalid inputs" do 
       before do 
-        post '/api/v1/users', params: { user: { fullname: "Alice Doe" } }
+        post '/api/v1/users', params: { fullname: "Alice Doe" }
       end
 
       it "returns an error message" do 
-        json = JSON.parse(response.body)
         expect(json['message']).not_to be_nil
+      end
+
+      it "does NOT return a user" do 
+        expect(json["user"]).not_to be_present
       end
     end
   end
 
-  describe "GET index response" do
-    it "returns a success status" do 
-      expect(response).to be_successful
+  describe "PATCH update JSON response" do 
+    let!(:alice) { Fabricate(:user) }
+    before do 
+      ApplicationController.any_instance.stub(:authenticate_request)
+      ApplicationController.any_instance.stub(:current_user).and_return(alice)
+
+      patch "/api/v1/users/#{alice.id}", params: { fullname: "Alice Doe" }
     end
 
-    it "returns a message" do 
-      expect(response.message).to be_present
+    it "returns a success message" do 
+      expect(json['message']).not_to be_nil
     end
 
-    it "returns the users"
+    it "returns the serialized user" do 
+      expect(json['user']).not_to be_nil
+      expect(json['user']['fullname']).not_to be_nil
+      expect(json['user']['admin']).not_to be_nil
+    end
+
+    it "does NOT return private user information" do 
+      expect(json['user']['email']).to be_nil
+      expect(json['user']['password']).to be_nil
+      expect(json['user']['password_digest']).to be_nil
+    end
+
+    context "with invalid inputs" do 
+      before do 
+        patch "/api/v1/users/#{alice.id}", params: { fullname: "" }
+      end
+
+      it "returns an error message" do 
+        expect(json['message']).not_to be_nil
+      end
+
+      it "does NOT return a user" do 
+        expect(json["user"]).not_to be_present
+      end
+    end
   end
 end
 
