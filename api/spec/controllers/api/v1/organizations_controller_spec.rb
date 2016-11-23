@@ -30,6 +30,14 @@ describe Api::V1::OrganizationsController do
             expect(assigns(:message)).to eq("Organization created.")
           end
 
+          it "associates the org with the current user" do 
+            expect(alice.organization).to eq(Organization.first)
+          end 
+
+          it "sets @user" do 
+            expect(assigns(:user)).to be_present
+          end
+
           it "renders create" do 
             expect(response).to render_template 'api/v1/organizations/create'
           end

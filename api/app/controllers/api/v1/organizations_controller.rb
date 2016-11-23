@@ -6,6 +6,7 @@ class Api::V1::OrganizationsController < ApplicationController
 
     if current_user.admin? and current_user.no_organization? and org.save
 
+      @user = current_user if current_user.update_attributes(organization: org)
       @org = org
       @message = "Organization created."
       render :create, status: :created
