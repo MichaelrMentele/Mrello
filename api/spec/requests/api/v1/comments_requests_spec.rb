@@ -13,11 +13,10 @@ describe "Comments API" do
       end
 
       it "returns a success message" do 
-        json = JSON.parse(response.body)
         expect(json['message']).not_to be_nil
       end
+
       it "returns the serialized comment" do 
-        json = JSON.parse(response.body)
         expect(json['comment']).not_to be_nil
       end
     end
@@ -30,9 +29,9 @@ describe "Comments API" do
       end
 
       it "returns an error message" do 
-        json = JSON.parse(response.body)
         expect(json['message']).not_to be_nil
       end
     end
+    
   end
 end
