@@ -102,7 +102,13 @@ describe Api::V1::ListsController do
   end
 
   describe "GET index" do 
-
+    it "sets @lists" do
+      Fabricate(:list, user: alice)
+      Fabricate(:list, user: alice)
+      
+      get :index
+      expect(assigns(:lists)).to be_present
+    end
   end
 
   describe "GET show" do 
