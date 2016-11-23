@@ -7,22 +7,19 @@ class Api::V1::UsersController < ApplicationController
       @message = "New user created."
       render :create, status: :created
     else
-      render json: {
-        message: "User not created. Invalid inputs."
-      }, status: :not_acceptable
+      @message = "Invalid credentials."
+      render 'api/v1/shared/error', status: :not_acceptable
     end
   end
 
   def update
     if current_user.update_attributes(user_params)
-      render json: {
-        message: "User updated.",
-        user: current_user
-      }, status: :accepted
+      @user = current_user
+      @message = "User updated."
+      render :update, status: :accepted
     else
-      render json: {
-        message: "Error updating."
-      }, status: :not_acceptable
+      @message = "Error: invalid inputs."
+      render 'api/v1/shared/error', status: :not_acceptable
     end
   end
 

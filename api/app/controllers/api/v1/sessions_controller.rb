@@ -9,7 +9,7 @@ class Api::V1::SessionsController < ApplicationController
       render :create, status: :created
     else
       @message = "Invalid credentials."
-      render :error, status: :not_acceptable
+      render 'api/v1/shared/error', status: :not_acceptable
     end
   end
 
