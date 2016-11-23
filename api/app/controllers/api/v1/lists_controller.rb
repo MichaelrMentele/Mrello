@@ -2,7 +2,7 @@ class Api::V1::ListsController < ApplicationController
   before_action :authenticate_request
   
   def create
-    @list = List.new(list_params.merge!(user_id: current_user.id))
+    @list = List.new(list_params.to_h.merge(user_id: current_user.id))
     if @list.save
       @message = "List created."
       render :create, status: :created
