@@ -11,7 +11,7 @@ describe "organizations API" do
 
     context "successful response" do 
       before do 
-        post 'api/v1/organizations', params: { admin: alice, title: "Acme" }
+        post '/api/v1/organizations', params: { admin: alice, title: "Acme" }
       end
 
       it "returns a message" do 
@@ -23,7 +23,7 @@ describe "organizations API" do
       end
 
       it "returns the organization information" do 
-        expect(json['organization']['organization_id']).to be_present
+        expect(json['organization']['title']).to be_present
         expect(json['organization']['admin_id']).to be_present
       end
 
@@ -41,7 +41,13 @@ describe "organizations API" do
     end
 
     context "error response" do 
+      before do 
+        post '/api/v1/organizations', params: { title: "Acme" }
+      end
 
+      it "returns a message" do 
+        expect(json['message']).to be_present
+      end
     end
   end
 end

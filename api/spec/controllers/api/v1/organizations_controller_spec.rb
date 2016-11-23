@@ -22,8 +22,8 @@ describe Api::V1::OrganizationsController do
             post :create, params: { admin: alice, title: "Acme" }
           end
 
-          it "sets @org" do 
-            expect(assigns(:org)).to be_present
+          it "sets @organization" do 
+            expect(assigns(:organization)).to be_present
           end
 
           it "sets @message" do 
