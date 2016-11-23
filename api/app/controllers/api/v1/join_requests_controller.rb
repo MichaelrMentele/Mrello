@@ -2,7 +2,7 @@ class Api::V1::JoinRequestsController < ApplicationController
   before_action :authenticate_request
 
   def create
-    @join_request = JoinRequest.new(request_params)
+    @join_request = JoinRequest.new(request_params.to_h.merge(user_id: current_user.id))
     if @join_request.save
       render json: {
         join_request: @join_request,

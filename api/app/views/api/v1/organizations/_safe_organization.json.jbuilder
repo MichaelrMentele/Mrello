@@ -1,1 +1,1 @@
-json.extract! organization, :admin_id, :title
+json.extract! organization, :id, :admin_id, :title
