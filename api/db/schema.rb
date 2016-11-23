@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122221316) do
+ActiveRecord::Schema.define(version: 20161123030339) do
 
   create_table "cards", force: :cascade do |t|
     t.integer  "list_id"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20161122221316) do
   create_table "join_requests", force: :cascade do |t|
     t.integer  "organization_id"
     t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "approved",        default: false
   end
 
   create_table "lists", force: :cascade do |t|
