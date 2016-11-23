@@ -59,8 +59,8 @@ describe Api::V1::UsersController do
   describe "PATCH update" do 
     let!(:alice) { Fabricate(:user) }
     before do 
-      ApplicationController.any_instance.stub(:authenticate_request)
-      ApplicationController.any_instance.stub(:current_user).and_return(alice)
+      allow_any_instance_of(ApplicationController).to receive(:authenticate_request)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alice)
     end
 
     context "with valid params" do 

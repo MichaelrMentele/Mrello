@@ -42,8 +42,8 @@ describe "Users API" do
   describe "PATCH update JSON response" do 
     let!(:alice) { Fabricate(:user) }
     before do 
-      ApplicationController.any_instance.stub(:authenticate_request)
-      ApplicationController.any_instance.stub(:current_user).and_return(alice)
+      allow_any_instance_of(ApplicationController).to receive(:authenticate_request)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alice)
 
       patch "/api/v1/users/#{alice.id}", params: { fullname: "Alice Doe" }
     end

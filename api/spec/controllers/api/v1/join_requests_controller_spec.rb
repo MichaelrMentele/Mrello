@@ -5,8 +5,8 @@ describe Api::V1::JoinRequestsController do
     request.env["HTTP_ACCEPT"] = "application/json"
     request.env["CONTENT_TYPE"] = "application/json"
 
-    ApplicationController.any_instance.stub(:authenticate_request)
-    ApplicationController.any_instance.stub(:current_user).and_return(alice)
+    allow_any_instance_of(ApplicationController).to receive(:authenticate_request)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alice)
   end
 
   describe "POST update" do

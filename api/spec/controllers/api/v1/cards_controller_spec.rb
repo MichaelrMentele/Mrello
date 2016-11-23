@@ -2,10 +2,11 @@ require 'rails_helper'
 
 describe Api::V1::CardsController do 
   before do 
-    ApplicationController.any_instance.stub(:authenticate_request)
-    ApplicationController.any_instance.stub(:current_user).and_return(alice)
     request.env["HTTP_ACCEPT"] = "application/json"
     request.env["CONTENT_TYPE"] = "application/json"
+
+    allow_any_instance_of(ApplicationController).to receive(:authenticate_request)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alice)
   end
 
   describe 'GET index' do
