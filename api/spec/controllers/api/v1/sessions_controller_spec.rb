@@ -57,11 +57,11 @@ describe Api::V1::SessionsController do
         end
 
         it "the status is NOT accetable" do 
-          expect(response).not_to have_http_status(:not_acceptable)
+          expect(response).to have_http_status(:not_acceptable)
         end
 
         it "renders an error message" do 
-          expect(response).to render_template 'api/v1/sessions/error'
+          expect(response).to render_template 'api/v1/shared/error'
         end
       end
     end
@@ -80,7 +80,7 @@ describe Api::V1::SessionsController do
       end
 
       it "renders an error message" do 
-        expect(response).to render_template 'api/v1/sessions/error'
+        expect(response).to render_template 'api/v1/shared/error'
       end
     end
   end
