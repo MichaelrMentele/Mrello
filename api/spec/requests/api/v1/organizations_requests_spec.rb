@@ -1,14 +1,15 @@
 require 'rails_helper'
 
 describe "organizations API" do 
+  let!(:alice) { Fabricate(:user, admin: true) }
+
+  before do 
+    allow_any_instance_of(ApplicationController).to receive(:authenticate_request)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alice)
+  end
+
   describe "POST create JSON response" do 
-    let!(:alice) { Fabricate(:user, admin: true) }
-
-    before do 
-      allow_any_instance_of(ApplicationController).to receive(:authenticate_request)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alice)
-    end
-
+    
     context "successful response" do 
       before do 
         post '/api/v1/organizations', params: { admin: alice, title: "Acme" }
@@ -48,6 +49,21 @@ describe "organizations API" do
       it "returns a message" do 
         expect(json['message']).to be_present
       end
+    end
+  end
+
+  describe "GET index JSON response" do 
+    before do 
+      Fabricate(:organization, admin: alice)
+      get '/api/v1/organizations'
+    end
+
+    it "returns a message" do 
+      expect(json['message']).to be_present
+    end
+
+    it "returns organizations" do 
+      expect(json['organizations']).to be_present
     end
   end
 end
