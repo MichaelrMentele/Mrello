@@ -1,28 +1,17 @@
 require 'rails_helper'
 
 describe Api::V1::ListsController do 
-
-  describe "GET show" do 
-    let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
-    let(:todo_list) { Fabricate(:list, user: alice) }
-    before do 
-      # Replace with Stubs 
-      request.env["HTTP_ACCEPT"] = "application/json"
-      request.env["CONTENT_TYPE"] = "application/json"
-      get :show, params: { id: todo_list.id }
-    end
-
-    it "sets @list" do 
-      expect(assigns(:list)).to be_present
-    end 
-    
+  before do 
+    request.env["HTTP_ACCEPT"] = "application/json"
+    request.env["CONTENT_TYPE"] = "application/json"
+    ApplicationController.any_instance.stub(:authenticate_request)
+    ApplicationController.any_instance.stub(:current_user).and_return(alice)
   end
 
   describe "POST create" do 
     context "with valid params" do 
       let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
       before do 
-        set_current_user(alice)
         post :create, params: { list: { title: "Todos", user_id: alice.id } }
       end
 
@@ -40,7 +29,6 @@ describe Api::V1::ListsController do
     context "with invalid params" do 
       let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
       before do 
-        set_current_user(alice)
         post :create, params: { list: { user_id: alice.id } }
       end
 
@@ -52,5 +40,29 @@ describe Api::V1::ListsController do
         expect(response).not_to be_successful
       end
     end
+  end
+
+  describe "POST update" do 
+
+  end
+
+  describe "POST destroy" do 
+
+  end
+
+  describe "GET index" do 
+
+  end
+
+  describe "GET show" do 
+    let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
+    let(:todo_list) { Fabricate(:list, user: alice) }
+    before do 
+      get :show, params: { id: todo_list.id }
+    end
+
+    it "sets @list" do 
+      expect(assigns(:list)).to be_present
+    end 
   end
 end
