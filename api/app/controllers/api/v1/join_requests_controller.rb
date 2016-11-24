@@ -36,6 +36,7 @@ class Api::V1::JoinRequestsController < ApplicationController
   end
 
   def index
+    binding.pry
     # TODO: This seems like a design code smell--consider a membership instead
     if current_user.admin?
       @join_requests = current_user.organization.join_requests

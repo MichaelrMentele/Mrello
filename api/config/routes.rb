@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :sessions, only: [:create] 
 
-      resources :organizations, only: [:index, :create]
+      resources :organizations, only: [:index, :create, :show]
       resources :join_requests, only: [:index, :create, :update, :destroy]
 
       resources :users, only: [:create, :update]
