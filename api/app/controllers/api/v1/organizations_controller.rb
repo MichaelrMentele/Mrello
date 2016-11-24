@@ -35,4 +35,10 @@ class Api::V1::OrganizationsController < ApplicationController
     render :index, status: :ok
   end
 
+  def show
+    @organization = Organization.find(params[:id])
+    @message = "Organization retrieved"
+    render :show, status: :ok
+  end
+
 end

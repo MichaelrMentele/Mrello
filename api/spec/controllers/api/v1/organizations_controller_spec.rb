@@ -161,4 +161,10 @@ describe Api::V1::OrganizationsController do
       expect(response).to have_http_status(:ok)
     end
   end
+
+  describe "GET show" do 
+    it "sets @message"
+    it "sets @organization"
+    it "renders show"
+  end
 end

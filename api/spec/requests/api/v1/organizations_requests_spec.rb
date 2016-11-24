@@ -66,4 +66,8 @@ describe "organizations API" do
       expect(json['organizations']).to be_present
     end
   end
+
+  describe "GET show JSON response" do 
+    it "isn't tested yet"
+  end
 end
