@@ -14553,3 +14553,7 @@ Processing by Api::V1::CardsController#index as JSON
 Completed 200 OK in 22ms (Views: 14.0ms | ActiveRecord: 1.0ms)
 
 
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  [1m[36mOrganization Load (0.7ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" ORDER BY "organizations"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]

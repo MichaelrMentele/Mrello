@@ -116,4 +116,8 @@ describe Api::V1::UsersController do
       end
     end
   end
+
+  describe "GET show" do
+    it "isn't tested"
+  end
 end

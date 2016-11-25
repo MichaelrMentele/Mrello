@@ -23,6 +23,12 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+    @message = "Return current user."
+    render :show, status: :ok
+  end
+
   private
 
   def user_params

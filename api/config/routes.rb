@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :organizations, only: [:index, :create, :show]
       resources :join_requests, only: [:index, :create, :update, :destroy]
 
-      resources :users, only: [:create, :update]
+      resources :users, only: [:create, :update, :show]
       resources :lists, except: [:edit, :new]
       resources :cards, except: [:edit, :new]
       # TODO: resources :comments, only: [:create]
