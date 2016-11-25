@@ -36,22 +36,16 @@ class Api::V1::JoinRequestsController < ApplicationController
   end
 
   def index
-    binding.pry
-    # TODO: This seems like a design code smell--consider a membership instead
-    if current_user.admin?
-      @join_requests = current_user.organization.join_requests
-      
-      render json: {
-        message: "Your organizations join requests.",
-        join_requests: @join_requests
-      }, status: :successful
+    if params[:organization_id]
+      @organization = Organization.find(params[:organization_id])
+      @message = "Rendering organizations join requests."
+      @join_requests = @organization.join_requests
     else
-      @join_requests = current_user.join_requests
-      render json: {
-        message: "Your join requests.",
-        join_requests: @join_requests
-      }, status: :successful
+      @message = "Rendering all join requests."
+      @join_requests = JoinRequest.all
     end
+
+    render :index, status: :ok
   end
 
   private
