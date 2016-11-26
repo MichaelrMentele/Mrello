@@ -22,6 +22,7 @@ describe "Lists API" do
       expect(json['cards']).not_to be_nil
     end
   end
+  
   describe "creating a list" do 
     let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
 

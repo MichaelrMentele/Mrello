@@ -1,2 +1,5 @@
 json.message @message
-json.partial! @membership,
+
+json.membership do 
+  json.partial! 'api/v1/memberships/membership', membership: @membership
+end
