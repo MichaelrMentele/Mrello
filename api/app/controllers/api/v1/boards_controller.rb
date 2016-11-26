@@ -2,7 +2,7 @@ class Api::V1::BoardsController < ApplicationController
   before_action :authenticate_request
 
   def create
-    @board = Board.new(board_params.to_h.merge(user_id: current_user.id))
+    @board = Board.new(board_params.to_h.merge(admin_id: current_user.id))
     if @board.save
       @message = "Board created."
       render :create, status: :created
@@ -21,6 +21,6 @@ class Api::V1::BoardsController < ApplicationController
 
   def board_params
     # TODO: whitelist
-    params.permit!
+    params.permit(:admin_id)
   end
 end
