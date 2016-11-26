@@ -13,7 +13,6 @@ class Api::V1::BoardsController < ApplicationController
   end
 
   def show
-    
     if current_user.boards.exists?(params[:id])
       @board = current_user.boards.find(params[:id])
       @message = "Board retrieved."
