@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126193602) do
+ActiveRecord::Schema.define(version: 20161126203959) do
 
   create_table "boards", force: :cascade do |t|
     t.integer  "owner_id"
@@ -32,19 +32,19 @@ ActiveRecord::Schema.define(version: 20161126193602) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "join_requests", force: :cascade do |t|
-    t.integer  "organization_id"
-    t.integer  "user_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "approved",        default: false
-  end
-
   create_table "lists", force: :cascade do |t|
     t.string   "title"
     t.integer  "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "organization_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "approved",        default: false
   end
 
   create_table "organizations", force: :cascade do |t|

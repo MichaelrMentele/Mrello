@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :sessions, only: [:create] 
 
       resources :organizations, only: [:index, :create, :show]
-      resources :join_requests, only: [:index, :create, :update, :destroy]
+      resources :memberships, only: [:index, :create, :update, :destroy]
 
       resources :users, only: [:create, :update, :show]
       resources :boards, only: [:create, :show]

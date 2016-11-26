@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Api::V1::JoinRequestsController do
+describe Api::V1::MembershipsController do
   before do 
     request.env["HTTP_ACCEPT"] = "application/json"
     request.env["CONTENT_TYPE"] = "application/json"
@@ -15,10 +15,10 @@ describe Api::V1::JoinRequestsController do
     let!(:alpha) { Fabricate(:organization, admin: alice) }
 
     context "approved join request" do 
-      let!(:join_request) { Fabricate(:join_request, user: alice, organization: alpha) }
+      let!(:membership) { Fabricate(:membership, user: alice, organization: alpha) }
 
       before do
-        post :update, params: { id: join_request.id, approved: true }
+        post :update, params: { id: membership.id, approved: true }
       end
 
       it "associates the user with the organization" do
@@ -26,11 +26,11 @@ describe Api::V1::JoinRequestsController do
       end
 
       it "updated the join request" do 
-        expect(JoinRequest.first.approved).to eq(true)
+        expect(Membership.first.approved).to eq(true)
       end
 
-      it "sets @join_request" do 
-        expect(assigns(:join_request)).to be_present
+      it "sets @membership" do 
+        expect(assigns(:membership)).to be_present
       end
     end
   end
@@ -46,11 +46,11 @@ describe Api::V1::JoinRequestsController do
       end
 
       it "creates a join request" do 
-        expect(JoinRequest.count).to eq(1)
+        expect(Membership.count).to eq(1)
       end
 
       it "sets @request" do 
-        expect(assigns(:join_request)).to be_present
+        expect(assigns(:membership)).to be_present
       end
     end
 
@@ -60,7 +60,7 @@ describe Api::V1::JoinRequestsController do
       end
 
       it "does NOT create a join request" do 
-        expect(JoinRequest.count).to eq(0)
+        expect(Membership.count).to eq(0)
       end
     end
   end
@@ -73,36 +73,36 @@ describe Api::V1::JoinRequestsController do
     let!(:alpha)    { Fabricate(:organization, admin: alice) }
 
     before do 
-      Fabricate(:join_request, user: bob, organization: alpha)
-      Fabricate(:join_request, user: charlie, organization: alpha)
+      Fabricate(:membership, user: bob, organization: alpha)
+      Fabricate(:membership, user: charlie, organization: alpha)
     end
 
-    context "current user is admin" do
+    context "retrieving current users memberships" do
       before do 
         get :index 
       end
 
-      it "sets @join_requests" do 
-        expect(assigns(:join_requests)).to be_present
+      it "sets @memberships" do 
+        expect(assigns(:memberships)).to be_present
       end 
 
-      it "retrieves the current admin's organizations join requests" do 
-        expect(assigns(:join_requests).count).to eq(2)
+      it "retrieves the current admin's organizations memberships" do 
+        expect(assigns(:memberships).count).to eq(2)
       end
     end
 
-    context "current user is NOT an admin" do 
+    context "retrieving organizations memberships" do 
       before do 
         ApplicationController.any_instance.stub(:current_user).and_return(bob)
-        get :index
+        get :index, params: { organization_id: alpha.id }
       end
 
-      it "sets @join_requests" do 
-        expect(assigns(:join_requests)).to be_present
+      it "sets @memberships" do 
+        expect(assigns(:memberships)).to be_present
       end
 
-      it "retrieves the current users requests" do 
-        expect(assigns(:join_requests).count).to eq(1)
+      it "retrieves the organizations memberships" do 
+        expect(assigns(:memberships).count).to eq(2)
       end
     end
   end

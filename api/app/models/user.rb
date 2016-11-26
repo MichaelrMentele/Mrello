@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
 
   has_many :boards, foreign_key: :owner_id
-  has_many :join_requests
+  has_many :memberships
 
   belongs_to :organization, optional: true
 
