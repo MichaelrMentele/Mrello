@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :join_requests, only: [:index, :create, :update, :destroy]
 
       resources :users, only: [:create, :update, :show]
-      resources :boards, only: [:create]
+      resources :boards, only: [:create, :show]
       resources :lists, except: [:edit, :new]
       resources :cards, except: [:edit, :new]
       # TODO: resources :comments, only: [:create]

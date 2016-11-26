@@ -12,9 +12,9 @@ describe Api::V1::BoardsController do
   end
 
   describe "POST create" do 
-    context "Valid params" do 
+    context "User doesn't have a board" do 
       before do 
-        post :create, params: { admin: alice }
+        post :create, params: { owner: alice }
       end
 
       it "creates a board" do 
@@ -22,7 +22,7 @@ describe Api::V1::BoardsController do
       end
 
       it "associates the board with a user" do 
-        expect(alice.board).to be_present
+        expect(alice.boards.count).to eq(1)
       end
 
       it "sets @message" do 
@@ -38,13 +38,78 @@ describe Api::V1::BoardsController do
       end
     end
 
-    context "Invalid params" do 
-      it "does not create a board"
-      it "sets @message"
-      it "renders an error response"
+    context "User already owns a board." do 
+      before do 
+        Fabricate(:board, owner: alice)
+        post :create, params: { }
+      end
+
+      it "creates a board" do 
+        expect(Board.count).to eq(2)
+      end
+
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
+
+      it "renders create response" do 
+        expect(response).to render_template 'api/v1/boards/create'
+      end
     end
   end
 
-  describe "GET show"
-  describe "GET index"
+  describe "GET show" do 
+    context "if the board is the current users" do
+      let!(:board) { Fabricate(:board, owner: alice) }
+      before do 
+        post :show, params: { id: board.id }
+      end
+
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
+
+      it "sets @board" do 
+        expect(assigns(:board)).to be_present
+      end
+
+      it "renders show response" do 
+        expect(response).to render_template 'api/v1/boards/show'
+      end
+    end
+
+    context "if the board is NOT the current users" do 
+      let!(:bob) { Fabricate(:user) }
+      let!(:board) { Fabricate(:board, owner: bob) }
+      before do 
+        get :show, params: { id: board.id }
+      end
+
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
+
+      it "renders error response" do 
+        expect(response).to render_template 'api/v1/shared/error'
+      end
+    end
+  end
+
+  describe "GET index" do 
+    it "sets @message" do 
+
+    end
+
+    it "only shows boards for the current user" do 
+
+    end
+
+    it "sets @boards" do 
+
+    end
+
+    it "renders index response" do 
+
+    end
+  end
 end

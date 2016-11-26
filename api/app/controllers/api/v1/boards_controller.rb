@@ -2,7 +2,7 @@ class Api::V1::BoardsController < ApplicationController
   before_action :authenticate_request
 
   def create
-    @board = Board.new(board_params.to_h.merge(admin_id: current_user.id))
+    @board = Board.new(board_params.to_h.merge(owner_id: current_user.id))
     if @board.save
       @message = "Board created."
       render :create, status: :created
@@ -13,14 +13,20 @@ class Api::V1::BoardsController < ApplicationController
   end
 
   def show
-    @list = current_user.lists.find(params[:id])
-    render :show, status: :ok
+    
+    if current_user.boards.exists?(params[:id])
+      @board = current_user.boards.find(params[:id])
+      @message = "Board retrieved."
+      render :show, status: :ok
+    else
+      @message = "You do not have access to that board."
+      render 'api/v1/shared/error', status: :unauthorized
+    end
   end
 
   private
 
   def board_params
-    # TODO: whitelist
-    params.permit(:admin_id)
+    params.permit(:owner_id)
   end
 end
