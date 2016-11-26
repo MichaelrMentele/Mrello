@@ -32,7 +32,7 @@ describe Api::V1::MembershipsController do
       end
 
       it "renders created template" do 
-        expect(response).to render_template 'api/v1/memberships/create'
+        expect(response).to render_template :create
       end
 
       it "responds with created status" do 
@@ -117,6 +117,7 @@ describe Api::V1::MembershipsController do
     let!(:acme)    { Fabricate(:organization) }
 
     before do 
+      Fabricate(:membership, user: alice, organization: acme)
       Fabricate(:membership, user: bob, organization: acme)
       Fabricate(:membership, user: charlie, organization: acme)
     end
@@ -130,11 +131,13 @@ describe Api::V1::MembershipsController do
         expect(assigns(:memberships)).to be_present
       end 
 
-      it "retrieves the current admin's organizations memberships" do 
-        expect(assigns(:memberships).count).to eq(2)
+      it "retrieves the current users memberships" do 
+        expect(assigns(:memberships).count).to eq(1)
       end
 
-      it "renders the index template"
+      it "renders the index template" do 
+        expect(response).to render_template :index
+      end
 
       it "responds with successful status" do 
         expect(response).to have_http_status(:ok)
@@ -143,7 +146,6 @@ describe Api::V1::MembershipsController do
 
     context "retrieving organizations memberships" do 
       before do 
-        ApplicationController.any_instance.stub(:current_user).and_return(bob)
         get :index, params: { organization_id: acme.id }
       end
 
@@ -152,10 +154,12 @@ describe Api::V1::MembershipsController do
       end
 
       it "retrieves the organizations memberships" do 
-        expect(assigns(:memberships).count).to eq(2)
+        expect(assigns(:memberships).count).to eq(3)
       end
 
-      it "renders the index template"
+      it "renders the index template" do 
+        expect(response).to render_template :index
+      end
 
       it "responds with successful status" do 
         expect(response).to have_http_status(:ok)
