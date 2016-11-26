@@ -1,7 +1,7 @@
 class Board < ApplicationRecord
-  validates_presence_of :owner_id
+  validates_presence_of :ownership_id
 
   has_many :lists
 
-  belongs_to :owner, class_name: "User", foreign_key: :owner_id
+  belongs_to :ownership
 end
