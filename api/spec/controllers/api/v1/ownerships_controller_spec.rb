@@ -32,6 +32,10 @@ describe Api::V1::OwnershipsController do
           expect(assigns(:message)).to be_present
         end
 
+        it "responds with created status" do 
+          expect(response).to have_http_status(:created)
+        end
+
         it "renders create response" do 
           expect(response).to render_template 'api/v1/ownerships/create'
         end
@@ -54,6 +58,10 @@ describe Api::V1::OwnershipsController do
           expect(assigns(:message)).to be_present
         end
 
+        it "responds with created status" do 
+          expect(response).to have_http_status(:created)
+        end
+
         it "renders create response" do 
           expect(response).to render_template 'api/v1/ownerships/create'
         end
@@ -71,6 +79,10 @@ describe Api::V1::OwnershipsController do
 
       it "sets @message" do 
         expect(assigns(:message)).to be_present
+      end
+
+      it "responds with not successful status" do 
+        expect(response).to have_http_status(:not_acceptable)
       end
 
       it "renders an error" do 
