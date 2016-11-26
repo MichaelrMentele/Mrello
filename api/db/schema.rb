@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126203959) do
+ActiveRecord::Schema.define(version: 20161126224628) do
 
   create_table "boards", force: :cascade do |t|
-    t.integer  "owner_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "ownership_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "cards", force: :cascade do |t|
@@ -48,20 +48,24 @@ ActiveRecord::Schema.define(version: 20161126203959) do
   end
 
   create_table "organizations", force: :cascade do |t|
-    t.integer  "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "title"
   end
 
+  create_table "ownerships", force: :cascade do |t|
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "fullname"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "admin",           default: false
-    t.integer  "organization_id"
   end
 
 end

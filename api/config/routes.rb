@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :sessions, only: [:create] 
 
+      resources :ownerships, only: [:create]
       resources :organizations, only: [:index, :create, :show]
       resources :memberships, only: [:index, :create, :update, :destroy]
 
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
       resources :boards, only: [:create, :show]
       resources :lists, except: [:edit, :new]
       resources :cards, except: [:edit, :new]
-      # TODO: resources :comments, only: [:create]
     end
   end
 end

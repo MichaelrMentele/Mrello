@@ -1,7 +1,7 @@
 class Organization < ApplicationRecord
-  validates_presence_of :admin_id, :title
+  validates_presence_of :title
 
-  belongs_to :admin, class_name: "User", foreign_key: :admin_id
-  has_many :users # alias as requester?
   has_many :memberships
+  has_many :ownerships, as: :owner
+  has_many :boards, through: :ownerships
 end

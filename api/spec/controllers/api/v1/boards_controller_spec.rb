@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Api::V1::BoardsController do 
-  let!(:alice) { Fabricate(:user, fullname: "Alice Doe") }
+  let!(:alice) { Fabricate(:user) }
 
   before do 
     request.env["HTTP_ACCEPT"] = "application/json"

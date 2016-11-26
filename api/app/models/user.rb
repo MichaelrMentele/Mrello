@@ -2,10 +2,12 @@ class User < ApplicationRecord
   validates_presence_of :fullname, :email
   validates_uniqueness_of :email
 
-  has_many :boards, foreign_key: :owner_id
   has_many :memberships
+  has_many :organizations, through: :memberships
 
-  belongs_to :organization, optional: true
+  has_many :ownerships, as: :owner
+
+  has_many :boards, through: :ownerships
 
   has_secure_password
 
