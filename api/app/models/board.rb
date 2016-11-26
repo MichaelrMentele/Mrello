@@ -3,5 +3,4 @@ class Board < ApplicationRecord
 
   has_many :lists
   belongs_to :admin, class_name: "User", foreign_key: :admin_id
-  belongs_to :ownable, polymorphic: true
 end

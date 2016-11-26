@@ -3,8 +3,6 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
 
   has_one :board
-  has_many :shared_boards, class_name: "Relationship", foreign_key: :followable_id, as: :followable
-
   belongs_to :organization, optional: true
   has_many :join_requests
 
