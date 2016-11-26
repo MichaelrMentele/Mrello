@@ -1,1 +1,1 @@
-json.extract! join_request, :user_id, :organization_id
+json.extract! join_request, :id, :user_id, :organization_id

@@ -16,6 +16,7 @@ class Api::V1::JoinRequestsController < ApplicationController
   end
 
   def update
+    binding.pry
     @join_request = JoinRequest.find(params[:id])
 
     if @join_request.update_attributes(request_params) && @join_request.approved?

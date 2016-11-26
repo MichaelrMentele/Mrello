@@ -14557,3 +14557,82 @@ Completed 200 OK in 22ms (Views: 14.0ms | ActiveRecord: 1.0ms)
   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
   [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
   [1m[36mOrganization Load (0.7ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" ORDER BY "organizations"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mOrganization Load (0.4ms)[0m  [1m[34mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mJoinRequest Load (0.4ms)[0m  [1m[34mSELECT "join_requests".* FROM "join_requests" WHERE "join_requests"."organization_id" = ?[0m  [["organization_id", 4]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[35m (85.3ms)[0m  [1m[35mCREATE TABLE "cards" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "list_id" integer, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (80.7ms)[0m  [1m[35mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "payload" varchar, "card_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (107.5ms)[0m  [1m[35mCREATE TABLE "join_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "organization_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "approved" boolean DEFAULT 'f')[0m
+  [1m[35m (108.3ms)[0m  [1m[35mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (202.6ms)[0m  [1m[35mCREATE TABLE "organizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "admin_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "title" varchar)[0m
+  [1m[35m (127.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fullname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar, "password_digest" varchar, "admin" boolean DEFAULT 'f', "organization_id" integer)[0m
+  [1m[35m (134.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (105.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20161123030339')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (75.3ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20161109185312'), ('20161107193402'), ('20161120223122'), ('20161122221316'), ('20161120232221'), ('20161120222240'), ('20161107193810'), ('20161121205427'), ('20161120222810'), ('20161107191645'), ('20161109195242');
+
+[0m
+  [1m[35m (98.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-11-26 00:58:13 UTC], ["updated_at", 2016-11-26 00:58:13 UTC]]
+  [1m[35m (78.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (74.7ms)[0m  [1m[35mCREATE TABLE "cards" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "list_id" integer, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (107.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "payload" varchar, "card_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (87.3ms)[0m  [1m[35mCREATE TABLE "join_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "organization_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "approved" boolean DEFAULT 'f')[0m
+  [1m[35m (86.5ms)[0m  [1m[35mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (99.7ms)[0m  [1m[35mCREATE TABLE "organizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "admin_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "title" varchar)[0m
+  [1m[35m (108.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fullname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar, "password_digest" varchar, "admin" boolean DEFAULT 'f', "organization_id" integer)[0m
+  [1m[35m (112.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (82.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20161123030339')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (108.7ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20161109185312'), ('20161107193402'), ('20161120223122'), ('20161122221316'), ('20161120232221'), ('20161120222240'), ('20161107193810'), ('20161121205427'), ('20161120222810'), ('20161107191645'), ('20161109195242');
+
+[0m
+  [1m[35m (103.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-11-26 00:58:14 UTC], ["updated_at", 2016-11-26 00:58:14 UTC]]
+  [1m[35m (84.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mJoinRequest Load (3.4ms)[0m  [1m[34mSELECT "join_requests".* FROM "join_requests"[0m
+  [1m[36mOrganization Load (0.6ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mJoinRequest Load (0.3ms)[0m  [1m[34mSELECT "join_requests".* FROM "join_requests"[0m
+  [1m[36mJoinRequest Load (0.3ms)[0m  [1m[34mSELECT "join_requests".* FROM "join_requests"[0m
+  [1m[36mJoinRequest Load (0.6ms)[0m  [1m[34mSELECT  "join_requests".* FROM "join_requests" ORDER BY "join_requests"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "join_requests" WHERE "join_requests"."id" = ?[0m  [["id", 2]]
+  [1m[35m (99.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mJoinRequest Load (0.3ms)[0m  [1m[34mSELECT  "join_requests".* FROM "join_requests" ORDER BY "join_requests"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "join_requests" WHERE "join_requests"."id" = ?[0m  [["id", 1]]
+  [1m[35m (78.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mJoinRequest Load (0.2ms)[0m  [1m[34mSELECT "join_requests".* FROM "join_requests"[0m
+  [1m[36mJoinRequest Load (0.2ms)[0m  [1m[34mSELECT "join_requests".* FROM "join_requests"[0m
+  [1m[36mJoinRequest Load (0.2ms)[0m  [1m[34mSELECT "join_requests".* FROM "join_requests"[0m
+  [1m[36mJoinRequest Load (0.2ms)[0m  [1m[34mSELECT  "join_requests".* FROM "join_requests" ORDER BY "join_requests"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "join_requests" WHERE "join_requests"."id" = ?[0m  [["id", 4]]
+  [1m[35m (66.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m

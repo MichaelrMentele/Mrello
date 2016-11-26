@@ -2,7 +2,9 @@ class User < ApplicationRecord
   validates_presence_of :fullname, :email
   validates_uniqueness_of :email
 
-  has_many :lists
+  has_one :board
+  has_many :shared_boards, class_name: "Relationship", foreign_key: :followable_id, as: :followable
+
   belongs_to :organization, optional: true
   has_many :join_requests
 
