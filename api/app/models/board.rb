@@ -1,7 +1,7 @@
 class Board < ApplicationRecord
-  validates_presence_of :ownership_id
+  validates_presence_of :owner_id, :owner_type
 
   has_many :lists
 
-  belongs_to :ownership
+  belongs_to :owner, polymorphic: true
 end

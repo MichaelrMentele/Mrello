@@ -24,7 +24,6 @@ describe "sessions API" do
 
       it "returns safe user info" do 
         expect(json["user"]["fullname"]).to be_present
-        expect(json["user"]).to have_key('admin')
       end
 
       it "it does not return UNsafe user info" do 

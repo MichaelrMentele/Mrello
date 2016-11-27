@@ -18,14 +18,6 @@ describe Api::V1::BoardsController do
           post :create, params: { }
         end
 
-        it "creates an ownership" do 
-          expect(Ownership.count).to eq(1)
-        end
-
-        it "associates the ownership with an the current_user" do 
-          expect(Ownership.first.owner).to eq(alice)
-        end 
-
         it "creates a board" do 
           expect(Board.count).to eq(1)
         end
@@ -74,14 +66,6 @@ describe Api::V1::BoardsController do
           post :create, params: { }
         end
 
-        it "creates an ownership" do 
-          expect(Ownership.count).to eq(1)
-        end
-
-        it "associates the ownership with an the current_user" do 
-          expect(Ownership.first.owner).to eq(alice)
-        end 
-
         it "creates a board" do 
           expect(Board.count).to eq(1)
         end
@@ -126,8 +110,7 @@ describe Api::V1::BoardsController do
 
   describe "GET show" do 
     context "if the board is the current users" do
-      let!(:alice_ownership) { Fabricate(:ownership, owner: alice) }
-      let!(:board) { Fabricate(:board, ownership: alice_ownership) }
+      let!(:board) { Fabricate(:board, owner: alice) }
       before do 
         post :show, params: { id: board.id }
       end
@@ -147,7 +130,7 @@ describe Api::V1::BoardsController do
 
     context "if the board is NOT the current users" do 
       let!(:bob) { Fabricate(:user) }
-      let!(:board) { Fabricate(:board, ownership: bob) }
+      let!(:board) { Fabricate(:board, owner: bob) }
       before do 
         get :show, params: { id: board.id }
       end

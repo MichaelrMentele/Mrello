@@ -11,8 +11,9 @@ describe Api::V1::CardsController do
 
   describe 'GET index' do
     let!(:alice) { Fabricate(:user) }
-    let!(:lista) { Fabricate(:list, user_id: alice.id) }
-    let!(:listb) { Fabricate(:list, user_id: alice.id) }
+    let!(:alice_board) { Fabricate(:board, owner: alice) }
+    let!(:alice_list_a) { Fabricate(:list, board: alice_board) }
+    let!(:alice_list_b) { Fabricate(:list, board: alice_board) }
 
     before do 
       Fabricate(:card, list: lista)

@@ -2,8 +2,7 @@ require 'rails_helper'
 
 describe "Lists API" do 
   let!(:alice) { Fabricate(:user) }
-  let!(:alice_ownership) { Fabricate(:ownership, owner: alice) }
-  let!(:alice_board) { Fabricate(:board, ownership: alice_ownership) }
+  let!(:alice_board) { Fabricate(:board, owner: alice) }
 
   before do 
     allow_any_instance_of(ApplicationController).to receive(:authenticate_request)
@@ -117,8 +116,7 @@ describe "Lists API" do
     context "current users organization's lists" do 
       let!(:acme) { Fabricate(:organization) }
       let!(:acme_membership) { Fabricate(:membership, user: alice, organization: acme) }
-      let!(:acme_ownership) { Fabricate(:ownership, owner: acme) }
-      let!(:acme_board) { Fabricate(:board, ownership: acme_ownership)}
+      let!(:acme_board) { Fabricate(:board, owner: acme) }
 
       before do 
         Fabricate(:list, board: acme_board)

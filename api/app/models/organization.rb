@@ -4,9 +4,11 @@ class Organization < ApplicationRecord
   has_many :memberships
   has_many :users, through: :memberships
 
-  has_many :ownerships, as: :owner
-
-  has_many :boards, through: :ownerships
+  has_many :boards, as: :owner
   has_many :lists, through: :boards
   has_many :cards, through: :lists
+
+  def member?(user)
+    self.users.exists?(user.id)
+  end
 end

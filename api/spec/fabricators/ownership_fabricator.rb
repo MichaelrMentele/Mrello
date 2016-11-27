@@ -1,3 +1,0 @@
-Fabricator(:ownership) do 
-
-end

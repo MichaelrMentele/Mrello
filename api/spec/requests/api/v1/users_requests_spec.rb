@@ -14,7 +14,6 @@ describe "Users API" do
       it "returns the serialized user" do 
         expect(json['user']).not_to be_nil
         expect(json['user']['fullname']).not_to be_nil
-        expect(json['user']['admin']).not_to be_nil
       end
 
       it "does NOT return private user information" do 
@@ -55,7 +54,6 @@ describe "Users API" do
     it "returns the serialized user" do 
       expect(json['user']).not_to be_nil
       expect(json['user']['fullname']).not_to be_nil
-      expect(json['user']['admin']).not_to be_nil
     end
 
     it "does NOT return private user information" do 

@@ -1,1 +1,0 @@
-json.extract! ownership, :id, :owner_id, :owner_type

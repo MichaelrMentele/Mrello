@@ -2,8 +2,7 @@ require 'rails_helper'
 
 describe Api::V1::ListsController do 
   let!(:alice) { Fabricate(:user) }
-  let!(:alice_ownership) { Fabricate(:ownership, owner: alice) }
-  let!(:alice_board) { Fabricate(:board, ownership: alice_ownership) }
+  let!(:alice_board) { Fabricate(:board, owner: alice) }
 
   before do 
     request.env["HTTP_ACCEPT"] = "application/json"
@@ -121,8 +120,7 @@ describe Api::V1::ListsController do
 
   describe "POST destroy" do 
     let!(:bob) { Fabricate(:user) }
-    let!(:bob_ownership) { Fabricate(:ownership, owner: bob) }
-    let!(:bob_board) { Fabricate(:board, ownership: bob_ownership) }
+    let!(:bob_board) { Fabricate(:board, owner: bob) }
 
     let!(:alice_list) { Fabricate(:list, board: alice_board) }
     let!(:bob_list) { Fabricate(:list, board: bob_board) }
@@ -197,8 +195,7 @@ describe Api::V1::ListsController do
     context "organization's lists" do  
       let!(:acme) { Fabricate(:organization) }
       let!(:acme_membership) { Fabricate(:membership, user: alice, organization: acme)}
-      let!(:acme_ownership) { Fabricate(:ownership, owner: acme) }
-      let!(:acme_board) { Fabricate(:board, ownership: acme_ownership) }
+      let!(:acme_board) { Fabricate(:board, owner: acme) }
 
       before do 
         Fabricate(:list, board: acme_board)
