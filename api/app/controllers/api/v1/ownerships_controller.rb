@@ -5,10 +5,10 @@ class Api::V1::OwnershipsController < ApplicationController
     if owner?
       @ownership = Ownership.create(owner: owner)
       @message = "Ownership created."
-      render :create, status: :accepted
+      render :create, status: :created
     else
       @message = "No valid owner in params."
-      render 'api/v1/shared/error'
+      render 'api/v1/shared/error', status: :not_acceptable
     end
   end
 
