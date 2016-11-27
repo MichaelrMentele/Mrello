@@ -2,8 +2,11 @@ class Api::V1::BoardsController < ApplicationController
   before_action :authenticate_request
 
   def create
-    @board = Board.new(board_params.to_h.merge(owner_id: current_user.id))
-    if @board.save
+    # TODO: refactor to use a transaction
+    @ownership = Ownership.new(owner_type: "User", owner_id: current_user.id)
+    @board = Board.new(board_params.to_h.merge(ownership_id: @ownership.id)) if @ownership.save
+
+    if @board.save 
       @message = "Board created."
       render :create, status: :created
     else
@@ -26,6 +29,5 @@ class Api::V1::BoardsController < ApplicationController
   private
 
   def board_params
-    params.permit(:owner_id)
   end
 end

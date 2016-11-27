@@ -12,55 +12,122 @@ describe Api::V1::BoardsController do
   end
 
   describe "POST create" do 
-    context "User doesn't have a board" do 
-      before do 
-        post :create, params: { owner: alice }
+    context "user" do 
+      context "valid inputs" do 
+        before do 
+          post :create, params: { }
+        end
+
+        it "creates an ownership" do 
+          expect(Ownership.count).to eq(1)
+        end
+
+        it "associates the ownership with an the current_user" do 
+          expect(Ownership.first.owner).to eq(alice)
+        end 
+
+        it "creates a board" do 
+          expect(Board.count).to eq(1)
+        end
+
+        it "associates the board with a user" do 
+          expect(alice.boards.count).to eq(1)
+        end
+
+        it "sets @message" do 
+          expect(assigns(:message)).to be_present
+        end
+
+        it "sets @board" do 
+          expect(assigns(:board)).to be_present
+        end
+
+        it "renders create template" do 
+          expect(response).to render_template :create
+        end
+
+        it "returns a created status" do 
+          expect(response).to have_http_status(:created)
+        end
       end
 
-      it "creates a board" do 
-        expect(Board.count).to eq(1)
-      end
+      # Note: expected to fail because we cannot have invalid inputs for board creation
+      context "invalid inputs" do 
+        it "sets @message" do 
+          expect(assigns(:message)).to be_present
+        end
 
-      it "associates the board with a user" do 
-        expect(alice.boards.count).to eq(1)
-      end
+        it "renders error template" do 
+          expect(response).to render_template 'api/v1/shared/error'
+        end
 
-      it "sets @message" do 
-        expect(assigns(:message)).to be_present
-      end
-
-      it "sets @board" do 
-        expect(assigns(:board)).to be_present
-      end
-
-      it "renders create response" do 
-        expect(response).to render_template 'api/v1/boards/create'
+        it "returns a failed status" do 
+          expect(response).to have_http_status(:not_acceptable)
+        end
       end
     end
 
-    context "User already owns a board." do 
-      before do 
-        Fabricate(:board, owner: alice)
-        post :create, params: { }
+    context "organization" do 
+      context "valid inputs" do 
+        let!(:organization) { Fabricate(:organization) }
+        before do 
+          post :create, params: { }
+        end
+
+        it "creates an ownership" do 
+          expect(Ownership.count).to eq(1)
+        end
+
+        it "associates the ownership with an the current_user" do 
+          expect(Ownership.first.owner).to eq(alice)
+        end 
+
+        it "creates a board" do 
+          expect(Board.count).to eq(1)
+        end
+
+        it "associates the board with an organization" do 
+          expect(acme.boards.count).to eq(1)
+        end
+
+        it "sets @message" do 
+          expect(assigns(:message)).to be_present
+        end
+
+        it "sets @board" do 
+          expect(assigns(:board)).to be_present
+        end
+
+        it "renders create template" do 
+          expect(response).to render_template :create
+        end
+
+        it "returns a created status" do 
+          expect(response).to have_http_status(:created)
+        end
       end
 
-      it "creates a board" do 
-        expect(Board.count).to eq(2)
-      end
+      # Note: expected to fail because we cannot have invalid inputs for board creation
+      context "invalid inputs" do 
+        it "sets @message" do 
+          expect(assigns(:message)).to be_present
+        end
 
-      it "sets @message" do 
-        expect(assigns(:message)).to be_present
-      end
+        it "renders error template" do 
+          expect(response).to render_template 'api/v1/shared/error'
+        end
 
-      it "renders create response" do 
-        expect(response).to render_template 'api/v1/boards/create'
+        it "returns a failed status" do 
+          expect(response).to have_http_status(:not_acceptable)
+        end
       end
-    end
+    end    
   end
 
   describe "GET show" do 
     context "if the board is the current users" do
-      let!(:board) { Fabricate(:board, owner: alice) }
+      let!(:alice_ownership) { Fabricate(:ownership, owner: alice) }
+      let!(:board) { Fabricate(:board, ownership: alice_ownership) }
       before do 
         post :show, params: { id: board.id }
       end
@@ -80,7 +147,7 @@ describe Api::V1::BoardsController do
 
     context "if the board is NOT the current users" do 
       let!(:bob) { Fabricate(:user) }
-      let!(:board) { Fabricate(:board, owner: bob) }
+      let!(:board) { Fabricate(:board, ownership: bob) }
       before do 
         get :show, params: { id: board.id }
       end
