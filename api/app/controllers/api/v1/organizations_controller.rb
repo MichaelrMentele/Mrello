@@ -2,30 +2,20 @@ class Api::V1::OrganizationsController < ApplicationController
   before_action :authenticate_request
 
   def create
-    org = Organization.new(admin_id: current_user.id, title: params[:title])
-
-    if current_user.admin? and current_user.no_organization? and org.save
-
-      @user = current_user if current_user.update_attributes(organization: org)
-      @organization = org
+    # TODO: Refactor to use transactions to guarantee both organization 
+    # and membership happen together.
+    @organization = Organization.new(title: params[:title])
+    if @organization.save
+      @membership = Membership.create(
+        organization: @organization, 
+        user: current_user,
+        approved: true
+      )
       @message = "Organization created."
       render :create, status: :created
-
     else 
-
-      if current_user.not_admin?
-        status = :unauthorized
-        @message = "You must be an admin to do that."
-      elsif current_user.has_organization?
-        status = :not_acceptable 
-        @message = "You already have an organization."
-      else
-        status = :not_acceptable
-        @message = "Organization not created."
-      end
-
-      render 'api/v1/shared/error', status: status
-
+      @message = "Organization creation failed."
+      render 'api/v1/shared/error', status: :not_acceptable
     end
   end
 
