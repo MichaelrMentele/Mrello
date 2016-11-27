@@ -55,7 +55,18 @@ describe "organizations API" do
     end
   end
 
-  describe "GET show JSON response" do 
-    it "isn't tested yet"
+  describe "GET show JSON response" do
+    before do 
+      Fabricate(:organization)
+      get "/api/v1/organizations/#{Organization.first.id}"
+    end
+
+    it "returns a message" do 
+      expect(json['message']).to be_present
+    end
+
+    it "returns the organization" do 
+      expect(json['organization']).to be_present
+    end
   end
 end
