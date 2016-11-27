@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Api::V1::OrganizationsController do 
+  let!(:alice) { Fabricate(:user) }
+
   before do 
     request.env["HTTP_ACCEPT"] = "application/json"
     request.env["CONTENT_TYPE"] = "application/json"
@@ -10,7 +12,6 @@ describe Api::V1::OrganizationsController do
   end
 
   describe "POST create" do 
-    let!(:alice) { Fabricate(:user) }
 
     context "valid inputs" do 
       before do 
@@ -68,7 +69,6 @@ describe Api::V1::OrganizationsController do
   end
 
   describe "GET index" do 
-    let!(:alice) { Fabricate(:user) }
     let!(:bob) { Fabricate(:user) }
 
     before do 
@@ -118,15 +118,32 @@ describe Api::V1::OrganizationsController do
         expect(response).to render_template :index
       end
 
-      it "responds with accepted status" do
+      it "responds with successful status" do
         expect(response).to have_http_status(:ok)
       end
     end
   end
 
   describe "GET show" do 
-    it "sets @message"
-    it "sets @organization"
-    it "renders show"
+    before do 
+      Fabricate(:organization)
+      get :show, params: { id: Organization.first.id }
+    end
+
+    it "sets @message" do 
+      expect(assigns(:message)).to be_present
+    end
+
+    it "sets @organizations" do 
+      expect(assigns(:organization)).to be_present
+    end
+
+    it "renders show" do 
+      expect(response).to render_template :show
+    end
+
+    it "responds with accepted status" do
+      expect(response).to have_http_status(:ok)
+    end
   end
 end
