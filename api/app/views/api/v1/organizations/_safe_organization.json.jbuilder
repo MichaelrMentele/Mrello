@@ -1,4 +1,4 @@
-json.extract! organization, :id, :admin_id, :title
+json.extract! organization, :id, :title
 
 # Prefer to have sub collection client side make its own request
 # json.join_requests do 
