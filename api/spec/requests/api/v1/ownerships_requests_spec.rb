@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Ownerships API" do 
-  let!(:alice) { Fabricate(:user, admin: true) }
+  let!(:alice) { Fabricate(:user) }
 
   before do 
     allow_any_instance_of(ApplicationController).to receive(:authenticate_request)

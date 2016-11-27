@@ -196,7 +196,7 @@ describe Api::V1::ListsController do
 
     context "organization's lists" do  
       let!(:acme) { Fabricate(:organization) }
-      let!(:acme_membership) { Fabricate(:membership, user: alice, organization: acme) }
+      let!(:acme_membership) { Fabricate(:membership, user: alice, organization: acme)}
       let!(:acme_ownership) { Fabricate(:ownership, owner: acme) }
       let!(:acme_board) { Fabricate(:board, ownership: acme_ownership) }
 
