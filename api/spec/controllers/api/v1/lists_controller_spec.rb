@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 describe Api::V1::ListsController do 
-  let!(:alice) { Fabricate(:user, fullname: "Alice Doe") }
+  let!(:alice) { Fabricate(:user) }
+  let!(:alice_ownership) { Fabricate(:ownership, owner: alice) }
+  let!(:alice_board) { Fabricate(:board, ownership: alice_ownership) }
 
   before do 
     request.env["HTTP_ACCEPT"] = "application/json"
@@ -14,7 +16,7 @@ describe Api::V1::ListsController do
   describe "POST create" do 
     context "with valid params" do 
       before do 
-        post :create, params: { title: "Todos", user_id: alice.id }
+        post :create, params: { title: "Todos", board_id: alice_board.id }
       end
 
       it "creates a list" do 
@@ -33,8 +35,8 @@ describe Api::V1::ListsController do
         expect(response).to render_template 'api/v1/lists/create'
       end
 
-      it "associates it with the user" do 
-        expect(List.first.user.fullname).to eq("Alice Doe")
+      it "associates it with the board" do 
+        expect(List.first.board.id).to eq(alice_board.id)
       end
 
       it "returns a create status" do 
@@ -44,7 +46,7 @@ describe Api::V1::ListsController do
 
     context "with invalid params" do 
       before do 
-        post :create, params: { list: { user_id: alice.id } }
+        post :create, params: { title: "" }
       end
 
       it "sets @message" do 
@@ -66,7 +68,7 @@ describe Api::V1::ListsController do
   end
 
   describe "POST update" do 
-    let(:list) { Fabricate(:list, user: alice) }
+    let(:list) { Fabricate(:list, board: alice_board) }
 
     context "with valid params" do 
       before do 
@@ -119,12 +121,15 @@ describe Api::V1::ListsController do
 
   describe "POST destroy" do 
     let!(:bob) { Fabricate(:user) }
-    let!(:list_a) { Fabricate(:list, user: alice) }
-    let!(:list_b) { Fabricate(:list, user: bob) }
+    let!(:bob_ownership) { Fabricate(:ownership, owner: bob) }
+    let!(:bob_board) { Fabricate(:board, ownership: bob_ownership) }
 
-    context "with another users list" do 
+    let!(:alice_list) { Fabricate(:list, board: alice_board) }
+    let!(:bob_list) { Fabricate(:list, board: bob_board) }
+
+    context "on another users list" do 
       before do 
-        post :destroy, params: { id: list_b.id }
+        post :destroy, params: { id: bob_list.id }
       end
 
       it "does not destroy another users list" do 
@@ -142,15 +147,11 @@ describe Api::V1::ListsController do
 
     context "valid delete" do 
       before do 
-        post :destroy, params: { id: list_a.id }
+        post :destroy, params: { id: alice_list.id }
       end
 
       it "sets @message" do 
         expect(assigns(:message)).to be_present
-      end
-
-      it "renders delete template" do 
-        expect(response).to render_template 'api/v1/lists/destroy'
       end
 
       it "sets @list" do 
@@ -164,21 +165,36 @@ describe Api::V1::ListsController do
       it "returns successfully" do 
         expect(response).to be_successful
       end
+
+      it "renders delete template" do 
+        expect(response).to render_template 'api/v1/lists/destroy'
+      end
     end
   end
 
   describe "GET index" do 
-    it "sets @lists" do
-      Fabricate(:list, user: alice)
-      Fabricate(:list, user: alice)
+    before do 
+      Fabricate(:list, board: alice_board)
+      Fabricate(:list, board: alice_board)
       
       get :index
+    end
+
+    it "sets @lists" do
       expect(assigns(:lists)).to be_present
+    end
+
+    it "sets @message" do 
+      expect(assigns(:message)).to be_present
+    end
+
+    it "renders index" do 
+      expect(response).to render_template :index
     end
   end
 
   describe "GET show" do 
-    let(:todo_list) { Fabricate(:list, user: alice) }
+    let(:todo_list) { Fabricate(:list, board: alice_board) }
     before do 
       get :show, params: { id: todo_list.id }
     end
@@ -186,5 +202,13 @@ describe Api::V1::ListsController do
     it "sets @list" do 
       expect(assigns(:list)).to be_present
     end 
+
+    it "sets @message" do 
+      expect(assigns(:message)).to be_present
+    end
+
+    it "renders show" do 
+      expect(response).to render_template :show
+    end
   end
 end
