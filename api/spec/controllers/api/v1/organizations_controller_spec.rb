@@ -46,7 +46,7 @@ describe Api::V1::OrganizationsController do
 
     context "invalid inputs" do 
       before do 
-        post :create, params: { title: "" }
+        post :create, params: { }
       end
 
       it "does NOT create and organization" do 
@@ -67,73 +67,66 @@ describe Api::V1::OrganizationsController do
     end
   end
 
-#     context "current user is not an admin" do 
-#       let!(:alice) { Fabricate(:user) }
+  describe "GET index" do 
+    let!(:alice) { Fabricate(:user) }
+    let!(:bob) { Fabricate(:user) }
 
-#       before do 
-#         allow_any_instance_of(ApplicationController).to receive(:authenticate_request)
-#         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alice)
-#       end
+    before do 
+      Fabricate(:organization)
+      Fabricate(:organization)
+      Fabricate(:membership, user: alice, organization: Organization.first)
+    end 
 
-#       context "valid inputs" do 
-#         before do 
-#           post :create, params: { title: "Acme" }
-#         end
+    describe "users organizations" do 
+      before do 
+        get :index, params: { user_id: alice.id }
+      end
 
-#         it "does NOT set @org" do 
-#           expect(assigns(:org)).not_to be_present
-#         end
+      it "sets @organizations" do 
+        expect(assigns(:organizations)).to be_present
+        expect(assigns(:organizations).count).to eq(1)
+      end
 
-#         it "sets @message" do 
-#           expect(assigns(:message)).to eq("You must be an admin to do that.")
-#         end
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
 
-#         it "renders error" do 
-#           expect(response).to render_template 'api/v1/shared/error'
-#         end
+      it "renders index" do 
+        expect(response).to render_template :index
+      end
 
-#         it "responds with not authorized status" do 
-#           expect(response).to have_http_status(:unauthorized)
-#         end
-#       end
-#     end
-#   end
+      it "responds with accepted status" do
+        expect(response).to have_http_status(:ok)
+      end
+    end
 
-#   describe "GET index" do 
-#     let!(:alice) { Fabricate(:user, admin: true) }
-#     let!(:bob) { Fabricate(:user, admin: true) }
+    describe "all organizations" do 
+      before do
+        get :index
+      end
 
-#     before do 
-#       allow_any_instance_of(ApplicationController).to receive(:authenticate_request)
-#       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alice)
-      
-#       Fabricate(:organization, admin: alice)
-#       Fabricate(:organization, admin: bob)
+      it "sets @organizations" do 
+        expect(assigns(:organizations)).to be_present
+        expect(assigns(:organizations).count).to eq(2)
+      end
 
-#       get :index
-#     end
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
 
-#     it "sets @organizations" do 
-#       expect(assigns(:organizations)).to be_present
-#       expect(assigns(:organizations).count).to eq(2)
-#     end
+      it "renders index" do 
+        expect(response).to render_template :index
+      end
 
-#     it "sets @message" do 
-#       expect(assigns(:message)).to be_present
-#     end
+      it "responds with accepted status" do
+        expect(response).to have_http_status(:ok)
+      end
+    end
+  end
 
-#     it "renders index" do 
-#       expect(response).to render_template 'api/v1/organizations/index'
-#     end
-
-#     it "responds with accepted status" do
-#       expect(response).to have_http_status(:ok)
-#     end
-#   end
-
-#   describe "GET show" do 
-#     it "sets @message"
-#     it "sets @organization"
-#     it "renders show"
-#   end
+  describe "GET show" do 
+    it "sets @message"
+    it "sets @organization"
+    it "renders show"
+  end
 end

@@ -4,7 +4,7 @@ class Api::V1::OrganizationsController < ApplicationController
   def create
     # TODO: Refactor to use transactions to guarantee both organization 
     # and membership happen together.
-    @organization = Organization.new(title: params[:title])
+    @organization = Organization.new(organization_params)
     if @organization.save
       @membership = Membership.create(
         organization: @organization, 
@@ -20,15 +20,26 @@ class Api::V1::OrganizationsController < ApplicationController
   end
 
   def index
-    @organizations = Organization.all
-    @message = "All organizations retrieved."
+    if params[:user_id] 
+      @organizations = User.find(params[:user_id]).organizations
+      @message = "Users organizations retrieved."
+    else
+      @organizations = Organization.all
+      @message = "All organizations retrieved."
+    end
+
     render :index, status: :ok
   end
 
   def show
     @organization = Organization.find(params[:id])
-    @message = "Organization retrieved"
+    @message = "Organization retrieved."
     render :show, status: :ok
   end
 
+  private
+
+  def organization_params
+    params.permit(:title)
+  end
 end
