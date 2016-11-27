@@ -36,8 +36,15 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def index
-    @lists = current_user.lists
-    @message = "Returning current users lists."
+    if params[:organization_id]
+      user_org = current_user.organizations.find(params[:organization_id])
+      @lists = user_org.lists
+      @message = "Returning current organizations lists."
+    else
+      @lists = current_user.lists
+      @message = "Returning current users lists."
+    end
+    
     render :index, status: :ok
   end
 

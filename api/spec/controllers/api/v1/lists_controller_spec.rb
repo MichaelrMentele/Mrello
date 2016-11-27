@@ -172,24 +172,53 @@ describe Api::V1::ListsController do
     end
   end
 
-  describe "GET index" do 
-    before do 
-      Fabricate(:list, board: alice_board)
-      Fabricate(:list, board: alice_board)
-      
-      get :index
+  describe "GET index" do
+    context "current users lists" do  
+      before do 
+        Fabricate(:list, board: alice_board)
+        Fabricate(:list, board: alice_board)
+        
+        get :index
+      end
+
+      it "sets @lists" do
+        expect(assigns(:lists)).to be_present
+      end
+
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
+
+      it "renders index" do 
+        expect(response).to render_template :index
+      end
     end
 
-    it "sets @lists" do
-      expect(assigns(:lists)).to be_present
-    end
+    context "organization's lists" do  
+      let!(:acme) { Fabricate(:organization) }
+      let!(:acme_membership) { Fabricate(:membership, user: alice, organization: acme) }
+      let!(:acme_ownership) { Fabricate(:ownership, owner: acme) }
+      let!(:acme_board) { Fabricate(:board, ownership: acme_ownership) }
 
-    it "sets @message" do 
-      expect(assigns(:message)).to be_present
-    end
+      before do 
+        Fabricate(:list, board: acme_board)
+        Fabricate(:list, board: acme_board)
+        
+        get :index, params: { organization_id: acme.id}
+      end
 
-    it "renders index" do 
-      expect(response).to render_template :index
+      it "sets @lists" do
+        expect(assigns(:lists)).to be_present
+        expect(assigns(:lists).count).to eq(2)
+      end
+
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
+
+      it "renders index" do 
+        expect(response).to render_template :index
+      end
     end
   end
 
