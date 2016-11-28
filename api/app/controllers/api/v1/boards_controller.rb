@@ -2,13 +2,7 @@ class Api::V1::BoardsController < ApplicationController
   before_action :authenticate_request
 
   def create
-    @organization = Organization.find(params[:organization_id]) if params[:organization_id]
-    if @organization.member?(current_user)
-
-    end
-
-    @board = Board.new(board_params.to_h.merge(owner_id: @owner.id))
-
+    @board = Board.new(board_params)
     if @board.save 
       @message = "Board created."
       render :create, status: :created
@@ -32,5 +26,6 @@ class Api::V1::BoardsController < ApplicationController
   private
 
   def board_params
+    params.permit(:owner_id, :owner_type)
   end
 end
