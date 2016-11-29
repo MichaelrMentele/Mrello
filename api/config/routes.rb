@@ -5,12 +5,12 @@ Rails.application.routes.draw do
 
       resources :users, only: [:create, :update, :show]
 
-      resources :organizations, only: [:index, :create, :show]
-      resources :memberships, only: [:index, :create, :update, :destroy]
-
       resources :boards, only: [:create, :show]
       resources :lists, except: [:edit, :new]
       resources :cards, except: [:edit, :new]
+
+      resources :organizations, only: [:index, :create, :show]
+      resources :memberships, only: [:index, :create, :update, :destroy]
     end
   end
 end

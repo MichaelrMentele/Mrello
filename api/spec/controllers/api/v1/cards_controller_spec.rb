@@ -165,37 +165,70 @@ describe Api::V1::CardsController do
   describe 'GET index' do
     let!(:alice) { Fabricate(:user) }
     let!(:alice_board) { Fabricate(:board, owner: alice) }
-    let!(:alice_list_a) { Fabricate(:list, board: alice_board) }
-    let!(:alice_list_b) { Fabricate(:list, board: alice_board) }
 
-    before do 
-      Fabricate(:card, list: alice_list_a)
-      Fabricate(:card, list: alice_list_a)
+    context "access to list" do 
+      let!(:alice_list_a) { Fabricate(:list, board: alice_board) }
+      let!(:alice_list_b) { Fabricate(:list, board: alice_board) }
 
-      Fabricate(:card, list: alice_list_b)
+      before do 
+        Fabricate(:card, list: alice_list_a)
+        Fabricate(:card, list: alice_list_a)
 
-      post :index, params: { list_id: alice_list_a.id }
+        Fabricate(:card, list: alice_list_b)
+
+        get :index, params: { list_id: alice_list_a.id }
+      end
+
+      it "sets cards to all cards for a given list" do 
+        expect(assigns(:cards).length).to eq(2)
+      end
+
+      it "returns a success status" do 
+        expect(response).to be_successful
+      end
+
+      it "returns a message" do 
+        expect(response.message).to be_present
+      end
+
+      it "sets a status of successful" do 
+        expect(response).to be_successful
+      end
+
+      it "renders the index template" do 
+        expect(response).to render_template :index
+      end
     end
 
-    it "sets cards to all cards for a given list" do 
-      expect(assigns(:cards).length).to eq(2)
-    end
+    context "no access to list" do 
+      let!(:bob) { Fabricate(:user) }
+      let!(:bob_board) { Fabricate(:board, owner: bob) }
+      let!(:bob_list_a) { Fabricate(:list, board: bob_board) }
 
-    it "returns a success status" do 
-      expect(response).to be_successful
-    end
+      before do 
+        get :index, params: { list_id: bob_list_a.id }
+      end
 
-    it "returns a message" do 
-      expect(response.message).to be_present
-    end
+      it "sets message" do 
+        expect(response.message).to be_present
+      end
 
-    it "sets a status of successful"
+      it "sets a status of unauthorized" do 
+        expect(response).to have_http_status :unauthorized
+      end
+
+      it "renders error template" do 
+        expect(response).to render_template 'api/v1/shared/error'
+      end
+    end
   end
 
   describe "GET show" do 
-    let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
-    let(:todo_list) { Fabricate(:list, user: alice) }
-    let(:card) { Fabricate(:card, list: todo_list) }
+    let!(:alice) { Fabricate(:user) }
+    let!(:alice_board) { Fabricate(:board, owner: alice) }
+    let!(:alice_list) { Fabricate(:list, board: alice_board) }
+
+    let!(:card) { Fabricate(:card, list: alice_list) }
 
     before do 
       request.env["HTTP_ACCEPT"] = "application/json"
@@ -213,6 +246,10 @@ describe Api::V1::CardsController do
 
     it "returns a success status" do 
       expect(response).to be_successful
+    end
+
+    it "renders show template" do 
+      expect(response).to render_template :show
     end
   end
 end

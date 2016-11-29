@@ -1,5 +1,6 @@
 class Api::V1::CardsController < ApplicationController
   before_action :authenticate_request
+  before_action :check_access, only: [:destroy, :update, :show]
 
   def create
     @card = Card.new(card_params)
@@ -13,16 +14,9 @@ class Api::V1::CardsController < ApplicationController
   end
 
   def destroy
-    # TODO: how does this work with organizations cards?
-    if current_user.cards.exists?(params[:id])
-      @card = Card.find(params[:id]) 
-      @card.destroy!
-      @message = "Card deleted."
-      render :destroy, status: :accepted # TODO: redundant to have any templates besides show and index
-    else
-      @message = "You cannot delete a card you do not own."
-      render 'api/v1/shared/error', status: :unauthorized
-    end
+    @card = Card.find(params[:id]).destroy!
+    @message = "Card deleted."
+    render :destroy, status: :accepted # TODO: redundant to have any templates besides show and index
   end
 
   def update
@@ -37,14 +31,18 @@ class Api::V1::CardsController < ApplicationController
   end
 
   def index
-    if params[:list_id]
+    if current_user.has_access_to("Lists", params[:list_id])
+      @message = "Cards for list retrieved."
       @cards = List.find(params[:list_id]).cards
+      render :index, status: :ok
     else
-      @cards = current_user
+      @message = "You do not have access to the cards on that list."
+      render 'api/v1/shared/error', status: :unauthorized
     end
   end
 
   def show
+    @message = "Card returned"
     @card = Card.find(params[:id])
   end
 
