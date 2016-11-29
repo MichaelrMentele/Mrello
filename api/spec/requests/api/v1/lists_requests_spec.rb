@@ -96,33 +96,16 @@ describe "Lists API" do
   end
 
   describe "GET index JSON response" do 
-    let!(:todo_list) { Fabricate(:list, board: alice_board) }
+    let!(:acme) { Fabricate(:organization) }
+    let!(:acme_membership) { Fabricate(:membership, user: alice, organization: acme) }
+    let!(:acme_board) { Fabricate(:board, owner: acme) }
 
-    context "current users lists" do 
-      before do 
-        get "/api/v1/lists"
-      end
-
-      it "returns a message" do 
-        expect(json['message']).not_to be_nil
-      end
-
-      it "returns the serialized lists" do 
-        expect(json['lists']).not_to be_nil
-        expect(json['lists'].length).to eq(1)
-      end
-    end
-
-    context "current users organization's lists" do 
-      let!(:acme) { Fabricate(:organization) }
-      let!(:acme_membership) { Fabricate(:membership, user: alice, organization: acme) }
-      let!(:acme_board) { Fabricate(:board, owner: acme) }
-
+    context "current users lists for a board" do 
       before do 
         Fabricate(:list, board: acme_board)
         Fabricate(:list, board: acme_board)
 
-        get "/api/v1/lists", params: { organization_id: acme.id }
+        get "/api/v1/lists", params: { board_id: acme_board.id }
       end
 
       it "returns a message" do 
