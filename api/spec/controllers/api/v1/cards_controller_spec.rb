@@ -9,52 +9,96 @@ describe Api::V1::CardsController do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alice)
   end
 
-  describe 'GET index' do
+  describe "POST create" do 
     let!(:alice) { Fabricate(:user) }
     let!(:alice_board) { Fabricate(:board, owner: alice) }
     let!(:alice_list_a) { Fabricate(:list, board: alice_board) }
-    let!(:alice_list_b) { Fabricate(:list, board: alice_board) }
 
-    before do 
-      Fabricate(:card, list: lista)
-      Fabricate(:card, list: lista)
-      Fabricate(:card, list: listb)
+    context "with valid params" do 
+      before do 
+        post :create, params: { title: "CardA", list_id: alice_list_a.id }
+      end
 
-      post :index, params: { list_id: lista.id }
+      it "creates a card" do 
+        expect(Card.count).to eq(1)
+      end
+
+      it "associates the card with a list" do 
+        expect(List.first.cards.count).to eq(1)
+      end
+
+      it "renders create template" do 
+        expect(response).to render_template :create 
+      end
+
+      it "returns a success status" do 
+        expect(response).to be_successful
+      end
     end
 
-    it "sets cards to all cards for a given list" do 
-      expect(assigns(:cards).length).to eq(2)
-    end
+    context "with invalid params" do 
+      before do 
+        post :create, params: { list_id: alice_list_a.id }
+      end
 
-    it "returns a success status" do 
-      expect(response).to be_successful
-    end
+      it "does NOT create a card" do 
+        expect(Card.count).to eq(0)
+      end
 
-    it "returns a message" do 
-      expect(response.message).to be_present
+      it "renders an error template" do 
+        expect(response).to render_template 'api/v1/shared/error'
+      end
+
+      it "does NOT return a success status" do 
+        expect(response).not_to be_successful
+      end
     end
   end
 
   describe 'POST destroy' do 
     let!(:alice) { Fabricate(:user) }
-    let!(:lista) { Fabricate(:list, user_id: alice.id) }
+    let!(:alice_board) { Fabricate(:board, owner: alice) }
+    let!(:alice_list_a) { Fabricate(:list, board: alice_board) }
 
     before do 
-      Fabricate(:card, list: lista)
-      post :destroy, params: { id: Card.first.id, list_id: lista.id }
+      Fabricate(:card, list: alice_list_a)
+      post :destroy, params: { id: Card.first.id }
     end
 
-    it "deletes the card" do 
-      expect(Card.count).to eq(0)
+    context "owner" do 
+      it "deletes the card" do 
+        expect(Card.count).to eq(0)
+      end
+
+      it "returns a success status" do 
+        expect(response).to be_successful
+      end
+
+      it "returns a message" do 
+        expect(response.message).to be_present
+      end
+
+      it "renders destroy template" do 
+        expect(response).to render_template :destroy
+      end
     end
 
-    it "returns a success status" do 
-      expect(response).to be_successful
-    end
+    context "NOT owner" do 
+      it "does NOT delete the card" do 
+        expect(Card.count).to eq(1)
+      end
 
-    it "returns a message" do 
-      expect(response.message).to be_present
+      it "returns an error status" do 
+        expect(response).to have_http_status(:not_acceptable)
+      end
+
+      it "sets a message" do 
+        expect(response.message).to be_present
+      end
+
+      it "renders an error template" do 
+        expect(response).to render_template 'api/v1/shared/error'
+      end
     end
   end
 
@@ -92,39 +136,34 @@ describe Api::V1::CardsController do
     end
   end
 
-  describe "POST create" do 
+  describe 'GET index' do
     let!(:alice) { Fabricate(:user) }
-    let!(:lista) { Fabricate(:list, user_id: alice.id) }
+    let!(:alice_board) { Fabricate(:board, owner: alice) }
+    let!(:alice_list_a) { Fabricate(:list, board: alice_board) }
+    let!(:alice_list_b) { Fabricate(:list, board: alice_board) }
 
-    context "with valid params" do 
-      before do 
-        post :create, params: { title: "CardA", list_id: lista.id }
-      end
+    before do 
+      Fabricate(:card, list: alice_list_a)
+      Fabricate(:card, list: alice_list_a)
 
-      it "creates a card" do 
-        expect(Card.count).to eq(1)
-      end
-      it "associates the card with a list" do 
-        expect(List.first.cards.count).to eq(1)
-      end
-      it "returns a success status" do 
-        expect(response).to be_successful
-      end
+      Fabricate(:card, list: alice_list_b)
+
+      post :index, params: { list_id: alice_list_a.id }
     end
 
-    context "with invalid params" do 
-      before do 
-        post :create, params: { card: { list_id: lista.id } }
-      end
-
-      it "does NOT create a card" do 
-        expect(Card.count).to eq(0)
-      end
-
-      it "does NOT return a success status" do 
-        expect(response).not_to be_successful
-      end
+    it "sets cards to all cards for a given list" do 
+      expect(assigns(:cards).length).to eq(2)
     end
+
+    it "returns a success status" do 
+      expect(response).to be_successful
+    end
+
+    it "returns a message" do 
+      expect(response.message).to be_present
+    end
+
+    it "sets a status of successful"
   end
 
   describe "GET show" do 

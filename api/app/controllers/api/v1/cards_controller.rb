@@ -4,14 +4,11 @@ class Api::V1::CardsController < ApplicationController
   def create
     @card = Card.new(card_params)
     if @card.save
-      render json: {
-        message: "Card created.", 
-        card: @card 
-      }, status: :created
+      @message = "Card created."
+      render :create, status: :created
     else
-      render json: {
-        message: "Card not created. Invalid inputs." 
-      }, status: :not_acceptable
+      @message = "Card not created. Invalid inputs." 
+      render 'api/v1/shared/error', status: :not_acceptable
     end
   end
 
