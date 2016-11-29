@@ -60,12 +60,12 @@ describe Api::V1::CardsController do
     let!(:alice_board) { Fabricate(:board, owner: alice) }
     let!(:alice_list_a) { Fabricate(:list, board: alice_board) }
 
-    before do 
-      Fabricate(:card, list: alice_list_a)
-      post :destroy, params: { id: Card.first.id }
-    end
-
     context "owner" do 
+      before do 
+        Fabricate(:card, list: alice_list_a)
+        post :destroy, params: { id: Card.first.id }
+      end
+
       it "deletes the card" do 
         expect(Card.count).to eq(0)
       end
@@ -84,12 +84,21 @@ describe Api::V1::CardsController do
     end
 
     context "NOT owner" do 
+      let!(:bob) { Fabricate(:user) }
+      let!(:bob_board) { Fabricate(:board, owner: bob) }
+      let!(:bob_list) { Fabricate(:list, board: bob_board) }
+
+      before do 
+        Fabricate(:card, list: bob_list)
+        post :destroy, params: { id: Card.first.id }
+      end
+
       it "does NOT delete the card" do 
         expect(Card.count).to eq(1)
       end
 
       it "returns an error status" do 
-        expect(response).to have_http_status(:not_acceptable)
+        expect(response).to have_http_status(:unauthorized)
       end
 
       it "sets a message" do 
@@ -104,11 +113,12 @@ describe Api::V1::CardsController do
 
   describe 'POST update' do 
     let!(:alice) { Fabricate(:user) }
-    let!(:lista) { Fabricate(:list, user_id: alice.id) }
+    let!(:alice_board) { Fabricate(:board, owner: alice) }
+    let!(:alice_list_a) { Fabricate(:list, board: alice_board) }
 
     context "with valid params" do 
       before do 
-        Fabricate(:card, list: lista)
+        Fabricate(:card, list: alice_list_a)
         post :update, params: { id: Card.first.id, title: "Unique" }
       end
 
@@ -116,14 +126,22 @@ describe Api::V1::CardsController do
         expect(Card.first.title).to eq("Unique")
       end
 
+      it "sets a message" do 
+        expect(response.message).to be_present
+      end
+
       it "returns a success status" do 
         expect(response).to be_successful
+      end
+
+      it "renders the update template" do 
+        expect(response).to render_template :update
       end
     end
 
     context "with invalid params" do 
       before do 
-        post :create, params: { card: { list_id: lista.id } }
+        post :create, params: { card: { list_id: alice_list_a.id } }
       end
 
       it "does NOT create a card" do 
@@ -131,7 +149,15 @@ describe Api::V1::CardsController do
       end
 
       it "does NOT return a success status" do 
-        expect(response).not_to be_successful
+        expect(response).to have_http_status(:not_acceptable)
+      end
+
+      it "sets a message" do 
+        expect(response.message).to be_present
+      end
+
+      it "renders an error template" do 
+        expect(response).to render_template 'api/v1/shared/error'
       end
     end
   end

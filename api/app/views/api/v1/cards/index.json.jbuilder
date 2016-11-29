@@ -1,5 +1,4 @@
-json.message "SUCCESS: Cards returned."
-json.status :ok
+json.message @message
 
 json.cards do
   json.array! @cards, partial: 'api/v1/cards/card', as: :card

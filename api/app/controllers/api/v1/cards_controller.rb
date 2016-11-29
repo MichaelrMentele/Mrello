@@ -12,36 +12,40 @@ class Api::V1::CardsController < ApplicationController
     end
   end
 
+  def destroy
+    # TODO: how does this work with organizations cards?
+    if current_user.cards.exists?(params[:id])
+      @card = Card.find(params[:id]) 
+      @card.destroy!
+      @message = "Card deleted."
+      render :destroy, status: :accepted # TODO: redundant to have any templates besides show and index
+    else
+      @message = "You cannot delete a card you do not own."
+      render 'api/v1/shared/error', status: :unauthorized
+    end
+  end
+
+  def update
+    @card = Card.find(params[:id])
+    if @card.update_attributes(card_params)
+      @message = "Card updated."
+      render :update, status: :accepted
+    else
+      @message = "Card not updated."
+      render 'api/v1/shared/error', status: :not_acceptable
+    end
+  end
+
   def index
     if params[:list_id]
       @cards = List.find(params[:list_id]).cards
     else
-      @cards = Card.all
+      @cards = current_user
     end
   end
 
   def show
     @card = Card.find(params[:id])
-  end
-
-  def destroy
-    Card.destroy(params[:id])
-    render json: 
-      { status: "SUCCESS", message: "Card deleted." },
-      status: :accepted
-  end
-
-  def update
-    card = Card.find(params[:id])
-    if card.update_attributes(card_params)
-      render json: 
-      { status: "SUCCESS", message: "Card updated.", card: card },
-        status: :ok
-    else
-      render json: 
-      { status: "FAILURE", message: "Card NOT updated.", card: card },
-        status: :not_acceptable
-    end
   end
 
   private
