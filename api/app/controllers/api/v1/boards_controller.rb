@@ -1,5 +1,6 @@
 class Api::V1::BoardsController < ApplicationController
   before_action :authenticate_request
+  before_action :check_access, only: [:show]
 
   def create
     @board = Board.new(board_params)
@@ -13,14 +14,10 @@ class Api::V1::BoardsController < ApplicationController
   end
 
   def show
-    if current_user.boards.exists?(params[:id])
-      @board = current_user.boards.find(params[:id])
-      @message = "Board retrieved."
-      render :show, status: :ok
-    else
-      @message = "You do not have access to that board."
-      render 'api/v1/shared/error', status: :unauthorized
-    end
+    @board = current_user.all_accessible_boards.find(params[:id])
+    @message = "Board retrieved."
+
+    render :show, status: :ok
   end
 
   private
