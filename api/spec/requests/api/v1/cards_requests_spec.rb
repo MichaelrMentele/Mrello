@@ -1,19 +1,24 @@
 require 'rails_helper'
 
 describe "Cards API" do 
-  describe "shows a card" do 
-    let!(:alice) { Fabricate(:user, fullname: "Alice Doe") }
-    let!(:todo_list) { Fabricate(:list, user: alice) }
-    let!(:card) { Fabricate(:card, list: todo_list) }
+  let!(:alice) { Fabricate(:user) }
+
+  before do 
+    allow_any_instance_of(ApplicationController).to receive(:authenticate_request)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(alice)
+  end
+
+  describe "GET show JSON response" do 
+    let!(:alice_board) { Fabricate(:board, owner: alice) }
+    let!(:alice_list) { Fabricate(:list, board: alice_board) }
+    let!(:alice_card) { Fabricate(:card, list: alice_list) }
 
     before do 
-      sign_in(alice)
-      binding.pry
-      get api_v1_card_path(card.id)
+      get "/api/v1/cards/#{alice_card.id}"
     end
 
     it "returns a success message" do 
-      expect(json['message']).to match("SUCCESS")
+      expect(json['message']).to be_present
     end
 
     it "returns the serialized card" do 
@@ -21,18 +26,17 @@ describe "Cards API" do
     end
   end
 
-  describe "creating a card" do 
-    let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
-    let!(:todo_list) { Fabricate(:list, user: alice) }
+  describe "POST create JSON response" do 
+    let!(:alice_board) { Fabricate(:board, owner: alice) }
+    let!(:alice_list) { Fabricate(:list, board: alice_board) }
 
     context "with valid inputs" do 
       before do 
-        sign_in(alice)
-        post '/api/v1/cards', params: { card: { title: "Todo", list_id: todo_list.id } }
+        post '/api/v1/cards', params: { title: "Todo", list_id: alice_list.id }
       end
 
       it "returns a success message" do 
-        expect(json['message']).to match("SUCCESS")
+        expect(json['message']).to be_present
       end
 
       it "returns the serialized card" do 
@@ -42,12 +46,11 @@ describe "Cards API" do
 
     context "with invalid inputs" do 
       before do 
-        sign_in(alice)
-        post '/api/v1/cards', params: { card: { list_id: todo_list.id } }
+        post '/api/v1/cards', params: { card: { list_id: alice_list.id } }
       end
 
       it "returns an error message" do 
-        expect(json['message']).to match("FAILURE ")
+        expect(json['message']).to be_present
       end
     end
   end
