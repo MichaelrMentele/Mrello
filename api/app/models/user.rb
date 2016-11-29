@@ -11,40 +11,28 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  def accessible_organizations_boards
-    boards = []
-    self.organizations.each do |organization|
-      boards.push(organization.boards)
-    end
-    boards
-  end
-
-  def accessible_organizations_lists
-    lists = []
-    self.organizations.each do |organization|
-      lists.push(organization.lists)
-    end
-    lists
-  end
-
-  def accessible_organizations_cards
-    cards = []
-    self.organizations.each do |organization|
-      cards.push(organization.cards)
-    end
-    cards
-  end
-
   def all_accessible_boards
-    self.boards.joins(self.accessible_organizations_boards)
+    all = self.boards
+    self.organizations.each do |organization|
+      all = all.or(organization.boards)
+    end
+    all
   end
 
   def all_accessible_lists
-    self.lists.joins(self.accessible_organizations_lists)
+    all = self.lists
+    self.organizations.each do |organization|
+      all = all.or(organization.lists)
+    end
+    all
   end
 
   def all_accessible_cards
-    self.cards.joins(self.accessible_organizations_cards)
+    all = self.cards
+    self.organizations.each do |organization|
+      all = all.or(organization.cards)
+    end
+    all
   end
 
   def has_access_to(resource_type, id)

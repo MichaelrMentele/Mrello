@@ -176,11 +176,12 @@ describe Api::V1::ListsController do
         Fabricate(:list, board: alice_board)
         Fabricate(:list, board: alice_board)
         
-        get :index
+        get :index, params: { board_id: alice_board.id }
       end
 
       it "sets @lists" do
         expect(assigns(:lists)).to be_present
+        expect(assigns(:lists).length).to eq(2)
       end
 
       it "sets @message" do 
@@ -189,6 +190,10 @@ describe Api::V1::ListsController do
 
       it "renders index" do 
         expect(response).to render_template :index
+      end
+
+      it "responds successfully" do 
+        expect(response).to be_successful
       end
     end
 
@@ -201,7 +206,7 @@ describe Api::V1::ListsController do
         Fabricate(:list, board: acme_board)
         Fabricate(:list, board: acme_board)
         
-        get :index, params: { organization_id: acme.id}
+        get :index, params: { board_id: acme_board.id }
       end
 
       it "sets @lists" do
@@ -215,6 +220,10 @@ describe Api::V1::ListsController do
 
       it "renders index" do 
         expect(response).to render_template :index
+      end
+
+      it "responds successfully" do 
+        expect(response).to be_successful
       end
     end
   end
