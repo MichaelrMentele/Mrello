@@ -1,0 +1,3 @@
+Fabricator(:board) do 
+  
+end

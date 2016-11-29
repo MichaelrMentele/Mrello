@@ -1,0 +1,30 @@
+machine:
+  ruby:
+    version: 2.1.2
+  services:
+    - elasticsearch
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - heroku maintenance:on --app mrello-api
+      - heroku pg:backups capture --app mrello-api
+      - git push git@heroku.com:mrello-api.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app mrello-api
+      - heroku maintenance:off --app mrello-api
+  staging:
+    branch: staging
+    commands:
+      - heroku maintenance:on --app staging-mrello-api
+      - git push git@heroku.com:staging-mrello-api.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app staging-mrello-api
+      - heroku maintenance:off --app staging-mrello-api
+
+test:
+  pre:
+    - wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.10.0/geckodriver-v0.10.0-linux64.tar.gz
+    - gunzip -c geckodriver.tar.gz | tar xopf -
+    - chmod +x geckodriver
+    - sudo mv geckodriver /home/ubuntu/bin
+

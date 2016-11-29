@@ -1,3 +1,0 @@
-Fabricator(:board) do 
-  
-end
