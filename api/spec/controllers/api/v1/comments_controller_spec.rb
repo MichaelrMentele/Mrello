@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Api::V1::CommentsController do 
+  before { skip("Comments not yet implmented") }
+
   describe "POST create" do 
     let!(:alice) { Fabricate(:user) }
     let!(:list) { Fabricate(:list, user_id: alice.id) }
