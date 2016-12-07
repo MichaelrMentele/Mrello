@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127185025) do
+ActiveRecord::Schema.define(version: 20161207233011) do
 
   create_table "boards", force: :cascade do |t|
     t.integer  "owner_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "owner_type"
+    t.string   "title",      default: "Untitled"
   end
 
   create_table "cards", force: :cascade do |t|
