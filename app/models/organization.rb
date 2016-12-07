@@ -2,6 +2,7 @@ class Organization < ApplicationRecord
   validates_presence_of :title
 
   has_many :memberships
+  # TODO: instead of users, use memberships--its more descriptive
   has_many :users, through: :memberships
 
   has_many :boards, as: :owner

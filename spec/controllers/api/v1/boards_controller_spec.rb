@@ -61,6 +61,70 @@ describe Api::V1::BoardsController do
     end
   end
 
+  describe 'GET index' do
+    let!(:acme) { Fabricate(:organization) }
+    before do 
+      Fabricate(:membership, user: alice, organization: acme)
+
+      Fabricate(:board, owner: acme)
+      Fabricate(:board, owner: acme)
+
+      Fabricate(:board, owner: alice)
+    end
+
+    context "as organization" do 
+      before do 
+        get :index, params: { organization_id: acme.id }
+      end
+
+      it "retrives the organizations boards" do 
+        expect(assigns(:boards).length).to equal(2)
+      end
+
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
+
+      it "sets @boards" do 
+        expect(assigns).to be_present
+      end
+
+      it "renders boards index" do
+        expect(response).to render_template :index
+      end
+
+      it "sets a success status" do 
+        expect(response).to be_successful
+      end
+    end
+
+    context "as user" do 
+      before do 
+        get :index
+      end
+
+      it "retrives the users boards" do 
+        expect(assigns(:boards).length).to equal(1)
+      end
+
+      it "sets @message" do 
+        expect(assigns(:message)).to be_present
+      end
+
+      it "sets @boards" do 
+        expect(assigns).to be_present
+      end
+
+      it "renders boards index" do
+        expect(response).to render_template :index
+      end
+
+      it "sets a success status" do 
+        expect(response).to be_successful
+      end
+    end
+  end
+
   describe "GET show" do 
     context "if the board is the current users" do
       let!(:board) { Fabricate(:board, owner: alice) }
@@ -79,6 +143,10 @@ describe Api::V1::BoardsController do
       it "renders show response" do 
         expect(response).to render_template 'api/v1/boards/show'
       end
+
+      it "sets a success status" do 
+        expect(response).to be_successful
+      end
     end
 
     context "if the board is NOT the current users" do 
@@ -94,6 +162,10 @@ describe Api::V1::BoardsController do
 
       it "renders error response" do 
         expect(response).to render_template 'api/v1/shared/error'
+      end
+
+      it "is not success status" do 
+        expect(response).not_to be_successful
       end
     end
   end

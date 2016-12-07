@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
       resources :users, only: [:create, :update, :show]
 
-      resources :boards, only: [:create, :show]
+      resources :boards, only: [:create, :index, :show]
       resources :lists, except: [:edit, :new]
       resources :cards, except: [:edit, :new]
 

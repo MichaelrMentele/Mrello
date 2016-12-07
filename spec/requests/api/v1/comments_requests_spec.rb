@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Comments API" do 
-  describe "creating a comment" do 
+  xdescribe "creating a comment" do 
     let(:alice) { Fabricate(:user, fullname: "Alice Doe") }
     let!(:todo_list) { Fabricate(:list, user: alice) }
     let!(:card) { Fabricate(:card, list: todo_list) }
