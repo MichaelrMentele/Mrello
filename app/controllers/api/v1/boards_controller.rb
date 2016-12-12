@@ -14,7 +14,7 @@ class Api::V1::BoardsController < ApplicationController
   end
 
   def index
-    if params[:organization_id] and Organization.find(params[:organization_id])
+    if Organization.exists?(params[:organization_id])
       @boards = Organization.find(params[:organization_id]).boards
       @message = "Organization's boards retrieved."
     else
