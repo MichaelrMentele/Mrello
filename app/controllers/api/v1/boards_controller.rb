@@ -35,6 +35,6 @@ class Api::V1::BoardsController < ApplicationController
   private
 
   def board_params
-    params.permit(:owner_id, :owner_type)
+    params.permit(:owner_id, :owner_type, :title)
   end
 end
